@@ -19,11 +19,15 @@ const mainSchema = z.object({
   }),
   pubDate: z.string().transform((str) => new Date(str)),
   tags: z.array(z.string()),
-  relatedPosts: z.array(relatedSchema).optional(),
+  relatedPosts: z.array(relatedSchema).optional().nullable(),
 });
 
-const customCollection = defineCollection({ schema: mainSchema });
+const maularCollection = defineCollection({ schema: mainSchema });
+const nenesCollection = defineCollection({ schema: mainSchema });
+const uitoolsCollection = defineCollection({ schema: mainSchema });
 
 export const collections = {
-  'custom': customCollection,
+  'maular': maularCollection,
+  'nenes': nenesCollection,
+  'uitools': uitoolsCollection,
 };

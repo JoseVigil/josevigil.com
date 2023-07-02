@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import { collections } from '@content/config';
+import MainLayout from '@layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+
+  const pages: any[] = [];
+
+  const colls = Object.keys(collections);
+
+  // Build pages of each content
+  for await (let c of colls) {
+    const coll = await getCollection(c as any);
+    coll.map((post) => {
+      pages.push({
+        params: {
+          category: c,
+          slug: post.slug,
+        },
+        props: {
+          category: c,
+          post: post,
+        },
+      });
+    });
+  }
+
+  return pages;
+}
+
+const param = Astro.params;
+const post = Astro.props.post;
+
+const { collection } = post;
+const { title, description, image, tags, pubDate, relatedPosts } = post.data;
+const { Content } = await post.render();
+---
+
+<MainLayout
+  title={`${title} | Jose Vigil`}
+  description={`${description}`}
+  image=''
+>
+  <section class="grid grid-cols-3 gap-5">
+
+    <section class="col-span-3 sm:col-span-2">
+      <section class="header-article-content">
+
+      </section>
+      <article class="main-article-content" >
+        <Content />
+      </article>
+    </section>
+
+    <section class="main-aside-content col-span-3 sm:col-span-1">
+
+    </section>
+
+  </section>
+</MainLayout>

@@ -1,6 +1,8 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
+import { collections } from '@content/config';
 
+const colls = Object.keys(collections);
 ---
 
 <MainLayout
@@ -8,12 +10,22 @@ import MainLayout from '@layouts/MainLayout.astro';
   description="Jose Vigil's personal and professional website"
   image=''
 >
-  <h1 class="text-gradient">
+  <h1 class="dark:text-white">
     Blog
   </h1>
-  <div>
-
-  </div>
+  <section>
+    <ul>
+      {
+        colls.map((c: string) => (
+          <li>
+            <a href={`/blog/${c}`} class="dark:text-white" title={`Blog ${c}`}>
+              {c}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </MainLayout>
 
 <style>

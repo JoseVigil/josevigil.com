@@ -1,0 +1,51 @@
+---
+export interface Props {
+	title: string;
+  description: string;
+  image: {
+    url: string,
+    alt: string
+  };
+  pubDate: Date;
+  tags: string[];
+}
+
+const {
+  title,
+  description,
+  image,
+  pubDate,
+  tags,
+} = Astro.props;
+
+const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const year = pubDate.getFullYear();
+const month = months[pubDate.getMonth()];
+const day = pubDate.getDate();
+---
+
+<article class="rounded-xl bg-gray-300 dark:bg-neutral-950 shadow-xl">
+  <a href="#" title={title} class="block p-4 sm:p-6">
+    <time datetime={ pubDate.toString() } class="block text-xs text-gray-500 dark:text-white">
+      { month } { day }, { year }
+    </time>
+    <div>
+      <h3 class="mt-0.5 text-lg font-medium text-gray-900 dark:text-white">
+        { title }
+      </h3>
+    </div>
+    <div class="mt-4 flex flex-wrap gap-1">
+      {
+        tags.map((t: string) => {
+          <span class="whitespace-nowrap rounded-full dark:text-white">
+            { t }
+          </span>
+        })
+      }
+    </div>
+  </a>
+</article>
+
+<style>
+
+</style>

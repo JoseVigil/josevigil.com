@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import { collections } from '@content/config';
+import MainLayout from '@layouts/MainLayout.astro';
+
+const pages: any[] = [];
+let tags: string[] = [];
+
+const colls = Object.keys(collections);
+
+// Get all tags on every category
+for await (let c of colls) {
+  const coll = await getCollection(c as any);
+  tags = tags.concat([...new Set(coll.map((post) => post.data.tags).flat())]);
+}
+
+// Remove duplicated tags
+tags = [...new Set(tags)];
+---
+
+<MainLayout
+  title="Tags | Jose Vigil"
+  description={`Jose Vigil's tags`}
+  image=''
+>
+  <h1 class="dark:text-white">
+    Tags
+  </h1>
+  <div class="tags">
+    {
+      tags?.map((tag: string) => (
+        <p class="tag">
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </p>
+      ))
+    }
+  </div>
+</MainLayout>
+
+<style lang="scss">
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F8FCFD;
+
+    a {
+      color: #00539F;
+    }
+  }
+}
+</style>

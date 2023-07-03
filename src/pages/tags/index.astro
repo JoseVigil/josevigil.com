@@ -26,15 +26,15 @@ tags = [...new Set(tags)];
   <h1 class="dark:text-white">
     Tags
   </h1>
-  <div class="tags">
+  <ul class="tags">
     {
       tags?.map((tag: string) => (
-        <p class="tag">
+        <li class="tag">
           <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
+        </li>
       ))
     }
-  </div>
+  </ul>
 </MainLayout>
 
 <style lang="scss">
@@ -45,14 +45,14 @@ tags = [...new Set(tags)];
 
   .tag {
     margin: 0.25em;
-    border: dotted 1px #a1a1a1;
+    border: dotted 1px var(--secondary);
     border-radius: .5em;
     padding: .5em 1em;
     font-size: 1.15em;
-    background-color: #F8FCFD;
+    background-color: var(--secondary);
 
     a {
-      color: #00539F;
+      color: var(--primary);
     }
   }
 }

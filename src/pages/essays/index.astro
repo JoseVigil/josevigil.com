@@ -10,15 +10,16 @@ const colls = Object.keys(collections);
   description="Jose Vigil's personal and professional website"
   image=''
 >
+  <p class="dark:text-white">Essays</p>
   <h1 class="dark:text-white">
-    Blog
+    Categories
   </h1>
   <section>
-    <ul>
+    <ul class="essays">
       {
         colls.map((c: string) => (
           <li>
-            <a href={`/blog/${c}`} class="dark:text-white" title={`Blog ${c}`}>
+            <a href={`/essays/${c}`} class="essay dark:text-white" title={`Essays ${c}`}>
               {c}
             </a>
           </li>
@@ -28,6 +29,23 @@ const colls = Object.keys(collections);
   </section>
 </MainLayout>
 
-<style>
+<style lang="scss">
+.essays {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
 
+  .essay {
+    margin: 0.25em;
+    border: dotted 1px var(--secondary);
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: var(--secondary);
+
+    a {
+      color: var(--primary);
+    }
+  }
+}
 </style>

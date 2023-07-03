@@ -7,7 +7,7 @@ interface TagPage {
 import { getCollection } from 'astro:content';
 import { collections } from '@content/config';
 import MainLayout from '@layouts/MainLayout.astro';
-import BlogCard from '@components/BlogCard.astro';
+import Card from '@components/Card.astro';
 
 export async function getStaticPaths() {
 
@@ -74,7 +74,7 @@ const props = Astro.props;
   <div role="list" class="cards-grid">
     {
       props.posts.map((item: any) => (
-        <BlogCard
+        <Card
           slug={item.slug}
           collection={item.collection}
           title={item.data.title}
@@ -83,7 +83,7 @@ const props = Astro.props;
           pubDate={item.data.pubDate}
           tags={item.data.tags}
         >
-        </BlogCard>
+        </Card>
       ))
     }
   </div>

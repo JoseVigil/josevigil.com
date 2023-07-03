@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import { collections } from '@content/config';
 import MainLayout from '@layouts/MainLayout.astro';
 
+import '@styles/article.scss';
+
 export async function getStaticPaths() {
 
   const pages: any[] = [];
@@ -42,9 +44,13 @@ const { Content } = await post.render();
   description={`${description}`}
   image=''
 >
-  <section class="grid grid-cols-3 gap-5">
+  <section class="grid grid-cols-5 gap-5">
 
-    <section class="col-span-3 sm:col-span-2">
+    <section class="main-aside-content col-span-1 sm:col-span-1">
+
+    </section>
+
+    <section class="col-span-3 sm:col-span-3">
       <section class="header-article-content">
 
       </section>
@@ -53,7 +59,7 @@ const { Content } = await post.render();
       </article>
     </section>
 
-    <section class="main-aside-content col-span-3 sm:col-span-1">
+    <section class="main-aside-content col-span-1 sm:col-span-1">
 
     </section>
 

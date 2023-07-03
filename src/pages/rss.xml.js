@@ -13,7 +13,7 @@ export async function get(context) {
     coll.map((post) => {
       posts.push({
         ...post.data,
-        link: `/blog/${c}/${post.slug}`,
+        link: `/essays/${c}/${post.slug}`,
       });
     });
   }

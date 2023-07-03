@@ -33,13 +33,15 @@ const { title, description } = Astro.props;
 <style is:global>
 :root {
   --primary: #1D1D1D;
-  --accent: #D1D1D1;
-  --alternative: #FAFAFA;
+  --secondary: #FAFAFA;
 }
 html {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   background-color: #F6F6F6;
+}
+body {
+  min-height: 100vh;
 }
 code {
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,

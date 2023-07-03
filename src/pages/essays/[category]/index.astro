@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import { collections } from '@content/config';
 import MainLayout from '@layouts/MainLayout.astro';
-import BlogCard from '@components/BlogCard.astro';
+import Card from '@components/Card.astro';
 
 export async function getStaticPaths() {
 
@@ -32,12 +32,12 @@ const post = Astro.props;
 ---
 
 <MainLayout
-  title={`Blog ${param.category} | Jose Vigil`}
-  description={`Jose Vigil's blog about ${post.category}`}
+  title={`Essays ${param.category} | Jose Vigil`}
+  description={`Jose Vigil's essays about ${post.category}`}
   image=''
 >
   <div>
-    <p class="dark:text-white">Blog</p>
+    <p class="dark:text-white">Essays</p>
     <h1 class="text-gradient capitalize dark:text-white">
       {param.category}
     </h1>
@@ -45,7 +45,7 @@ const post = Astro.props;
   <div role="list" class="cards-grid">
     {
       post.posts.map((item: any) => (
-        <BlogCard
+        <Card
           slug={item.slug}
           collection={item.collection}
           title={item.data.title}
@@ -54,7 +54,7 @@ const post = Astro.props;
           pubDate={item.data.pubDate}
           tags={item.data.tags}
         >
-        </BlogCard>
+        </Card>
       ))
     }
   </div>

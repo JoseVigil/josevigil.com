@@ -1,6 +1,6 @@
 .main-article-content {
     h1, a {
-        color: var(--primary)
+        color: var(--black)
     }
     a:hover, a:focus {
         opacity: .8;
@@ -31,7 +31,7 @@
 
         code {
             color: white;
-            background-color: var(--primary);
+            background-color: var(--black);
             border-radius: 5px;
             padding: 2px;
             box-shadow: 0 3px 6px #00000029;
@@ -50,7 +50,7 @@
         }
     }
     ul li::before {
-        color: var(--primary);
+        color: var(--black);
         content: "\2022";
         font-weight: bold;
         display: inline-block;
@@ -65,7 +65,7 @@
     }
     blockquote {
         font-style: italic;
-        border-left: 3px solid var(--primary);
+        border-left: 3px solid var(--black);
         padding: 5px 0 1px 15px;
         margin-bottom: 15px;
     }
@@ -76,12 +76,12 @@
 
 .dark .main-article-content {
     h1, h2, h3, h4, h5, h5, h6, a, p, li {
-        color: var(--secondary);
+        color: var(--white);
     }
     ul li::before {
-        color: var(--secondary);
+        color: var(--white);
     }
     blockquote {
-        border-left: 3px solid var(--secondary);
+        border-left: 3px solid var(--white);
     }
 }

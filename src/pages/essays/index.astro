@@ -18,8 +18,8 @@ const colls = Object.keys(collections);
     <ul class="essays">
       {
         colls.map((c: string) => (
-          <li>
-            <a href={`/essays/${c}`} class="essay dark:text-white" title={`Essays ${c}`}>
+          <li class="essay">
+            <a href={`/essays/${c}`} class="dark:text-white" title={`Essays ${c}`}>
               {c}
             </a>
           </li>
@@ -37,14 +37,13 @@ const colls = Object.keys(collections);
 
   .essay {
     margin: 0.25em;
-    border: dotted 1px var(--secondary);
+    padding: 10px 15px;
     border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: var(--secondary);
+    border: dotted 1px var(--alternative);
+    background-color: var(--alternative);
 
     a {
-      color: var(--primary);
+      color: var(--white);
     }
   }
 }

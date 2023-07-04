@@ -69,9 +69,10 @@ hr {
         li {
             margin-top: 10px;
             font-weight: 300;
-        }
-        li:hover, li:focus {
-            text-decoration: underline;
+
+            a:hover, a:focus {
+                text-decoration: underline;
+            }
         }
     }
     ul li::before {

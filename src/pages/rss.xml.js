@@ -1,25 +1,21 @@
 import rss from '@astrojs/rss';
-import { collections } from '@content/config';
 import { getCollection } from 'astro:content';
 
 export async function get(context) {
 
   const posts = [];
 
-  const colls = Object.keys(collections);
+  let essays = await getCollection('essays');
 
-  for await (let c of colls) {
-    const coll = await getCollection(c);
-    coll.map((post) => {
-      posts.push({
-        ...post.data,
-        link: `/essays/${c}/${post.slug}`,
-      });
+  essays.map((post) => {
+    posts.push({
+      ...post.data,
+      link: `/essays/${post.slug}`,
     });
-  }
+  });
 
   return rss({
-    title: 'Website | Jose Vigil',
+    title: 'RSS | Jose Vigil',
     description: 'Jose Vigil\'s personal and professional website',
     site: context.site,
     items: posts

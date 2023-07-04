@@ -1,0 +1,35 @@
+---
+export interface Props {
+  tags: string[];
+  pubDate: Date;
+}
+
+const { tags, pubDate } = Astro.props;
+
+const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const year = pubDate.getFullYear();
+const month = months[pubDate.getMonth()];
+---
+
+<div class="flex items-center justify-between">
+  <div>
+    {
+      tags?.map((t: string) => (
+        <span class="tag dark:text-white mr-2">{t}</span>
+      ))
+    }
+  </div>
+  <div>
+    <span class="text-gray-300 dark:text-gray-300 mr-2">|</span>
+    <time datetime={ pubDate.toString() } class="text-gray-500 dark:text-gray-300">
+      { month }, { year }
+    </time>
+  </div>
+</div>
+
+<style>
+.tag {
+  text-decoration-color: var(--black);
+  font-weight: 800;
+}
+</style>

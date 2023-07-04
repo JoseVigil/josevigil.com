@@ -3,6 +3,46 @@ h1 {
     font-weight: 800;
     margin: 0;
 }
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.7rem;
+}
+h4 {
+    font-size: 1.5rem;
+}
+h5, h6 {
+    font-size: 1.2rem;
+}
+h2, h3, h4, h5, h5, h6 {
+    font-weight: 500;
+}
+img {
+    border-radius: 5px;
+    box-shadow: 0 3px 6px #00000029;
+}
+p {
+    font-weight: 300;
+}
+strong {
+    font-weight: 600;
+}
+hr {
+    border-color: var(--black);
+    margin-bottom: 15px;
+    opacity: .4;
+}
+
+.dark {
+    h1, h2, h3, h4, h5, h5, h6, a, p, li {
+        color: var(--white);
+    }
+    hr {
+        border-color: var(--white);
+    }
+}
+
 .cards-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -17,5 +57,34 @@ h1 {
 @media (max-width: 768px) {
     .cards-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+.essays {
+    ul {
+        list-style: none;
+        padding: revert;
+        margin-bottom: 15px;
+
+        li {
+            margin-top: 10px;
+            font-weight: 300;
+        }
+        li:hover, li:focus {
+            text-decoration: underline;
+        }
+    }
+    ul li::before {
+        color: var(--black);
+        content: "\2022";
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+  }
+.dark .essays {
+    ul li::before {
+        color: var(--white);
     }
 }

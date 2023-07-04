@@ -1,8 +1,15 @@
 ---
+import { getCollection } from 'astro:content';
 import MainLayout from '@layouts/MainLayout.astro';
-import { collections } from '@content/config';
 
-const colls = Object.keys(collections);
+let essays = await getCollection('essays');
+essays = essays.sort((a, b) => {
+  if (new Date(a.data.pubDate) < new Date(b.data.pubDate))
+    return 1;
+  if (new Date(a.data.pubDate) > new Date(b.data.pubDate))
+    return -1;
+  return 0;
+});
 ---
 
 <MainLayout
@@ -10,41 +17,20 @@ const colls = Object.keys(collections);
   description="Jose Vigil's personal and professional website"
   image=''
 >
-  <p class="dark:text-white">Essays</p>
   <h1 class="dark:text-white">
-    Categories
+    Essays
   </h1>
   <section>
-    <ul class="essays">
-      {
-        colls.map((c: string) => (
-          <li class="essay">
-            <a href={`/essays/${c}`} class="dark:text-white" title={`Essays ${c}`}>
-              {c}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <div class="essays">
+      <ul>
+        {
+          essays.map(e => (
+            <li>
+              <a href={`/essays/${e.slug}`} title="">{ e.data.title }</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </section>
 </MainLayout>
-
-<style lang="scss">
-.essays {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-
-  .essay {
-    margin: 0.25em;
-    padding: 10px 15px;
-    border-radius: .5em;
-    border: dotted 1px var(--alternative);
-    background-color: var(--alternative);
-
-    a {
-      color: var(--white);
-    }
-  }
-}
-</style>

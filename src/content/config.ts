@@ -10,6 +10,9 @@ const mainSchema = z.object({
 
 const essaysCollection = defineCollection({ schema: mainSchema });
 
+const projectCollection = defineCollection({ schema: mainSchema });
+
 export const collections = {
   'essays': essaysCollection,
+  'projects': projectCollection,
 };

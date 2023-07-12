@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import MainLayout from '@layouts/MainLayout.astro';
+import Emoji from 'astro-emoji';
 
 let essays = await getCollection('essays');
 essays = essays.sort((a, b) => {
@@ -10,28 +11,29 @@ essays = essays.sort((a, b) => {
     return -1;
   return 0;
 });
+
 ---
 
 <MainLayout
   title="Home | Jose Vigil"
   description="Jose Vigil's personal and professional website"
-  image=""
+  image="../images/josevigil_400x400.png"
 >
-  <h1 class="dark:text-white">
-    I'm Jose!
-  </h1>
+  <h2 class="dark:text-white">
+    I'm Jose
+  </h2>
   <section class="grid grid-cols-1 gap-5 lg:grid-cols-3 lg:gap-8">
     <div class="lg:col-span-2">
       <p class="mb-3">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda tempora sunt iste quia officia illo obcaecati esse alias, nihil corrupti animi cupiditate adipisci temporibus aliquam quaerat vitae culpa, vel omnis.
+        Curious. Self-Learner. Hands on technology.
       </p>
       <p class="mb-3">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus rerum laborum facilis corrupti aliquam praesentium. Voluptate, provident! Esse culpa omnis nesciunt quo vitae excepturi alias reprehenderit, temporibus odio modi doloribus.
+        Currently leading <a href="https://nenes.io" target="_blank">nenes.io</a>, ceo at <a href="https://notimation.com" target="_blank">notimation.com</a>, building <a href="https://uitool.com" target="_blank">uitool.com</a>, working with crypto whyle training talents in our school of genius at <a href="https://maular.com" target="_blank">maular.com</a>. Super exciting trip to join! 🚀</a>
       </p>
       <hr>
-      <h2 class="dark:text-white">
+      <h3 class="dark:text-white">
         Essays
-      </h2>
+      </h3>
       <div class="essays">
         <ul>
           {
@@ -45,8 +47,8 @@ essays = essays.sort((a, b) => {
       </div>
     </div>
     <div class="order-first md:order-last">
-      <img src="https://i.pravatar.cc/300" class="rounded-full m-auto" alt="Jose Vigil" />
-      <p class="text-lg dark:text-white text-center mt-3">Creative, living my dreams</p>
+      <img src="../images/josevigil_400x400.png" class="rounded-full m-auto" alt="Jose Vigil" />
+      <p class="text-lg dark:text-white text-center mt-3">Creative, living my dreams ..<Emoji symbol="💭" label="dream"/></p>
     </div>
   </section>
 </MainLayout>

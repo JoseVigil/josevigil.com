@@ -7,6 +7,7 @@ export interface Props {
 const { tags, pubDate } = Astro.props;
 
 const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
 const year = pubDate.getFullYear();
 const month = months[pubDate.getMonth()];
 ---

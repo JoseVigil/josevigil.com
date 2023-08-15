@@ -60,7 +60,7 @@ hr {
     }
 }
 
-.essays {
+.essays, .projects, .previous {
     ul {
         list-style: none;
         padding: revert;
@@ -84,7 +84,8 @@ hr {
         margin-left: -1em;
     }
   }
-.dark .essays {
+
+.dark .essays, .projects, .previous {
     ul li::before {
         color: var(--white);
     }

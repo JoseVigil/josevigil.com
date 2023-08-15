@@ -20,19 +20,52 @@ essays = essays.sort((a, b) => {
   <h2 class="dark:text-white">
     Essays
   </h3>
-  <p class="mb-3">
-    The vision of my projects and the technology industry.
-  </p>
   <section>
     <div class="essays">
       <ul>
-        {
-          essays.map(e => (
-            <li>
-              <a href={`/essays/${e.slug}`} title="">{ e.data.title }</a>
-            </li>
-          ))
-        }
+        <section>
+          <div class="essays">
+              <ul><p class="mb-3">
+                <p style="font-weight:400; font-style:italic; padding-top:10px;">Experience and Vision</p>
+              </p>
+            </ul>
+            <ul>
+              {
+                essays.map((e, index) => {
+                  if (e.data.title.includes('How I Got Started')) {
+                    let arr = e.data.title.split(" ");
+                    let last = arr[arr.length-1];
+                    console.log(last)
+                    switch (last) {
+                      case "Startups":
+                        return (
+                          <p style="font-weight:400; font-style:italic; padding-top:10px;">How I Got Started</p>
+                          <li style="list-style-type: none;">
+                            <a href={`/essays/${e.slug}`} title="">{ last }</a>
+                          </li>
+                        );
+                        break;
+                      case "Technology":
+                      case "English":
+                          return (
+                            <li style="list-style-position: inside;">
+                              <a href={`/essays/${e.slug}`} title="">{ last }</a>
+                            </li>
+                          );
+                        break;
+                    };
+                  } else {
+                    return (
+                    <li>
+                      <a href={`/essays/${e.slug}`} title="">{ e.data.title }</a>
+                    </li>
+                    );
+                  }
+                })
+              }
+            </ul>
+          </div>
+        </section>
       </ul>
     </div>
   </section>

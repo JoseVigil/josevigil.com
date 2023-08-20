@@ -51,7 +51,7 @@
 }
 /** .main-article-content affects while mode while .dark affects dark mode **/
 
-.dark .main-article-content {
+.dark .main-essays-content {
     blockquote {
         border-left: 3px solid var(--white);
     }
@@ -63,4 +63,32 @@
         text-decoration: none;
     }
 }
+
+.dark .main-previous-content {
+    blockquote {
+        border-left: 3px solid var(--white);
+    }
+    ul li::before {
+        color: var(--white);
+    }
+    p a {
+        color: rgb(237, 215, 50);
+        text-decoration: none;
+    }
+}
+
+.dark .main-projects-content {
+    blockquote {
+        border-left: 3px solid var(--white);
+    }
+    ul li::before {
+        color: var(--white);
+    }
+    p a {
+        color: rgb(50, 193, 237);
+        text-decoration: none;
+    }
+}
+
+
 

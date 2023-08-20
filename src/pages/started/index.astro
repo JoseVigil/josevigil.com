@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '@layouts/MainLayout.astro';
+
+let started = await getCollection('started');
+started = started.sort((a, b) => {
+  if (new Date(a.data.pubDate) < new Date(b.data.pubDate))
+    return 1;
+  if (new Date(a.data.pubDate) > new Date(b.data.pubDate))
+    return -1;
+  return 0;
+});
+---
+
+<MainLayout
+  title="Started | Jose Vigil"
+  description="Jose Vigil's Started"
+  image=""
+>
+  <h2 class="dark:text-white">
+    Started
+  </h2>
+  <section>
+      <section>
+        <div class="started">
+          <h6>How I got started with:</h6>
+          <br>
+          <ul>
+            {
+              started.map((e, index) => {
+                let arr = e.data.title.split(" ");
+                let last = arr[arr.length-1];
+                console.log(last)
+                return (
+                    <li style="list-style-type: disc;">
+                      <a href={`/started/${e.slug}`} title="">{ last }</a>
+                    </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+      </section>
+  </section>
+</MainLayout>

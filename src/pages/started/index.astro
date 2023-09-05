@@ -30,7 +30,9 @@ started = started.sort((a, b) => {
               started.map((e, index) => {
                 let arr = e.data.title.split(" ");
                 let last = arr[arr.length-1];
-                console.log(last)
+                //console.log(last)
+                let d = "Design";
+                if (last==d) { last = d + " & Art"; }
                 return (
                     <li style="list-style-type: disc;">
                       <a href={`/started/${e.slug}`} title="">{ last }</a>

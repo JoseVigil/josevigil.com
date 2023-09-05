@@ -89,6 +89,8 @@ previous = previous.sort((a, b) => {
                               let arr = e.data.title.split(" ");
                               let last = arr[arr.length-1];
                               //console.log(last)
+                              let d = "Design";
+                              if (last==d) { last = d + " & Art"; }
                               return (
                                   <li>
                                     <a href={`/started/${e.slug}`} title="">{ last }</a>

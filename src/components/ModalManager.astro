@@ -2,7 +2,9 @@
 ---
 import ImageModal from './ImageModal.astro';
 import type { Image } from '../types/types';
-export {openModal, closeModal};
+
+export {openModal, closeModal, test};
+
 
 var modalVisible = false;
 var modalImage = { src: '', alt: '' };
@@ -18,6 +20,9 @@ function closeModal() {
   modalVisible = false;
 }
 
+function test() {
+  console.log("holaaa");
+}
 ---
 <template>
   <div class="modal" class={modalVisible ? 'show' : ''}>

@@ -13,6 +13,12 @@ import ModalManager from '../../components/ModalManager.astro';
 
 <button on:click={() => ModalManager.openModal({ src: '/images/projects/uitool/uitool_login_first_prototype.png', alt: 'Image Alt Text' })}>Open Modal</button>
 
+<button id="button">Click Me</button>
+
+<script>
+  document.getElementById("button").addEventListener("click", ModalManager.test);
+</script>
+
 <br/>
 
 # UiTool

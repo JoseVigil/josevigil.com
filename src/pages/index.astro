@@ -2,6 +2,9 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '@layouts/MainLayout.astro';
 import Emoji from 'astro-emoji';
+import ModalManager from '../components/ModalManager.astro';
+
+const modalImage = undefined;
 
 let essays = await getCollection('essays');
 essays = essays.sort((a, b) => {
@@ -158,4 +161,6 @@ previous = previous.sort((a, b) => {
       <p class="text-lg dark:text-white text-center mt-3">Creative, living my dreams ..<Emoji symbol="💭" label="dream"/></p>
     </div>
   </section>
+   <!-- Render the ModalManager component with modalImage prop -->
+  <ModalManager {modalImage} />
 </MainLayout>

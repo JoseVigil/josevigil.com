@@ -7,17 +7,11 @@ pubDate: '09/01/2023'     # mm/dd/yyyy
 tags: ['No-code', 'Marketing', 'Web-Tool']
 ---
 
+import JImage from '../../components/JImage.astro';
+
 <br/>
 
-import ModalManager from '../../components/ModalManager.astro';
-
-<button on:click={() => ModalManager.openModal({ src: '/images/projects/uitool/uitool_login_first_prototype.png', alt: 'Image Alt Text' })}>Open Modal</button>
-
-<button id="button">Click Me</button>
-
-<script>
-  document.getElementById("button").addEventListener("click", ModalManager.test);
-</script>
+<JImage src="/images/projects/uitool/uitool_login_first_prototype.png" width="100%" height="100%"></JImage>
 
 <br/>
 

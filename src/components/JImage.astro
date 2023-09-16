@@ -1,0 +1,44 @@
+---
+const { src, alt, width, height } = Astro.props;
+---
+
+<j-img data-url={src}>
+  <button><img src={src} width={width} height={height} alt={alt}/></button>
+</j-img>
+
+<script>
+  class JImage extends HTMLElement {
+    constructor() {
+      super();
+
+      const url = this.dataset.url;
+
+      /*let modal = `{
+        <img id="myImg" src="${url}.jpg" alt="Snow" style="width:100%;max-width:300px">
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img01">
+          <div id="caption"></div>
+        </div>
+        }`;*/
+
+      const button = this.querySelector('button');
+
+      let id = "dialog";
+
+      button!.addEventListener('click', () => {
+        window.open(url);
+      });
+
+      //button!.addEventListener('mouseover', () => {
+          //const mainfragment = document.getElementById("main-fragment");
+          //mainfragment!.setAttribute("set:html", dialogHtml);
+          //alert(url);
+          //<button onclick={`window.${id}.showModal()`}>{open}</button>
+      //});
+    }
+
+  }
+
+  customElements.define('j-img', JImage);
+</script>

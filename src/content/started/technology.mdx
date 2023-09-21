@@ -4,12 +4,36 @@ description: 'Myt story of how I got started with computers and technology'
 image: https://github.blog/wp-content/uploads/2023/05/1200.630-Productivity-wLogo@2x.png?resize=1600%2C850
 pubDate: '11/14/2014'     # mm/dd/yyyy
 tags: ['Computers', 'Technology', 'Startups']
+dates: {
+    "Born": {
+                alt: "day-I-was-born",
+                day : "09/30/1973",
+                title: "Day I was Born",
+                desc: "I was born in San Camilo's Hospital",
+                location: "Avenida Angel Gallardo 899 Mahatma Gandhi 572 CABA, C1405 DJI, Buenos Aires",
+                map: "https://maps.app.goo.gl/J6zaQhaVji1E72oS9"
+    },
+    "Graduated": {
+                alt: "day-I-graduated",
+                day : "12/10/2015",
+                title: "Day I graduated from University",
+                desc: "Graduated from the UBA FADU (Facultad de Diseño y Urbanismo)",
+                location: "Pabellón 3, Av. Int. Güiraldes 2160, Buenos Aires",
+                map: "https://maps.app.goo.gl/FCu3enSpBwzjCAN18"
+    }
+}
 ---
 
+import { started_dates } from  '../../dates/started/dates.ts';
 import JImage from '../../components/JImage.astro';
+import JDate from '../../components/JDate.astro';
 
 # How I Got Started
 ## on Technology
+
+<br/>
+
+<JDate key="test" data={frontmatter.dates[0]} />
 
 <br/>
 
@@ -29,20 +53,17 @@ the robust joystic was intuitive enoguh to allow a full experience and interacti
 
 <br/>
 
-My second relevant interaction with technology came aproximately at the age of 10 when my father boguht a <a href="https://en.wikipedia.org/wiki/Apple_IIe" target="_balnk">Apple IIe</a> (the first personal computer) in the US and placed it at my roon. It had a green screen and two 5¼ disk drives. By then mouse did not existed and was introduced with <a href="https://en.wikipedia.org/wiki/Macintosh_128K" target="_blank">Macintosh</a>. I recall using basic program and playing Combat but nothing much sophisticated since by then I did not considered myself techy yet. I was just a child playing with something without noticing its importance.
+My second relevant interaction with technology came aproximately at the age of 10 when my father boguht a <a href="https://en.wikipedia.org/wiki/Apple_IIe" target="_balnk">Apple IIe</a> (the first personal computer) in the US and placed it at my roon. It had a green screen and two 5¼ disk drives. By then mouse did not existed and was introduced later with <a href="https://en.wikipedia.org/wiki/Macintosh_128K" target="_blank">Macintosh</a>. I recall using basic program and playing Combat but nothing much sophisticated since by then I did not considered myself techy yet. I was just a child playing with something without noticing its importance.
 
 <br/>
 
 <table>
     <tr>
         <td>
-            <JImage src="/images/started/technology/atari.png" width="200px" height="150px"></JImage>
+            <JImage src="/images/started/technology/atari.png" width="200px"></JImage>
         </td>
         <td>
-          <JImage src="/images/started/technology/apple_iie.png" width="200px" height="150px"></JImage>
-        </td>
-        <td>
-          <JImage src="/images/started/technology/macintosh_128.png" width="150px" height="139px"></JImage>
+          <JImage src="/images/started/technology/apple_iie.png" pl="10" width="200px" height="150px"></JImage>
         </td>
         <td>
           <p style="width: 300px; padding-left: 10px;"> These two beuties marked my childhoood. I was able to early enjoy what would then later become revolutionary and far-reaching for me. Without noticing I was exposed to two of the most iconic products of the computer era.</p>
@@ -51,6 +72,68 @@ My second relevant interaction with technology came aproximately at the age of 1
 </table>
 
 <br/>
+
+### [Officehood](#Officehood)
+
+<br/>
+
+During my childhood at the 80's I also had a lot of contact with technology in my father's company <b>Vigil y Ocampo Ingenieros</b> (aka V&O) located in the center of <a href="https://es.wikipedia.org/wiki/Buenos_Aires" target="_balnk">CABA</a>. The engineering company designed and built works for the distribution and classification of hybrid seeds for seed companies such as <a href="https://pioneer.com" targer="_balnk">Pioneer</a>, <a href="https://dekalb.com" target="_balnk">Dekalb</a>, among others. Therefore, it had servers, communications, plans, plots and computers of the best level. Some time later I would realize that this place was truly a technological amusement park. during the officehood I established a real connection with technologies that were used by people I knew whose impact on their work was significant, consequently on my life. Some of the most iconic machines from those officehood eras are these three:
+
+<br/>
+
+<table>
+    <tr>
+        <td>
+            <JImage src="/images/started/technology/siemmens_telex_t1000.png" alt="Siemmens Telex T1000" width="300ppx"></JImage>
+        </td>
+        <td>
+            <JImage src="/images/started/technology/macintosh_128.png" pl="10" width="150px"></JImage>
+        </td>
+         <td>
+            <JImage src="/images/started/technology/hp_pen_7580_85_plotter.png" pl="10" width="160px"></JImage>
+        </td>
+    </tr>
+</table>
+
+<br/>
+
+I remember staring at the <a href="https://es.wikipedia.org/wiki/T%C3%A9lex" target="_balnk">Telex</a> machinge working, I reacll well was a <b>Siemmens Telex T1000</b> making a lot of noice punching holes in a tape. I also remember playing with the <a href="https://es.wikipedia.org/wiki/Macintosh" target="_target">Macintosh</a> mouse (the first computer with a mouse) moving through the courses was already an adventure. It was also crazy to watch the plotters of the time work, the <b>HP 7580 Pen Plotter</b> that drew the plan like a robot with interchangeable ink tips. This is how my childhood passed in this office environment, my officehood.
+
+<br/>
+
+### [Summer Work](#summer-work)
+
+<br/>
+
+Later in the 90s and during the summers he worked as a V&O cadet carrying envelopes to the city centre. Technology had changed a lot. Telex was replaced by fax and communications were made by telephone call using copper cable. In fact, at V&O the first point-to-point connection script was presented with <a href="https://es.wikipedia.org/wiki/Impsat" target="_balnk">Impsat</a> to send and receive blueprints. with the US. Ethernet networks already existed with hubs and servers with Windows Servers. Although I ran errands, I liked going to the technical area with the engineers and I curiously observed the person who managed that network, <b>Rodolfo Benbenutto</b>. He showed me how the network worked, <a href="https://es.wikipedia.org/wiki/Windows_NT" target="_balnk">Windows Nt 4.0 Wokstations</a>, <a href="https://es.wikipedia.org/wiki/Windows_Small_Business_Server" target="_balnk">Windows SMB Servers</a>, mapped shared drives, file servers, hubs, ethernet cabling and other interesting setups that I was intrigued about. By then I did not know I was going to work doing that exact job afterwards although he allways joke about how dangerous my mouse finger click was. What a paradox.
+
+<br/>
+
+<table>
+    <tr>
+        <td>
+            <JImage src="/images/started/technology/micron_station.png" width="130px"></JImage>
+        </td>
+        <td>
+            <JImage src="/images/started/technology/gateway_2000.png" pl="20" width="120px"></JImage>
+        </td>
+        <td>
+          <p style="width: 400px; padding-left: 10px;">The office had cutting-edge technology with very powerful computers for that time, including <a href="https://es.wikipedia.org/wiki/Micron_Technology" targer="_balnk">Micron</a> and <a href="https://en.wikipedia.org/wiki/Gateway,_Inc." targer="_balnk">Gateway</a> workstation (Gateway 2000 Series) to handle Office, Autocad smoothly. 50-inch Gateway monitors (that weighed their equivalent in kilos) to work with plans and HP plotters with ink cartridges.</p><br/>
+          <p style="width: 300px; padding-left: 10px;"></p>
+        </td>
+    </tr>
+</table>
+
+<br/>
+
+Without realizing it, I was working in a very advanced environment in software and hardware, feeling comfortable with technology. Although I did other things and did not believe that would be my destiny but design, time showed me that those first experiences marked me in my understanding of technology and today I can say that I am a technocrat partly because of that.
+
+https://en.wikipedia.org/wiki/File:Gateway_2000_P5-120_front_view.jpg
+
+
+
+<br/>
+
 
 ## [Supported University](#supported-university)
 
@@ -187,7 +270,25 @@ It was one day when I ran out of ideas that I came across the KiXtart.org Bullet
 
 <br/>
 
+
+
 ![Kixtart](/images/started/technology/kixtart_org.png)
+
+<br/>
+
+Having interacted with this community in my formative years was a key and significant fact for my professional life. Establishing a link with people throughout the world through the Internet with a common goal, technology and knowledge applied to work were key so that I could later establish many links through the same medium with people outside my country in a natural and I have done it countless times in different projects.
+
+<br/>
+
+Learning to ask questions allows me to solve complex problems. When you have to solve a complex technological problem it is a challenge for yourself, but it can also be a challenge for others and that can even be fun. It's not for nothing that special people who are rockstars in technology find that challenging. That is why inviting them, challenging them and questioning them is a way to get their attention and collaboration. To ask for help it is necessary to show that you did the task, that you exhausted absolutely all instances and that only someone special can help you, a person who wants to take on the challenge and hack it.
+
+<br/>
+
+For example, years later, working at a company called PoinPay where I developed an Android application that allowed me to control a means of payment, I found myself faced with a low-level challenge and asked for help in the place where the rockstars were, HDA, another community in the Which one did I learn. In this case I had to ensure that when a cell phone turned on when it was plugged in and made a well-made request for help. The post on the forum as <a href="https://forum.xda-developers.com/t/boot-on-charge-lg-pro-lite-d680-developer-help-needed.3019859/" target="_balnk">Boot On Charge</a> allowed us to reach <a href="https://forum.xda-developers.com/m/laufersteppenwolf.4716493/" targer="_balnk">laufersteppenwolf</a> "the wolf", who accepted and helped solve the channel.
+
+<br/>
+
+Over the years I realized how important it was to participate in the beautiful Kickstart community and how grateful I will be to it for having trained me.
 
 <br/>
 
@@ -217,7 +318,7 @@ While I was working on my first ideas about <a href="/previous/roamingkeyboards"
 
 <br/>
 
-I was 34.
+
 
 
 Here Truelogic downsides of a software factory.

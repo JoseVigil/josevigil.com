@@ -1,0 +1,57 @@
+---
+const { data } = Astro.props;
+---
+
+<j-date data-data={JSON.stringify(data)}>
+  <a target="_blank"><p></p></a>
+</j-date>
+
+<script>
+
+import { stringify } from "pfunc";
+
+  class JDate extends HTMLElement {
+    constructor() {
+      super();
+
+      /*
+      day : "09/30/1973",
+      title: "Day I was Born",
+      desc: "I was born in San Camilo's Hospital",
+      location: "Avenida Angel Gallardo 899 Mahatma Gandhi 572 CABA, C1405 DJI, Buenos Aires",
+      map: "https://maps.app.goo.gl/J6zaQhaVji1E72oS9"*/
+
+      let data = JSON.parse(this.dataset.data!);
+
+      let day:Date = new Date(data.day);
+      console.log("day: " + day);
+
+      const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      let month = monthNames[day!.getMonth()];
+      let year = day!.getUTCFullYear();
+      let mDate = month + ' ' + year;
+
+      const p = this.querySelector('p') as HTMLParagraphElement;
+      p.textContent = mDate;
+
+      let title = data.title;
+
+      let alt = data.alt;
+      p!.setAttribute("title", title);
+
+      p!.setAttribute("id", alt);
+
+      const link = this.querySelector('a');
+      let url = "/dates#" + alt;
+      link!.setAttribute("href", url);
+
+      link!.addEventListener('click', () => {
+        //window.open(url);
+      });
+
+    }
+
+  }
+
+  customElements.define('j-date', JDate);
+</script>

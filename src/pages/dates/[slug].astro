@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '@layouts/MainLayout.astro';
+import DisplayTagsDate from '@components/DisplayTagsDate.astro';
+
+import '@styles/article.scss';
+
+export async function getStaticPaths() {
+
+  const pages: any[] = [];
+
+  // Build page of each project
+  const projects = await getCollection('projects');
+  projects.map((post) => {
+    pages.push({
+      params: {
+        slug: post.slug,
+      },
+      props: {
+        post: post,
+      },
+    });
+  });
+
+  return pages;
+}
+
+const post = Astro.props.post;
+
+const { title, description, image, tags, pubDate, dates } = post.data;
+const { Content } = await post.render();
+---
+
+<MainLayout
+  title={`${title} | Jose Vigil`}
+  description={description}
+  image={image}
+>
+  <section class="grid grid-cols-5 gap-5">
+
+    <section class="col-span-1 sm:col-span-1">
+    </section>
+
+    <section class="col-span-3 sm:col-span-3">
+      <section class="header-article-content">
+        <DisplayTagsDate
+          tags={tags}
+          pubDate={pubDate}
+        ></DisplayTagsDate>
+      </section>
+      <article class="main-projects-content" >
+        <Content />
+      </article>
+    </section>
+
+    <section class="col-span-1 sm:col-span-1">
+    </section>
+
+  </section>
+</MainLayout>

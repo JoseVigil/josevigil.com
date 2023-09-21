@@ -4,12 +4,36 @@ description: 'Myt story of how I got started with design'
 image: https://github.blog/wp-content/uploads/2023/05/1200.630-Productivity-wLogo@2x.png?resize=1600%2C850
 pubDate: '11/14/2010'     # mm/dd/yyyy
 tags: ['Story', 'Started', 'English']
+dates: {
+    "Born": {
+                alt: "day-I-was-born",
+                day : "09/30/1973",
+                title: "Day I was Born",
+                desc: "I was born in San Camilo's Hospital",
+                location: "Avenida Angel Gallardo 899 Mahatma Gandhi 572 CABA, C1405 DJI, Buenos Aires",
+                map: "https://maps.app.goo.gl/J6zaQhaVji1E72oS9"
+    },
+    "Graduated": {
+                alt: "day-I-graduated",
+                day : "12/10/2015",
+                title: "Day I graduated from University",
+                desc: "Graduated from the UBA FADU (Facultad de Diseño y Urbanismo)",
+                location: "Pabellón 3, Av. Int. Güiraldes 2160, Buenos Aires",
+                map: "https://maps.app.goo.gl/FCu3enSpBwzjCAN18"
+    }
+}
 ---
 
+import { started_dates } from  '../../dates/started/dates.ts';
 import JImage from '../../components/JImage.astro';
+import JDate from '../../components/JDate.astro';
 
 # How I Got Started
 ## with Design & Art
+
+<br/>
+
+<JDate key="test" data={frontmatter.dates['test']} />
 
 <br/>
 

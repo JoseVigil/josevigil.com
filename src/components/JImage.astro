@@ -1,9 +1,9 @@
 ---
-const { src, alt, width, height } = Astro.props;
+const { src, alt, width, height, pl, pr } = Astro.props;
 ---
 
-<j-img data-url={src}>
-  <button><img src={src} width={width} height={height} alt={alt}/></button>
+<j-img data-url={src} data-pl={pl} data-pr={pr}>
+  <button title={alt}><img src={src} width={width} height={height}/></button>
 </j-img>
 
 <script>
@@ -12,6 +12,7 @@ const { src, alt, width, height } = Astro.props;
       super();
 
       const url = this.dataset.url;
+      const padding = `padding-left: ${this.dataset.pl}px; padding-right: ${this.dataset.pr}px;` ;
 
       /*let modal = `{
         <img id="myImg" src="${url}.jpg" alt="Snow" style="width:100%;max-width:300px">
@@ -24,7 +25,7 @@ const { src, alt, width, height } = Astro.props;
 
       const button = this.querySelector('button');
 
-      let id = "dialog";
+      button!.setAttribute("style", padding);
 
       button!.addEventListener('click', () => {
         window.open(url);

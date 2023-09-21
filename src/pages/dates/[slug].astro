@@ -9,9 +9,9 @@ export async function getStaticPaths() {
 
   const pages: any[] = [];
 
-  // Build page of each project
-  const projects = await getCollection('projects');
-  projects.map((post) => {
+  // Build page of each essay
+  const dates = await getCollection('dates');
+  dates.map((post) => {
     pages.push({
       params: {
         slug: post.slug,
@@ -27,7 +27,7 @@ export async function getStaticPaths() {
 
 const post = Astro.props.post;
 
-const { title, description, image, tags, pubDate, dates } = post.data;
+const { title, description, image, tags, pubDate } = post.data;
 const { Content } = await post.render();
 ---
 
@@ -48,7 +48,7 @@ const { Content } = await post.render();
           pubDate={pubDate}
         ></DisplayTagsDate>
       </section>
-      <article class="main-projects-content" >
+      <article class="main-dates-content" >
         <Content />
       </article>
     </section>

@@ -2,39 +2,44 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '@layouts/MainLayout.astro';
 
-let projects = await getCollection('projects');
-projects = projects.sort((a, b) => {
+let dates = await getCollection('dates');
+dates = dates.sort((a, b) => {
   if (new Date(a.data.pubDate) < new Date(b.data.pubDate))
     return 1;
   if (new Date(a.data.pubDate) > new Date(b.data.pubDate))
     return -1;
   return 0;
 });
-
-
 ---
 
 <MainLayout
-  title="Projects | Jose Vigil"
-  description="Jose Vigil's projects"
+  title="dates | Jose Vigil"
+  description="Jose Vigil's dates"
   image=""
 >
   <h2 class="dark:text-white">
-    Projects
+    dates
   </h3>
-  <p class="mb-3">
-    The current projects I am building.
-  </p>
   <section>
-    <div class="projects">
+    <div class="dates">
       <ul>
-        {
-          projects.map(e => (
-            <li>
-              <a href={`/projects/${e.slug}`} title="">{ e.data.title }</a>&nbsp&nbsp<a href={`${e.data.link}`} target="_blank" style="opacity: 0.4;" title="">🔗</a>
-            </li>
-          ))
-        }
+        <section>
+          <div class="dates">
+              <ul><p class="mb-3">
+                <p style="font-weight:400; font-style:italic; padding-top:10px;">Experience and Vision</p>
+              </p>
+            </ul>
+            <ul>
+              {
+                dates.map(e => (
+                  <li>
+                    <a href={`/dates/${e.slug}`} title="">{ e.data.title }</a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </section>
       </ul>
     </div>
   </section>

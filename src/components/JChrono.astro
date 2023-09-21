@@ -1,0 +1,97 @@
+---
+const { sort } = Astro.props;
+---
+
+<j-chrono data-sort={sort}>
+  <div></div>
+</j-chrono>
+
+<script>
+
+import { stringify } from "pfunc";
+import { getCollection } from 'astro:content';
+
+let essays   = await getCollection('essays');
+let projects = await getCollection('projects');
+let previous = await getCollection('previous');
+let started  = await getCollection('started');
+
+  class JChrono extends HTMLElement {
+
+    public renderPost(post:any, div:HTMLDivElement) {
+      let title = post.data.title;
+
+        let b = document.createElement('br') as HTMLBRElement;
+        let p = document.createElement('p') as HTMLParagraphElement;
+        let ol = document.createElement('ol') as HTMLOListElement;
+
+        p.textContent = title;
+        console.log("title: " + title);
+        div.appendChild(p);
+        div.appendChild(b);
+
+        let dates:Record<string, Object> = post.data.dates as Record<string, Object>;
+        for (const key in dates) {
+            const value:JChrono.DayObj = dates[key] as JChrono.DayObj;
+            console.log(key + ': ' + JSON.stringify(value));
+
+            let day = value.day;
+            let title = value.title;
+            let desc = value.desc;
+            let location = value.location;
+            let map = value.map;
+
+            const idiv = document.createElement('div') as HTMLDivElement;
+            idiv.innerHTML = `<p>${day}</p><br/><p>${title}</p><br/><p>${desc}</p>`;
+
+            ol.appendChild(idiv);
+        }
+
+        div.appendChild(ol);
+    }
+
+    constructor() {
+      super();
+
+      let sort = this.dataset.sort;
+
+      const div = this.querySelector('div') as HTMLDivElement;
+
+      switch (sort) {
+        case 'essays':
+          essays.map(async post => {
+            this.renderPost(post, div);
+          });
+          break;
+        case 'projects':
+          projects.map(async post => {
+            this.renderPost(post, div);
+          });
+          break;
+        case 'previous':
+          previous.map(async post => {
+            this.renderPost(post, div);
+          });
+          break;
+        case 'started':
+          started.map(async post => {
+            this.renderPost(post, div);
+          });
+          break;
+      }
+    }
+  }
+
+  namespace JChrono {
+    export interface DayObj {
+      day : Date;
+      title: string;
+      desc: string;
+      location: string;
+      map: string;
+    }
+
+}
+
+  customElements.define('j-chrono', JChrono);
+</script>

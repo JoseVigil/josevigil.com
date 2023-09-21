@@ -14,19 +14,21 @@ const mainSchema = z.object({
     desc: z.string(),
     location: z.string(),
     map: z.string(),
-  })),
+  })).nullable(),
 });
 
 const essaysCollection = defineCollection({ schema: mainSchema });
 const startedCollection = defineCollection({ schema: mainSchema });
 const projectCollection = defineCollection({ schema: mainSchema });
 const previousCollection = defineCollection({ schema: mainSchema });
+const datesCollection = defineCollection({ schema: mainSchema });
 
 export const collections = {
   'essays': essaysCollection,
   'started': startedCollection,
   'projects': projectCollection,
   'previous': previousCollection,
+  'dates': datesCollection,
 };
 
 

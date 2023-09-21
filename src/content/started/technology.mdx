@@ -23,17 +23,11 @@ dates: {
     }
 }
 ---
-
-import { started_dates } from  '../../dates/started/dates.ts';
 import JImage from '../../components/JImage.astro';
 import JDate from '../../components/JDate.astro';
 
 # How I Got Started
 ## on Technology
-
-<br/>
-
-<JDate key="test" data={frontmatter.dates[0]} />
 
 <br/>
 
@@ -47,7 +41,7 @@ Not an artistic creativity but a smart and usefull one and everything in life is
 
 <br/>
 
-I remember my first contact with technology, regularly, was with an <a href="https://en.wikipedia.org/wiki/Atari_2600_hardware" target="_blank">Atari</a> at home at the age of 8 years old where I played games like [Pacman](https://es.wikipedia.org/wiki/Pac-Man) and [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) with my brother Fede and friends.
+I was born <JDate data={frontmatter.dates["Born"]} /> and I remember my first contact with technology, regularly, was with an <a href="https://en.wikipedia.org/wiki/Atari_2600_hardware" target="_blank">Atari</a> at home at the age of 8 years old where I played games like [Pacman](https://es.wikipedia.org/wiki/Pac-Man) and [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) with my brother Fede and friends.
 
 the robust joystic was intuitive enoguh to allow a full experience and interaction with different games inserted as cassetes into whats was then going to be called a console. A perfect match (perhaps one of the best) between simplicity and innovation in something that many years later would be called user experience.
 

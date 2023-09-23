@@ -2,56 +2,47 @@
 const { data } = Astro.props;
 ---
 
-<j-date data-data={JSON.stringify(data)}>
-  <a target="_blank"><p></p></a>
-</j-date>
+<j-date data-jdata={JSON.stringify(data)}></j-date>
 
 <script>
-
-import { stringify } from "pfunc";
 
   class JDate extends HTMLElement {
     constructor() {
       super();
 
-      /*
-      day : "09/30/1973",
-      title: "Day I was Born",
-      desc: "I was born in San Camilo's Hospital",
-      location: "Avenida Angel Gallardo 899 Mahatma Gandhi 572 CABA, C1405 DJI, Buenos Aires",
-      map: "https://maps.app.goo.gl/J6zaQhaVji1E72oS9"*/
+      let data:JDate.DayObj = JSON.parse(this.dataset.jdata!);
 
-      let data = JSON.parse(this.dataset.data!);
-
-      let day:Date = new Date(data.day);
-      console.log("day: " + day);
-
+      let date:Date = new Date(data.day);
       const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-      let month = monthNames[day!.getMonth()];
-      let year = day!.getUTCFullYear();
-      let mDate = month + ' ' + year;
+      let day = date!.getDate();
+      let month = monthNames[date!.getMonth()];
+      let year = date!.getUTCFullYear();
+      let mDate = day + ' ' + month + ' ' + year;
 
-      const p = this.querySelector('p') as HTMLParagraphElement;
-      p.textContent = mDate;
+      let url = "/dates/chronology#" + data.alt;
 
-      let title = data.title;
+      let html = `<a id="${data.alt}" href="${url}" target="_blank"><b><p title="${data.title}">📅&nbsp;${mDate}</p></b></a>`;
 
-      let alt = data.alt;
-      p!.setAttribute("title", title);
+      const div = document.createElement('div') as HTMLDivElement;
+      div.innerHTML = html;
 
-      p!.setAttribute("id", alt);
+      this.appendChild(div);
 
-      const link = this.querySelector('a');
-      let url = "/dates#" + alt;
-      link!.setAttribute("href", url);
-
-      link!.addEventListener('click', () => {
+      /*link!.addEventListener('click', () => {
         //window.open(url);
-      });
+      });*/
 
     }
-
+}
+namespace JDate {
+  export interface DayObj {
+    alt : string;
+    day : Date;
+    title: string;
+    desc: string;
+    location: string;
+    map: string;
   }
-
-  customElements.define('j-date', JDate);
+}
+customElements.define('j-date', JDate);
 </script>

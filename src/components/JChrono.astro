@@ -19,7 +19,8 @@ let started  = await getCollection('started');
   class JChrono extends HTMLElement {
 
     public renderPost(post:any, div:HTMLDivElement) {
-      let title = post.data.title;
+
+        let title = post.data.title;
 
         let b = document.createElement('br') as HTMLBRElement;
         let p = document.createElement('p') as HTMLParagraphElement;
@@ -31,6 +32,7 @@ let started  = await getCollection('started');
         div.appendChild(b);
 
         let dates:Record<string, Object> = post.data.dates as Record<string, Object>;
+
         for (const key in dates) {
             const value:JChrono.DayObj = dates[key] as JChrono.DayObj;
             console.log(key + ': ' + JSON.stringify(value));
@@ -82,15 +84,15 @@ let started  = await getCollection('started');
     }
   }
 
-  namespace JChrono {
+namespace JChrono {
     export interface DayObj {
+      alt : string;
       day : Date;
       title: string;
       desc: string;
       location: string;
       map: string;
     }
-
 }
 
   customElements.define('j-chrono', JChrono);

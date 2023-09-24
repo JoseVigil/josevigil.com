@@ -6,18 +6,19 @@ const { data } = Astro.props;
 
 <script>
 
+import { toJDate } from "pfunc";
+
   class JDate extends HTMLElement {
     constructor() {
       super();
 
-      let data:JDate.DayObj = JSON.parse(this.dataset.jdata!);
+      let data:JDate.DayObj = JSON.parse(this.dataset.jdata!) as JDate.DayObj;
 
-      let date:Date = new Date(data.day);
-      const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-      let day = date!.getDate();
-      let month = monthNames[date!.getMonth()];
-      let year = date!.getUTCFullYear();
-      let mDate = day + ' ' + month + ' ' + year;
+      let d:Date = new Date(data.day) as Date;
+
+      console.log("d: " + typeof d)
+
+      let mDate = toJDate(d);
 
       let url = "/dates/chronology#" + data.alt;
 
@@ -40,6 +41,7 @@ namespace JDate {
     day : Date;
     title: string;
     desc: string;
+    img: string;
     location: string;
     map: string;
   }

@@ -1,15 +1,16 @@
----
+---import { toJDate } from "pfunc";
+
 const { sort } = Astro.props;
 ---
 
-<j-chrono data-sort={sort}>
-  <div></div>
-</j-chrono>
+<j-chrono data-sort={sort}></j-chrono>
 
 <script>
 
-import { stringify } from "pfunc";
+import { toJDate } from "pfunc";
+import { getColorFromCollectionName } from "pfunc";
 import { getCollection } from 'astro:content';
+
 
 let essays   = await getCollection('essays');
 let projects = await getCollection('projects');
@@ -18,33 +19,75 @@ let started  = await getCollection('started');
 
   class JChrono extends HTMLElement {
 
-    public renderPost(post:any, div:HTMLDivElement) {
+    public renderDates(value:JChrono.DayObj) {
+
+      let alt = value.alt;
+      let day = value.day;
+      let title = value.title;
+      let desc = value.desc;
+      let img = value.img;
+      let location = value.location;
+      let map = value.map;
+      let color = value.color;
+
+      let mDate = toJDate(day);
+
+      let jdate = `
+        <a id="${alt}" style="color:${color}" href="">
+          <h8 title="${title}">📅&nbsp;${mDate}</h8>
+        </a>
+        <h5>${title}</h5>`;
+
+      let lm:string = "";
+      if (location) {
+        lm = `<p style="font-style: italic;">${location}<a href="${map}" target="_blank">📍</a></p><br/>`;
+      }
+
+      let im:string = "";
+      if (img != null) {
+        console.log("img: " + img)
+        jdate = jdate + `<table>
+            <tr>
+                <td>
+                    <a href="${img}" target="_blank"><img src="${img}" style="padding-right:20px;" pl="20" width="100px"></img></a>
+                </td>
+                <td>
+                  <p style="width: 600px;">${desc}</p>
+                  ${lm}
+                </td>
+            </tr>
+        </table><br/>`;
+      } else {
+        jdate = jdate + `<p>${desc}</p>` + lm;
+      }
+      const idiv = document.createElement('div') as HTMLDivElement;
+      idiv.innerHTML = jdate;
+
+      return idiv;
+    }
+
+    public renderPostByArticle(post:any, div:HTMLDivElement) {
 
         let title = post.data.title;
 
         let b = document.createElement('br') as HTMLBRElement;
-        let p = document.createElement('p') as HTMLParagraphElement;
+        let h2 = document.createElement('h2') as HTMLHeadElement;
         let ol = document.createElement('ol') as HTMLOListElement;
 
-        p.textContent = title;
+        h2.textContent = title;
         console.log("title: " + title);
-        div.appendChild(p);
+        div.appendChild(h2);
         div.appendChild(b);
 
         let dates:Record<string, Object> = post.data.dates as Record<string, Object>;
 
         for (const key in dates) {
+
             const value:JChrono.DayObj = dates[key] as JChrono.DayObj;
+
             console.log(key + ': ' + JSON.stringify(value));
 
-            let day = value.day;
-            let title = value.title;
-            let desc = value.desc;
-            let location = value.location;
-            let map = value.map;
-
-            const idiv = document.createElement('div') as HTMLDivElement;
-            idiv.innerHTML = `<p>${day}</p><br/><p>${title}</p><br/><p>${desc}</p>`;
+            let idiv = this.renderDates(value);
 
             ol.appendChild(idiv);
         }
@@ -57,41 +100,70 @@ let started  = await getCollection('started');
 
       let sort = this.dataset.sort;
 
-      const div = this.querySelector('div') as HTMLDivElement;
+      const div = document.createElement('div') as HTMLDivElement;
 
       switch (sort) {
         case 'essays':
           essays.map(async post => {
-            this.renderPost(post, div);
+            this.renderPostByArticle(post, div);
           });
           break;
         case 'projects':
           projects.map(async post => {
-            this.renderPost(post, div);
+            this.renderPostByArticle(post, div);
           });
           break;
         case 'previous':
           previous.map(async post => {
-            this.renderPost(post, div);
+            this.renderPostByArticle(post, div);
           });
           break;
         case 'started':
           started.map(async post => {
-            this.renderPost(post, div);
+            this.renderPostByArticle(post, div);
           });
+        case 'all':
+          let posts = [...essays, ...projects, ...previous, ...started];
+          var allDates:JChrono.DayObj[] = [];
+          posts.map(async post => {
+            let color =  getColorFromCollectionName(post.collection);
+            let dates:Record<string, Object> = post.data.dates as Record<string, Object>;
+            for (const key in dates) {
+              const date:JChrono.DayObj = dates[key] as JChrono.DayObj;
+              date.color = color;
+              allDates.push(date);
+            }
+          });
+          allDates = allDates.sort((a, b) => {
+            if (new Date(a.day) < new Date(b.day))
+              return 1;
+            if (new Date(a.day) > new Date(b.day))
+              return -1;
+            return 0;
+          });
+
+          let adiv = document.createElement('div') as HTMLDivElement;
+
+          allDates.map(async date => {
+            let idiv = this.renderDates(date);
+            adiv.appendChild(idiv);
+          });
+          div.appendChild(adiv);
           break;
       }
+      this.appendChild(div);
     }
   }
-
 namespace JChrono {
     export interface DayObj {
       alt : string;
       day : Date;
       title: string;
       desc: string;
+      img: string;
       location: string;
       map: string;
+      color:string;
     }
 }
 

@@ -11,9 +11,10 @@ const mainSchema = z.object({
     alt: z.string(),
     day: z.string().transform((str:any) => new Date(str)),
     title: z.string(),
-    desc: z.string(),
-    location: z.string(),
-    map: z.string(),
+    desc: z.any(),
+    img: z.string().nullable(),
+    location: z.string().nullable(),
+    map: z.string().nullable(),
   })).nullable(),
 });
 

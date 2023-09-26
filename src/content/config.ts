@@ -7,9 +7,11 @@ const mainSchema = z.object({
   link: z.string().optional().nullable(),
   pubDate: z.string().transform((str:any) => new Date(str)),
   tags: z.array(z.string()),
+  technology: z.array(z.string()),
   dates: z.record(z.string(), z.object({
     alt: z.string(),
     day: z.string().transform((str:any) => new Date(str)),
+    period: z.string(),
     title: z.string(),
     desc: z.any(),
     img: z.string().nullable(),

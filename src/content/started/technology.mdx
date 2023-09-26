@@ -4,19 +4,52 @@ description: 'Myt story of how I got started with computers and technology'
 image: https://github.blog/wp-content/uploads/2023/05/1200.630-Productivity-wLogo@2x.png?resize=1600%2C850
 pubDate: '11/14/2014'     # mm/dd/yyyy
 tags: ['Computers', 'Technology', 'Startups']
+technology: []
 dates: {
     "Born": {
                 alt: "day-I-was-born",
                 day : "09/30/1973",
+                period: "Day",
                 title: "Day I was Born",
-                desc: "I was born in San Camilo's Hospital, Almagro. <a href=\"https://en.wikipedia.org/wiki/1973\" target=\"_blank\">1973</a> was a very pivotal year internationally with the <a href=\"https://en.wikipedia.org/wiki/1973_oil_crisis\" target=\"_blank\">oil crisis</a>. In Argentina, despite having a democratically elected president Campora, there were violent and difficult moments.",
+                desc: "I was born in San Camilo's Hospital, Almagro. <a href=\"https://en.wikipedia.org/wiki/1973\" target=\"_blank\">1973</a> was a very pivotal year internationally with the <a href=\"https://en.wikipedia.org/wiki/1973_oil_crisis\" target=\"_blank\">oil crisis</a>. In Argentina, despite having a democratically elected president Peron 7 days before my birthday, there were violent and difficult moments even hours before I was born the president right hand Rucci was killed. This was a very particular year, a global paradigm shift of violence even in my country.",
                 img: "/images/chrono/sancamilo.png",
                 location: "Avenida Angel Gallardo 899 Mahatma Gandhi 572 CABA, C1405 DJI, Buenos Aires",
                 map: "https://maps.app.goo.gl/J6zaQhaVji1E72oS9"
     },
+    "Childhood": {
+                alt: "childhood",
+                day : "01/01/1980",
+                period: "Decade",
+                title: "The 80's Decade",
+                desc: "The 80's was a remarkable decade for me, childhood. Living in Hurlingham, going to St Pauls's School.",
+                img: ,
+                location: "Juan de Garay 848, Hurlingham, Provincia de Buenos Aires",
+                map: "https://maps.app.goo.gl/wjY15weHpUC4c9dx7"
+    },
+    "Officehood": {
+                alt: "officehood",
+                day : "01/01/1990",
+                period: "Decade",
+                title: "The 80's Decade",
+                desc: "The 90's was the period where my coriosity became real to technology.",
+                img: "/images/chrono/parana.png",
+                location: "Paraná 457, CABA, Buenos Aires",
+                map: "https://maps.app.goo.gl/7tTkKGMt41JrAZHj7"
+    },
+    "SummerWork": {
+                alt: "summer-work",
+                day : "02/01/1989",
+                period: "Month",
+                title: "Summer Work",
+                desc: "The 90's was the period where my coriosity became real to technology.",
+                img: "/images/chrono/parana.png",
+                location: "Paraná 457, CABA, Buenos Aires",
+                map: "https://maps.app.goo.gl/7tTkKGMt41JrAZHj7"
+    },
     "Graduated": {
                 alt: "day-I-graduated",
                 day : "12/10/2015",
+                period: "Day",
                 title: "Day I graduated from University",
                 desc: "Graduated from the UBA FADU (Facultad de Diseño y Urbanismo) as IIndustrial Designer. A prestigious public university, the best in the discipline of design.",
                 img: "/images/chrono/uba.png",
@@ -33,9 +66,7 @@ import JDate from '../../components/JDate.astro';
 
 <br/>
 
-If I have to say one of the main feature that define my personality is of being **curious** and technology is an endless field for curiosity.
-But if I have to say a second then I would say being **creative** and certainly creating startups is indeed a vast terrain for creativitiy.
-Not an artistic creativity but a smart and usefull one and everything in life is defined and molded when we are young.
+If I have to say one of the main feature that define my personality is of being **curious** and technology is an endless field for curiosity. What technology allows you is to stratify knowledge where what you learned yesterday serves you for what will come tomorrow and what will happen tomorrow will be a lot. The word technology is tomorrow itself. Over the years and after being in constant technological learning at all levels, technical, design and market, it has allowed me, among other things, to be able to **forecast**. This characteristic is nourished by information and intuition and is one of the virtues that makes me build robust visions. Maybe my best skill. I can say now that what you live and breathe when you are a child determines your future, which is my case.
 
 <br/>
 
@@ -43,13 +74,11 @@ Not an artistic creativity but a smart and usefull one and everything in life is
 
 <br/>
 
-<JDate data={frontmatter.dates['Born']}/>
-I was born. I remember my first contact with technology, regularly, was with an <a href="https://en.wikipedia.org/wiki/Atari_2600_hardware" target="_blank">Atari</a> at home at the age of 8 years old where I played games like [Pacman](https://es.wikipedia.org/wiki/Pac-Man) and [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) with my brother Fede and friends.
-
-the robust joystic was intuitive enoguh to allow a full experience and interaction with different games inserted as cassetes into whats was then going to be called a console. A perfect match (perhaps one of the best) between simplicity and innovation in something that many years later would be called user experience.
+<JDate data={frontmatter.dates['Born']}/> I was born in San Camilo's Hospital, Almagro. My parents lived in the town of <a href="https://en.wikipedia.org/wiki/Hurlingham,_Buenos_Aires" target="_blank">Hurlingham</a>, Buenos Aires, Argentina and that was my place in the world until today. I remember my first contact with technology, regularly, was with an <a href="https://en.wikipedia.org/wiki/Atari_2600_hardware" target="_blank">Atari</a> at home at the age of 8 years old where I played games like [Pacman](https://es.wikipedia.org/wiki/Pac-Man) and [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) with my brother Fede and friends. The robust joystic was intuitive enoguh to allow a full experience and interaction with different games inserted as cassetes into whats was then going to be called a console. A perfect match (perhaps one of the best) between simplicity and innovation in something that many years later would be called user experience.
 
 <br/>
 
+<JDate data={frontmatter.dates['Childhood']}/>
 My second relevant interaction with technology came aproximately at the age of 10 when my father boguht a <a href="https://en.wikipedia.org/wiki/Apple_IIe" target="_balnk">Apple IIe</a> (the first personal computer) in the US and placed it at my roon. It had a green screen and two 5¼ disk drives. By then mouse did not existed and was introduced later with <a href="https://en.wikipedia.org/wiki/Macintosh_128K" target="_blank">Macintosh</a>. I recall using basic program and playing Combat but nothing much sophisticated since by then I did not considered myself techy yet. I was just a child playing with something without noticing its importance.
 
 <br/>
@@ -74,7 +103,8 @@ My second relevant interaction with technology came aproximately at the age of 1
 
 <br/>
 
-During my childhood at the 80's I also had a lot of contact with technology in my father's company <b>Vigil y Ocampo Ingenieros</b> (aka V&O) located in the center of <a href="https://es.wikipedia.org/wiki/Buenos_Aires" target="_balnk">CABA</a>. The engineering company designed and built works for the distribution and classification of hybrid seeds for seed companies such as <a href="https://pioneer.com" targer="_balnk">Pioneer</a>, <a href="https://dekalb.com" target="_balnk">Dekalb</a>, among others. Therefore, it had servers, communications, plans, plots and computers of the best level. Some time later I would realize that this place was truly a technological amusement park. during the officehood I established a real connection with technologies that were used by people I knew whose impact on their work was significant, consequently on my life. Some of the most iconic machines from those officehood eras are these three:
+<JDate data={frontmatter.dates['Officehood']}/>
+During my adolescence, end of the 80's beggining of 90's I also had a lot of contact with technology in my father's company <b>Vigil y Ocampo Ingenieros</b> (aka V&O) located in the center of <a href="https://es.wikipedia.org/wiki/Buenos_Aires" target="_balnk">CABA</a>. The engineering company designed and built works for the distribution and classification of hybrid seeds for seed companies such as <a href="https://pioneer.com" targer="_balnk">Pioneer</a>, <a href="https://dekalb.com" target="_balnk">Dekalb</a>, among others. Therefore, it had servers, communications, plans, plots and computers of the best level. Some time later I would realize that this place was truly a technological amusement park. during the officehood I established a real connection with technologies that were used by people I knew whose impact on their work was significant, consequently on my life. Some of the most iconic machines from those officehood eras are these three:
 
 <br/>
 
@@ -102,6 +132,7 @@ I remember staring at the <a href="https://es.wikipedia.org/wiki/T%C3%A9lex" tar
 
 <br/>
 
+<JDate data={frontmatter.dates['SummerWork']}/>
 Later in the 90s and during the summers he worked as a V&O cadet carrying envelopes to the city centre. Technology had changed a lot. Telex was replaced by fax and communications were made by telephone call using copper cable. In fact, at V&O the first point-to-point connection script was presented with <a href="https://es.wikipedia.org/wiki/Impsat" target="_balnk">Impsat</a> to send and receive blueprints. with the US. Ethernet networks already existed with hubs and servers with Windows Servers. Although I ran errands, I liked going to the technical area with the engineers and I curiously observed the person who managed that network, <b>Rodolfo Benbenutto</b>. He showed me how the network worked, <a href="https://es.wikipedia.org/wiki/Windows_NT" target="_balnk">Windows Nt 4.0 Wokstations</a>, <a href="https://es.wikipedia.org/wiki/Windows_Small_Business_Server" target="_balnk">Windows SMB Servers</a>, mapped shared drives, file servers, hubs, ethernet cabling and other interesting setups that I was intrigued about. By then I did not know I was going to work doing that exact job afterwards although he allways joke about how dangerous my mouse finger click was. What a paradox.
 
 <br/>

@@ -27,7 +27,7 @@ export async function getStaticPaths() {
 
 const post = Astro.props.post;
 
-const { title, description, image, tags, pubDate } = post.data;
+const { title, description, image, tags, technology, pubDate } = post.data;
 const { Content } = await post.render();
 ---
 
@@ -45,6 +45,7 @@ const { Content } = await post.render();
       <section class="header-article-content">
         <DisplayTagsDate
           tags={tags}
+          technology={technology}
           pubDate={pubDate}
         ></DisplayTagsDate>
       </section>

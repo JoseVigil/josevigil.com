@@ -4,13 +4,27 @@ description: 'The Meta Search Engine'
 image: https://github.blog/wp-content/uploads/2023/05/1200.630-Productivity-wLogo@2x.png?resize=1600%2C850
 pubDate: '01/15/2016'     # mm/dd/yyyy
 tags: ['Search', 'Engine', 'Products', 'Argentina']
-dates: {}
+technology: ['Big-data', 'Sphinx', 'Php', 'HTML', 'CSS', 'Jquery']
+dates: {
+    "Founded Negociometro": {
+                alt: "founded-negociometro",
+                day : "01/01/2016",
+                period: "Year",
+                title: "Founded Negociometro",
+                desc: "",
+                img: "/images/chrono/negociometro_logo.png",
+                location: "Avenida Angel Gallardo 899 Mahatma Gandhi 572 CABA, C1405 DJI, Buenos Aires",
+                map: "https://maps.app.goo.gl/J6zaQhaVji1E72oS9"
+    },
+}
 ---
-
 import JImage from '../../components/JImage.astro';
+import JDate from '../../components/JDate.astro';
 
 # [Negociometro](#negociometro)
 ### [About](#about)
+
+<br />
 
 Negociometro was a search engine where you could find more than 3 million items from the 30 most important sites in the country. It was fast, not elegant but very efficient and you could access any product published for sale in Argentina in a single shot. We had a website (turned off), facebook and <a href="https://twitter.com/negociometro" target="_blank">twitter</a> account.
 
@@ -22,11 +36,14 @@ Negociometro was a search engine where you could find more than 3 million items 
 
 ### [Origin](#origin)
 
-It was back in 2016 when speaking with my cousin Nicolas Alen (Nico) we felt we should start working on our own project and decided to move to what's by that time called the **big data**. Afterwards Florencia Alen, Nico's syster joined and a family startup was formed.
+<br />
 
-Nico is a great guy who had an incredible reputation as a serial entrepreneur previously funded [el Server](https://elserver.com) and [RollerShow](https://www.rollershow.com.ar) (current). Then it was for me a great opportunity for gaining experience. I saw him grow, in fact I recall being present the moment he created his first server at the age of 17 where he emancipated in order to be able to create his own company, a very intelligent and precocious person.
+<JDate data={frontmatter.dates['Founded Negociometro']}/>
+It was back in 2016, I closed down <a href="previous/gamves" target="_blank">Gamves</a> project due to luch of resources and innefective business model to make it possible on my very own, when I was speaking with my cousin Nicolas Alen (Nico) we felt we should start working on our own project and decided to move to what's by that time called the **big data**. I wanted to do something more sobust and heavily productive. Afterwards Florencia Alen, Nico's syster joined and a family startup was formed.
 
-Besides, he was among one of the few people in the world who I could recognize as a leader therefore had no issue commiting myself to learn from him and also learn from technology and market about new businesses. Ahead in time, around 2019, we created <a href="/projects/notimation" target="_blank">Notimation</a> 🚀 which I am currently leading on my own since 2021.
+<br />
+
+Nico is a great guy who had an incredible reputation as a serial entrepreneur previously funded [el Server](https://elserver.com) and [RollerShow](https://www.rollershow.com.ar) (current). Then it was for me a great opportunity for gaining experience. I saw him grow, in fact I recall being present the moment he created his first server at the age of 17 where he emancipated in order to be able to create his own company, a very intelligent and precocious person. Besides, he was among one of the few people in the world who I could recognize as a leader therefore had no issue commiting myself to learn from him and also learn from technology and market about new businesses. Ahead in time, around 2019, we created <a href="/projects/notimation" target="_blank">Notimation</a> 🚀 which I am currently leading on my own since 2021.
 
 <br />
 
@@ -46,17 +63,21 @@ Besides, he was among one of the few people in the world who I could recognize a
 
 <br />
 
-<u>Technology</u>: Big-data, Sphinx, Php, HTML, CSS, Jquery.
-
-<br />
-
 ### [Concept](#concept)
+
+<br/>
 
 So we came up with this idea about building a search engine for products in Argentina. Having all products of all stores into a single search application was like an intriguing idea at that point, worth verifying. So we built a web crawler via regex (php-codeigniter-mysql-bootstrap) that extracted well organized product pages data from the most important sites like <a href="https://www.mercadolibre.com.ar/" target="_blank">Mercadolibre</a> (Latin American Amazon), OLX, Alamaula, Garbarino, Fravega among others. Unfortunately most of them closed their operations in Argentina due to economic crisis. <i>Related subject about our economy <a href="/essays/bootstrapping" target="_blank">Bootstrapping Startups in Argentina</a></i>. So for our server infraestructure we used <a href="https://www.rackspace.com" target="_blank">Rackspace</a> and we started sucking data from the web like a black hole, indexing data big time. At least we had a name, <a href="https://twitter.com/negociometro" target="_blank"> Negociometro</a>, what in english would be something a business instrument.
 
+<br/>
+
 Early 2016, We saw that big sites became a real sales channels for many companies. And also many companies have already publishing their products on their own websites using e-commerce tools like <a href="https://business.adobe.com" tardet="_blank">Magento</a>. So it seems to us that a great product search and comparison tool could be really useful for users to find new valuable offers from, at that time, unknown companies.
 
+<br/>
+
 From day one the main goal was that the product has real value for users. So we built the backend, site and published. We have rewritten the backend several times in order to make it work efficiently. And it did work 👏. Results from all over Argentina came up very fast and smooth.
+
+<br/>
 
 <table>
     <tr>
@@ -71,7 +92,24 @@ From day one the main goal was that the product has real value for users. So we 
 
 <br/>
 
+<table>
+    <tr>
+        <td>
+            <JImage style="padding-left: 10px;" src="/images/previous/negociometro/negociometro_workspace.png" width="200px"></JImage>
+        </td>
+        <td>
+          <p style="width: 600px; padding-left: 10px;">By then I continued to work with a multiple computer environment run by <a href="https://symless.com/synergy" target="_blank">Synergy</a> software run by my friend <a href="https://www.linkedin.com/in/nbolton/" target="_blank">Nick Bolton</a> (ceo). The environment was very eficient between mac, windows and ubuntu. Another habit that I had and that I took from my friend <a href="https://www.facebook.com/martinfree77" target="_blank">Martin Fritz</a>, a great developer when I worked in a software factory, is to put the monitor in vertical mode, which allows you to see many more lines of code. Also very efficient.</p>
+        </td>
+    </tr>
+</table>
+
+
+
+<br/>
+
 ### [Performance and SEO](#performance-and-ceo)
+
+<br/>
 
 <table>
     <tr>
@@ -87,9 +125,15 @@ From day one the main goal was that the product has real value for users. So we 
     </tr>
 </table>
 
+<br/>
+
 We were focused mainly in the product and UX, while trying not-fuck-up any SEO mayor aspect as we worked on the product. All results came real-time, we focused a lot in site speed. It was definetly a SEO project however filters showed a killer featyre becoming a must. Filters. We consulted <a href="https://twitter.com/LukaszZelezny" target="_blank">Lukasz Zelezny</a> and he was helpful, an expert in SEO. It was with him we undertood we where aggregatting.
 
+<br/>
+
 ## [The slider](#slider)
+
+<br/>
 
 ![Negociometro Beta](/images/previous/negociometro/negociometro_filters.png)
 
@@ -97,21 +141,37 @@ Filtering all products offered in Argentina with a slide was quite a powerful ex
 
 ![Negociometro Slider Logo](/images/previous/negociometro/negociometro_slider_logo.png)
 
+<br/>
+
 ## [Business Model](#business-model)
+
+<br/>
 
 We were confident that with 20k users growing we would be in conditions of working out a revenue model based on <b>advertizing</b>. We also knew that some killer features like slide customization and search filters "could" worth for a monthly <b>suscription</b>. Therefore we aliged to both ideas wishing positively that we could make enough money to pay expences and salaries, to begin with. However the outcome was not that positive as expected.
 
 Bottom line what we built was among the so called aggregator sites like <b>PriceGrabber</b> or <b>Shopzilla</b>. It is today that its not clear what their business model is neither.
 
+<br/>
+
 ## Outcome
+
+<br/>
 
 The product finally seemed to be finding a market and covering a demand nevertheless without reaching the category of solving a problem. Every day we received emails from product owners who wanted to publish and every day we saw the amount of visits increasing. In fact we activated multiple latin american domain extensions for our brand to start operating abroad. The problem was that the size of the databases has grown so large that the expences on servers began to exceed 1k dollars overnight. What made it unfeasible.
 
+<br/>
+
 ## Close Down
+
+<br/>
 
 It was at that moment that we knew .... we had to stop 😞. We did not enough money to support the infraestructre for at least a year that would guarantee 1M or more users. Reason wht we effectively closed down Negociometro May 2017 🪦. It was wise and healthy to close, the worst scenario ever is to deny reality and take measures of the slap of drowning. We closed.
 
+<br/>
+
 ## Conclusion
+
+<br/>
 
 Even today that we know and undertand how big data has driven into Artificial Inteligence, hot topic, and how important it is to owe huge amounts of information. We simply did not know and decided to switch it off without making a huge effor to keep it alive. By that time there was no real proove that Negociometro could have been able to survive and rech the current paradigm. On the other hand, there was not single meta search engine that was able to survive, the cases mentioned seem to be obsolete of close to be discontinued.
 

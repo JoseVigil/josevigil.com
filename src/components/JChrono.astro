@@ -22,6 +22,7 @@ let started  = await getCollection('started');
 
       let alt = value.alt;
       let day = value.day;
+      let period = value.period;
       let title = value.title;
       let desc = value.desc;
       let img = value.img;
@@ -29,13 +30,13 @@ let started  = await getCollection('started');
       let map = value.map;
       let color = value.color;
 
-      let mDate = toJDate(day);
+      let mDate = toJDate(day, period);
 
       let jdate = `
-        <a id="${alt}" style="color:${color}" href="">
+        <a id="${alt}" href="">
           <h8 title="${title}">📅&nbsp;${mDate}</h8>
         </a>
-        <h5>${title}</h5>`;
+        <h5 style="color:${color}">${title}</h5>`;
 
       let lm:string = "";
       if (location) {
@@ -158,6 +159,7 @@ namespace JChrono {
     export interface DayObj {
       alt : string;
       day : Date;
+      period: string;
       title: string;
       desc: string;
       img: string;
@@ -166,6 +168,5 @@ namespace JChrono {
       color:string;
     }
 }
-
-  customElements.define('j-chrono', JChrono);
+customElements.define('j-chrono', JChrono);
 </script>

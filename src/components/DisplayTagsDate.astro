@@ -1,10 +1,11 @@
 ---
 export interface Props {
   tags: string[];
+  technology: string[];
   pubDate: Date;
 }
 
-const { tags, pubDate } = Astro.props;
+const { tags, technology, pubDate } = Astro.props;
 
 const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
@@ -21,7 +22,14 @@ const month = months[pubDate.getMonth()];
     }
   </div>
   <div>
-    <span class="text-gray-300 dark:text-gray-300 mr-2">|</span>
+    <span class="text-gray-300 dark:text-gray-300 mr-2">
+    <span>
+      {
+        technology?.map((t: string) => (
+          <a style="color:gray;" href="">{t}&nbsp;</a>
+        ))
+      }
+    </span>|</span>
     <time datetime={ pubDate.toString() } class="text-gray-500 dark:text-gray-300">
       { month }, { year }
     </time>

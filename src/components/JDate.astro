@@ -16,15 +16,20 @@ import { toJDate } from "pfunc";
 
       let d:Date = new Date(data.day) as Date;
 
+      let period = data.period;
+
       console.log("d: " + typeof d)
 
-      let mDate = toJDate(d);
+      let mDate = toJDate(d, period);
+
+      console.log("mDate: "  + mDate);
 
       let url = "/dates/chronology#" + data.alt;
 
-      let html = `<a id="${data.alt}" href="${url}" target="_blank"><b><p title="${data.title}">📅&nbsp;${mDate}</p></b></a>`;
+      let html = `<a id="${data.alt}" href="${url}" target="_blank"><b><p title="${data.title}">📅&nbsp;${mDate}.&nbsp;</p></b></a>`;
 
       const div = document.createElement('div') as HTMLDivElement;
+      div.setAttribute("style", "float:left");
       div.innerHTML = html;
 
       this.appendChild(div);
@@ -39,6 +44,7 @@ namespace JDate {
   export interface DayObj {
     alt : string;
     day : Date;
+    period : string;
     title: string;
     desc: string;
     img: string;

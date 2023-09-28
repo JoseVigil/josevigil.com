@@ -7,6 +7,8 @@ const { sort } = Astro.props;
 <script>
 
 import { toJDate } from "pfunc";
+import { type DateObj } from "pfunc";
+import { type CollObj } from "pfunc";
 import { getColorFromCollectionName } from "pfunc";
 import { getCollection } from 'astro:content';
 
@@ -18,7 +20,7 @@ let started  = await getCollection('started');
 
   class JChrono extends HTMLElement {
 
-    public renderDates(value:JChrono.DayObj) {
+    public renderDates(value:DateObj) {
 
       let alt = value.alt;
       let day = value.day;
@@ -45,7 +47,7 @@ let started  = await getCollection('started');
 
       let im:string = "";
       if (img != null) {
-        console.log("img: " + img)
+        //console.log("img: " + img)
         jdate = jdate + `<table>
             <tr>
                 <td>
@@ -74,7 +76,7 @@ let started  = await getCollection('started');
         let ol = document.createElement('ol') as HTMLOListElement;
 
         h2.textContent = title;
-        console.log("title: " + title);
+        //console.log("title: " + title);
         div.appendChild(h2);
         div.appendChild(b);
 
@@ -82,11 +84,13 @@ let started  = await getCollection('started');
 
         for (const key in dates) {
 
-            const value:JChrono.DayObj = dates[key] as JChrono.DayObj;
+            const value:CollObj = dates[key] as CollObj;
 
-            console.log(key + ': ' + JSON.stringify(value));
+            //console.log(key + ': ' + JSON.stringify(value));
 
-            let idiv = this.renderDates(value);
+            let data:DateObj = value.date as DateObj;
+
+            let idiv = this.renderDates(data);
 
             ol.appendChild(idiv);
         }
@@ -99,7 +103,7 @@ let started  = await getCollection('started');
 
       let sort = this.dataset.sort;
 
-      console.log("sort: " + sort);
+      //console.log("sort: " + sort);
 
       const div = document.createElement('div') as HTMLDivElement;
 
@@ -125,12 +129,12 @@ let started  = await getCollection('started');
           });
         case 'all':
           let posts = [...essays, ...projects, ...previous, ...started];
-          var allDates:JChrono.DayObj[] = [];
+          var allDates:DateObj[] = [];
           posts.map(async post => {
             let color =  getColorFromCollectionName(post.collection);
             let dates:Record<string, Object> = post.data.dates as Record<string, Object>;
             for (const key in dates) {
-              const date:JChrono.DayObj = dates[key] as JChrono.DayObj;
+              const date:DateObj = dates[key] as DateObj;
               date.color = color;
               allDates.push(date);
             }
@@ -155,18 +159,5 @@ let started  = await getCollection('started');
       this.appendChild(div);
     }
   }
-namespace JChrono {
-    export interface DayObj {
-      alt : string;
-      day : Date;
-      period: string;
-      title: string;
-      desc: string;
-      img: string;
-      location: string;
-      map: string;
-      color:string;
-    }
-}
 customElements.define('j-chrono', JChrono);
 </script>

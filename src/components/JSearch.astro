@@ -1,6 +1,33 @@
 ---
-import Search from './Search';
-const allPosts = await Astro.glob('../posts/*.{md,mdx}');
-const posts = allPosts.filter((post) => !post.frontmatter.draft && post.frontmatter.slug);
+import Search from '../components/JSearch';
+import { type SearchObj } from "pfunc";
+import { getCollection } from 'astro:content';
+let essays   = await getCollection('essays');
+let projects = await getCollection('projects');
+let previous = await getCollection('previous');
+let started  = await getCollection('started');
+const posts = [...essays, ...projects, ...previous, ...started];
+//var allPosts:CollObj[] = [];
+//const allPosts = await Astro.glob('../content/**/*.{md,mdx}');
+//const posts = allPosts.filter(post => (!post.content));
 //https://danidiaztech.com/create-astro-search-component/
+let searches:SearchObj[] = [];
+posts.map(async post => {
+
+    const break_expression: RegExp = /\r\n|\n\r|\n|\r/g;
+    let body: string = post.body.replace(break_expression, '');
+
+    const quote_expression: RegExp = /\"/g;
+    body = body.replace(break_expression, '');
+
+    let search : SearchObj = {
+      title : post.data.title,
+      description : post.data.description,
+      slug : post.slug,
+      collection : post.collection,
+      body : body,
+    };
+    searches.push(search);
+});
 ---
+<Search client:load collection={searches}></Search>

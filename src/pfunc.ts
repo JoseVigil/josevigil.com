@@ -36,7 +36,7 @@ export function getColorFromCollectionName(collection:string) {
 }
 
 export function toJDate(date:Date, period:string) {
-  console.log("date: " + typeof date)
+  //console.log("date: " + typeof date)
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   let day = date.getDate();
   let month = monthNames[date.getMonth()];
@@ -55,7 +55,7 @@ export function toJDate(date:Date, period:string) {
       case "Decade":
         let star_end = getDecadesFromYear(year);
         resutl = "The " + star_end.start + "'s Decade";
-        console.log("resutl: " + resutl);
+        //console.log("resutl: " + resutl);
         break;
   }
   return resutl;
@@ -71,4 +71,52 @@ export function getDecadesFromYear (year: number): any {
   start           = (start === 0) ? Number(`${startIdx}00`) : Number(`${startIdx}${start}`);
   end             = start + 10;
   return { start: start, end: end };
+}
+
+
+/*export interface DataObj {
+  alt : string;
+  day : Date;
+  period: string;
+  title: string;
+  desc: string;
+  img: string;
+  location: string;
+  map: string;
+  color:string;
+}*/
+
+export interface DateObj {
+  alt : string;
+  day : Date;
+  period: string;
+  title: string;
+  desc: string;
+  img: string;
+  location: string;
+  map: string;
+  color:string;
+}
+
+export interface DataObj {
+  title : string;
+  description : Date;
+  image: string;
+  pubDate: string;
+  tags: [];
+  technology: [];
+  dates: Record<string, DateObj>;
+}
+
+export interface CollObj {
+  date : DateObj;
+  body : string;
+}
+
+export interface SearchObj {
+  title : string;
+  description : string;
+  collection: string;
+  slug : string;
+  body : string;
 }

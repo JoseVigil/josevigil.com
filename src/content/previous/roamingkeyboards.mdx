@@ -5,17 +5,56 @@ image: https://github.blog/wp-content/uploads/2023/05/1200.630-Productivity-wLog
 pubDate: '02/01/2007'     # mm/dd/yyyy
 tags: ['Agnostic', 'Thin Terminal', 'Touch Screen', 'Interfaces', 'System']
 technology: []
-dates: {}
+dates: {
+    "Graduated": {
+                url: "day-I-graduated",
+                day : "07/05/2006",
+                period: "Day",
+                title: "Graduated from University",
+                desc: "Graduated from the UBA FADU (Facultad de Diseño y Urbanismo) as IIndustrial Designer. A prestigious public university, the best in the discipline of design.",
+                img: "/images/previous/roamingkeyboards/roamingkeyboards_egresado.png",
+                location: "Pabellón 3, Av. Int. Güiraldes 2160, Buenos Aires",
+                map: "https://maps.app.goo.gl/FCu3enSpBwzjCAN18"
+    },
+    "Clemente": {
+                url: "clemente-was-born",
+                day : "01/23/2007",
+                period: "Day",
+                title: "Clemente was Born",
+                desc: "Clemente Vigil was born, his mother Leda Olano gave him a healthy birth in Sanatorio Mitre. He weigh four kilos and it is so far one of the most beautiful things that life has given me ❤️.",
+                img: "/images/chrono/clemente.png",
+                location: "Bartolomé Mitre 2553, C1039 CABA",
+                map: "https://maps.app.goo.gl/BoDvZtnmqT9NjYhH6"
+    }
+}
+quotes: {}
 ---
-
+import JDate from '../../components/JDate.astro';
 import JImage from '../../components/JImage.astro';
 
 # [Roaming Keyboards](#Rroaming-keyboards)
-## [Ideas to action](#ideas-to-action)
+## [Where it all started](#Where-it-all-started)
 
 <br/>
 
-By the end of 2006, I graduated as an Industrial Designer in <a href="https://www.fadu.uba.ar/categoria/53-diseo-industrial" target="_blank">UBA University</a> and my son Clemente was about to be born (Jan 2007) I was eager to start merging my both knowlerges and passions Technology and Design.
+<JDate data={frontmatter.dates['Graduated']}/> I graduated as an Industrial Designer in <a href="https://www.fadu.uba.ar/categoria/53-diseo-industrial" target="_blank">UBA University</a>. I never believed I would be able to finish the race. They were years of a lot of work and hard study that I knew deeply that I had to finish. Doing it helped me a lot and it is what today enables me to think that I can achieve any goal I set for myself. He received me and at that moment I had the vitality and energy to undertake. Still young and eager to do things, I entrusted myself to make my dreams come true.
+
+<br/>
+
+<table>
+    <tr>
+        <td>
+            <JImage src="/images/previous/roamingkeyboards/roamingkeyboards_egresado.png" width="333px" height="200px"></JImage>
+        </td>
+        <td>
+            <p style="width: 400px; padding-left: 10px;">I never believed I would be able to finish the race. They were years of a lot of work and hard study that I knew deeply that I had to finish. Doing it helped me a lot and it is what today enables me to think that I can achieve any goal I set for myself. He received me and at that moment I had the vitality and energy to undertake. Still young and eager to do things, I entrusted myself to make my dreams come true.</p>
+        </td>
+    </tr>
+</table>
+
+<br/>
+
+<JDate data={frontmatter.dates['Clemente']}/> and my son Clemente was about to be born (Jan 2007) I was eager to start merging my both knowlerges and passions Technology and Design.
 
 <br />
 

@@ -73,21 +73,12 @@ export function getDecadesFromYear (year: number): any {
   return { start: start, end: end };
 }
 
-
-/*export interface DataObj {
-  alt : string;
-  day : Date;
-  period: string;
-  title: string;
-  desc: string;
-  img: string;
-  location: string;
-  map: string;
-  color:string;
-}*/
+export function capitalizeFirstLetter(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 export interface DateObj {
-  alt : string;
+  url : string;
   day : Date;
   period: string;
   title: string;
@@ -113,6 +104,20 @@ export interface CollObj {
   body : string;
 }
 
+export interface ArticleObj {
+  slug : string;
+  collection : string;
+  title: string;
+}
+
+export interface QuoteObj {
+  title : string;
+  quote : string;
+  url: string;
+  color:string;
+  article: ArticleObj;
+}
+
 export interface SearchObj {
   title : string;
   description : string;
@@ -120,3 +125,5 @@ export interface SearchObj {
   slug : string;
   body : string;
 }
+
+

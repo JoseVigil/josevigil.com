@@ -1,0 +1,61 @@
+---
+const { data } = Astro.props;
+const pathname = Astro.url.pathname;
+---
+
+<j-quote data-jdata={JSON.stringify(data)} data-pathname={pathname}></j-quote>
+
+<script>
+
+  import { getColorFromCollectionName } from "pfunc";
+
+  class JQuote extends HTMLElement {
+    constructor() {
+      super();
+
+      let data:JQuote.quoteObj = JSON.parse(this.dataset.jdata!) as JQuote.quoteObj;
+
+      let title = data.title;
+      let quote = data.quote;
+      let url = "/quotes/" + data.url;
+
+      let pathname:string = this.dataset.pathname as string;
+
+      let collection = pathname.split("/")[1];
+
+      console.log("collection: " + collection);
+      let color =  getColorFromCollectionName(collection);
+
+      let table = `<table style="float:center;">
+            <tr>
+                <td style="vertical-align:top;">
+                    <h1 style="color:${color}; font-size: 40px;" width="20px">‟</h1>
+                </td>
+                <td>
+                  <a id="${data.url}" href="${url}" target="_blank" style="text-decoration: none;"><p style="color:${color}; width: 700px; font-size: 20px; text-align: center;">${quote}&nbsp;&nbsp;<font style="font-size: 10px; color:gray;">Jose Vigil</font></p></a>
+                </td>
+                <td style="vertical-align:top;">
+                  <h1 style="color:${color}; font-size: 40px;" width="20px">”</h1>
+                </td>
+            </tr>
+        </table>`;
+
+      const div = document.createElement('div') as HTMLDivElement;
+      div.setAttribute("style", "float:center");
+      div.innerHTML = table;
+
+      this.appendChild(div);
+
+    }
+
+  }
+
+namespace JQuote {
+  export interface quoteObj {
+    title : string;
+    quote : string;
+    url: string;
+  }
+}
+  customElements.define('j-quote', JQuote);
+</script>

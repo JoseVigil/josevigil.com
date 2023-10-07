@@ -24,9 +24,9 @@ import { toJDate } from "pfunc";
 
       console.log("mDate: "  + mDate);
 
-      let url = "/dates/chronology#" + data.alt;
+      let url = "/dates/chronology#" + data.url;
 
-      let html = `<a id="${data.alt}" href="${url}" target="_blank"><b><p title="${data.title}">📅&nbsp;${mDate}.&nbsp;</p></b></a>`;
+      let html = `<a id="${data.url}" href="${url}" target="_blank"><b><p title="${data.title}">📅&nbsp;${mDate}.&nbsp;</p></b></a>`;
 
       const div = document.createElement('div') as HTMLDivElement;
       div.setAttribute("style", "float:left");
@@ -42,7 +42,7 @@ import { toJDate } from "pfunc";
 }
 namespace JDate {
   export interface DayObj {
-    alt : string;
+    url : string;
     day : Date;
     period : string;
     title: string;

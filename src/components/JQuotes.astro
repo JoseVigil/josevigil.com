@@ -2,14 +2,16 @@
 const { sort } = Astro.props;
 ---
 
-<j-chrono data-sort={sort}></j-chrono>
+<j-quotes data-sort={sort}></j-quotes>
 
 <script>
 
 import { toJDate } from "pfunc";
-import { type DateObj } from "pfunc";
+import { type QuoteObj } from "pfunc";
 import { type CollObj } from "pfunc";
+import { type ArticleObj } from "pfunc";
 import { getColorFromCollectionName } from "pfunc";
+import { capitalizeFirstLetter } from "pfunc";
 import { getCollection } from 'astro:content';
 
 
@@ -18,52 +20,25 @@ let projects = await getCollection('projects');
 let previous = await getCollection('previous');
 let started  = await getCollection('started');
 
-  class JChrono extends HTMLElement {
+  class JQuotes extends HTMLElement {
 
-    public renderDates(value:DateObj) {
+    public renderquotes(value:QuoteObj) {
 
-      let url = value.url;
-      let day = value.day;
-      let period = value.period;
       let title = value.title;
-      let desc = value.desc;
-      let img = value.img;
-      let location = value.location;
-      let map = value.map;
+      let quote = value.quote;
+      let url = value.url;
       let color = value.color;
+      let article = value.article;
 
-      let mDate = toJDate(day, period);
+      let coll = capitalizeFirstLetter(article.collection);
 
-      let jdate = `
-        <a id="${url}" href="">
-          <h8 title="${title}">📅&nbsp;${mDate}</h8>
-        </a>
-        <h5 style="color:${color}">${title}</h5>`;
+      let jquote = `
+        <h6 title="${title}">💬&nbsp;${title}</h6>
+        <p style="color:${color}; width: 700px; font-size: 20px; text-align: center;">${quote}&nbsp;&nbsp;<font style="font-size: 10px; color:gray;">Jose Vigil</font></p>
+        <p>${coll}&nbsp;|&nbsp;<a id="${url}" href="${article.collection + "/" + article.slug }">${article.title}</a>`;
 
-      let lm:string = "";
-      if (location) {
-        lm = `<p style="font-style: italic;">${location}<a href="${map}" target="_blank">📍</a></p><br/>`;
-      }
-
-      let im:string = "";
-      if (img != null) {
-        //console.log("img: " + img)
-        jdate = jdate + `<table>
-            <tr>
-                <td>
-                    <a href="${img}" target="_blank"><img src="${img}" style="padding-right:20px;" pl="20" width="100px"></img></a>
-                </td>
-                <td>
-                  <p style="width: 600px;">${desc}</p>
-                  ${lm}
-                </td>
-            </tr>
-        </table><br/>`;
-      } else {
-        jdate = jdate + `<p>${desc}</p>` + lm;
-      }
       const idiv = document.createElement('div') as HTMLDivElement;
-      idiv.innerHTML = jdate;
+      idiv.innerHTML = jquote;
       return idiv;
     }
 
@@ -76,21 +51,20 @@ let started  = await getCollection('started');
         let ol = document.createElement('ol') as HTMLOListElement;
 
         h2.textContent = title;
-        //console.log("title: " + title);
         div.appendChild(h2);
         div.appendChild(b);
 
-        let dates:Record<string, Object> = post.data.dates as Record<string, Object>;
+        let quotes:Record<string, Object> = post.data.quotes as Record<string, Object>;
 
-        for (const key in dates) {
+        for (const key in quotes) {
 
-            const value:CollObj = dates[key] as CollObj;
+            const value:CollObj = quotes[key] as CollObj;
 
             //console.log(key + ': ' + JSON.stringify(value));
 
-            let data:DateObj = value.date as DateObj;
+            let data:QuoteObj = value.date as QuoteObj;
 
-            let idiv = this.renderDates(data);
+            let idiv = this.renderquotes(data);
 
             ol.appendChild(idiv);
         }
@@ -129,28 +103,32 @@ let started  = await getCollection('started');
           });
         case 'all':
           let posts = [...essays, ...projects, ...previous, ...started];
-          var allDates:DateObj[] = [];
+          var allquotes:QuoteObj[] = [];
           posts.map(async post => {
+
             let color =  getColorFromCollectionName(post.collection);
-            let dates:Record<string, Object> = post.data.dates as Record<string, Object>;
-            for (const key in dates) {
-              const date:DateObj = dates[key] as DateObj;
-              date.color = color;
-              allDates.push(date);
+
+            let article:ArticleObj = {
+              slug : post.slug,
+              collection: post.collection,
+              title: post.data.title
+            };
+
+            let quotes:Record<string, Object> = post.data.quotes as Record<string, Object>;
+
+            for (const key in quotes) {
+              //console.log("quotes: " + JSON.stringify(quotes));
+              //console.log("---------------")
+              const quote:QuoteObj = quotes[key] as QuoteObj;
+              quote.color = color;
+              quote.article = article;
+              allquotes.push(quote);
             }
           });
-          allDates = allDates.sort((a, b) => {
-            if (new Date(a.day) < new Date(b.day))
-              return 1;
-            if (new Date(a.day) > new Date(b.day))
-              return -1;
-            return 0;
-          });
-
           let adiv = document.createElement('div') as HTMLDivElement;
 
-          allDates.map(async date => {
-            let idiv = this.renderDates(date);
+          allquotes.map(async date => {
+            let idiv = this.renderquotes(date);
             adiv.appendChild(idiv);
           });
           div.appendChild(adiv);
@@ -159,5 +137,5 @@ let started  = await getCollection('started');
       this.appendChild(div);
     }
   }
-customElements.define('j-chrono', JChrono);
+customElements.define('j-quotes', JQuotes);
 </script>

@@ -7,7 +7,7 @@ tags: ['Computers', 'Technology', 'Startups']
 technology: []
 dates: {
     "Born": {
-                alt: "day-I-was-born",
+                url: "day-I-was-born",
                 day : "09/30/1973",
                 period: "Day",
                 title: "Day I was Born",
@@ -17,7 +17,7 @@ dates: {
                 map: "https://maps.app.goo.gl/J6zaQhaVji1E72oS9"
     },
     "Childhood": {
-                alt: "childhood",
+                url: "childhood",
                 day : "01/01/1980",
                 period: "Decade",
                 title: "The 80's Decade",
@@ -26,8 +26,18 @@ dates: {
                 location: "Juan de Garay 848, Hurlingham, Provincia de Buenos Aires",
                 map: "https://maps.app.goo.gl/wjY15weHpUC4c9dx7"
     },
+    "Robotech": {
+                url: "robotech",
+                day : "01/01/1985",
+                period: "Year",
+                title: "Robotech and its influence",
+                desc: "<a href='https://en.wikipedia.org/wiki/Robotech' target='_blank'>Robotech</a> marked me, the series that stimulated me the most at a time in my childhood with enormous curiosity, I was abducted by the innovative and futuristic series. Designed everywhere and projected to be seen for many years, it was a very important stimulus for my life.",
+                img: "/images/chrono/rick_hunter.png",
+                location: ,
+                map: ,
+    },
     "Officehood": {
-                alt: "officehood",
+                url: "officehood",
                 day : "01/01/1990",
                 period: "Decade",
                 title: "The 80's Decade",
@@ -37,7 +47,7 @@ dates: {
                 map: "https://maps.app.goo.gl/7tTkKGMt41JrAZHj7"
     },
     "SummerWork": {
-                alt: "summer-work",
+                url: "summer-work",
                 day : "02/01/1989",
                 period: "Month",
                 title: "Summer Work",
@@ -45,24 +55,15 @@ dates: {
                 img: "/images/chrono/parana.png",
                 location: "Paraná 457, CABA, Buenos Aires",
                 map: "https://maps.app.goo.gl/7tTkKGMt41JrAZHj7"
-    },
-    "Graduated": {
-                alt: "day-I-graduated",
-                day : "12/10/2015",
-                period: "Day",
-                title: "Day I graduated from University",
-                desc: "Graduated from the UBA FADU (Facultad de Diseño y Urbanismo) as IIndustrial Designer. A prestigious public university, the best in the discipline of design.",
-                img: "/images/chrono/uba.png",
-                location: "Pabellón 3, Av. Int. Güiraldes 2160, Buenos Aires",
-                map: "https://maps.app.goo.gl/FCu3enSpBwzjCAN18"
     }
 }
+quotes: {}
 ---
 import JImage from '../../components/JImage.astro';
 import JDate from '../../components/JDate.astro';
 
-# How I Got Started
-## on Technology
+# [How I Got Started](#how-i-got-sstarted)
+### [on Technology](#on-technology)
 
 <br/>
 
@@ -74,7 +75,20 @@ If I have to say one of the main feature that define my personality is of being 
 
 <br/>
 
-<JDate data={frontmatter.dates['Born']}/> I was born in San Camilo's Hospital, Almagro. My parents lived in the town of <a href="https://en.wikipedia.org/wiki/Hurlingham,_Buenos_Aires" target="_blank">Hurlingham</a>, Buenos Aires, Argentina and that was my place in the world until today. I remember my first contact with technology, regularly, was with an <a href="https://en.wikipedia.org/wiki/Atari_2600_hardware" target="_blank">Atari</a> at home at the age of 8 years old where I played games like [Pacman](https://es.wikipedia.org/wiki/Pac-Man) and [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) with my brother Fede and friends. The robust joystic was intuitive enoguh to allow a full experience and interaction with different games inserted as cassetes into whats was then going to be called a console. A perfect match (perhaps one of the best) between simplicity and innovation in something that many years later would be called user experience.
+<JDate data={frontmatter.dates['Born']}/> I was born in San Camilo's Hospital, Almagro. My parents lived in the town of <a href="https://en.wikipedia.org/wiki/Hurlingham,_Buenos_Aires" target="_blank">Hurlingham</a>, Buenos Aires, Argentina and that was my place in the world until today.
+
+<br/>
+
+<table>
+    <tr>
+        <td>
+            <JImage src="/images/started/technology/jose_kid.png" width="200px"></JImage>
+        </td>
+        <td>
+          <p style="width: 400px; padding-left: 10px;"> I remember my first contact with technology, regularly, was with an <a href="https://en.wikipedia.org/wiki/Atari_2600_hardware" target="_blank">Atari</a> at home at the age of 8 years old where I played games like [Pacman](https://es.wikipedia.org/wiki/Pac-Man) and [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) with my brother Fede and friends. The robust joystic was intuitive enoguh to allow a full experience and interaction with different games inserted as cassetes into whats was then going to be called a console. A perfect match (perhaps one of the best) between simplicity and innovation in something that many years later would be called user experience.</p>
+        </td>
+    </tr>
+</table>
 
 <br/>
 
@@ -93,6 +107,24 @@ My second relevant interaction with technology came aproximately at the age of 1
         </td>
         <td>
           <p style="width: 300px; padding-left: 10px;"> These two beuties marked my childhoood. I was able to early enjoy what would then later become revolutionary and far-reaching for me. Without noticing I was exposed to two of the most iconic products of the computer era.</p>
+        </td>
+    </tr>
+</table>
+
+<br/>
+
+<JDate data={frontmatter.dates['Robotech']}/>
+Technology and innovation are absorbed in the least expected way. When one is a child and begins to receive stimuli from the world in abundance, that is where tastes, preferences and curiosities awaken. Not only in terms of technology but music, art and culture, even cartoons mark us in life.
+
+<br/>
+
+<table>
+    <tr>
+        <td>
+            <p style="width: 500px; padding-lefright: 20px;">If something marked me during my childhood and pre-adolescence, it was a very advanced series that was replayed on television called <a href="https://en.wikipedia.org/wiki/Robotech" target="_blank">Robotech</a>. The technology, the design, the music (specially the <a href="https://www.youtube.com/watch?v=B2k8EtGl82Y" targert="_blank">opening</a>), the characters, the plot and innovation blew my mind. Certainly a technological and emotional concept charged with adrenaline that captivated me and continues to captivate today. I will love Rick and Lisa Hunter forever ❤️.</p>
+        </td>
+        <td>
+            <JImage src="/images/started/technology/robotech.png" width="280px"></JImage>
         </td>
     </tr>
 </table>

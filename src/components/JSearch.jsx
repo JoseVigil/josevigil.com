@@ -20,7 +20,7 @@ const options = {
 
 function Search({ collection }) {
 
-  console.log("collection:" + JSON.stringify(collection));
+  //console.log("collection:" + JSON.stringify(collection));
 
   // User's input
   const [query, setQuery] = useState('');

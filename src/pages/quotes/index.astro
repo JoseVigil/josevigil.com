@@ -2,8 +2,8 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '@layouts/MainLayout.astro';
 
-let dates = await getCollection('dates');
-dates = dates.sort((a, b) => {
+let quotes = await getCollection('quotes');
+quotes = quotes.sort((a, b) => {
   if (new Date(a.data.pubDate) < new Date(b.data.pubDate))
     return 1;
   if (new Date(a.data.pubDate) > new Date(b.data.pubDate))
@@ -13,27 +13,27 @@ dates = dates.sort((a, b) => {
 ---
 
 <MainLayout
-  title="Dates | Jose Vigil"
+  title="Quotes | Jose Vigil"
   description="Jose Vigil's dates"
   image=""
 >
   <h2 class="dark:text-white">
-    Dates
+    Quotes
   </h3>
   <section>
-    <div class="dates">
+    <div class="quotes">
       <ul>
         <section>
-          <div class="dates">
+          <div class="quotes">
               <ul><p class="mb-3">
                 <p style="font-weight:400; font-style:italic; padding-top:10px;">Experience and Vision</p>
               </p>
             </ul>
             <ul>
               {
-                dates.map(e => (
+                quotes.map(e => (
                   <li>
-                    <a href={`/dates/${e.slug}`} title="">{ e.data.title }</a>
+                    <a href={`/quotes/${e.slug}`} title="">{ e.data.title }</a>
                   </li>
                 ))
               }

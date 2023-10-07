@@ -10,8 +10,8 @@ export async function getStaticPaths() {
   const pages: any[] = [];
 
   // Build page of each essay
-  const dates = await getCollection('dates');
-  dates.map((post) => {
+  const quotes = await getCollection('quotes');
+  quotes.map((post) => {
     pages.push({
       params: {
         slug: post.slug,
@@ -49,7 +49,7 @@ const { Content } = await post.render();
           pubDate={pubDate}
         ></DisplayTagsDate>
       </section>
-      <article class="main-dates-content" >
+      <article class="main-quotes-content" >
         <Content />
       </article>
     </section>

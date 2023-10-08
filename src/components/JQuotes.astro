@@ -33,9 +33,9 @@ let started  = await getCollection('started');
       let coll = capitalizeFirstLetter(article.collection);
 
       let jquote = `
-        <h6 title="${title}">💬&nbsp;${title}</h6>
-        <p style="color:${color}; width: 700px; font-size: 20px; text-align: center;">${quote}&nbsp;&nbsp;<font style="font-size: 10px; color:gray;">Jose Vigil</font></p>
-        <p>${coll}&nbsp;|&nbsp;<a id="${url}" href="${article.collection + "/" + article.slug }">${article.title}</a>`;
+        <p><b><a style="color:${color}" href="/essays" target="_blank">${coll}</a></b>&nbsp;|&nbsp;<b><a style="color:${color}" id="${url}" target="_blank" href="/${article.collection + "/" + article.slug }">${article.title}</a></b>
+        <a style="color:gray;" href="${url}" target="_blank"><p style="font-size: 30px;  text-align: left; title="${title}">${title}</p></a>
+        <i><p style="width: 800px; font-size: 27px; text-align: left;">${quote}&nbsp;&nbsp;<font style="font-size: 10px; color:gray;">Jose Vigil</font></p></i><br/><br/>`;
 
       const idiv = document.createElement('div') as HTMLDivElement;
       idiv.innerHTML = jquote;

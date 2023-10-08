@@ -17,25 +17,24 @@ const pathname = Astro.url.pathname;
 
       let title = data.title;
       let quote = data.quote;
-      let url = "/quotes/" + data.url;
+      let url = "/quotes/quotes/#" + data.url;
 
       let pathname:string = this.dataset.pathname as string;
 
       let collection = pathname.split("/")[1];
 
-      console.log("collection: " + collection);
       let color =  getColorFromCollectionName(collection);
 
       let table = `<table style="float:center;">
             <tr>
                 <td style="vertical-align:top;">
-                    <h1 style="color:${color}; font-size: 40px;" width="20px">‟</h1>
+                    <h1 style="color:${color}; font-size: 20px;" width="20px">‟</h1>
                 </td>
-                <td>
-                  <a id="${data.url}" href="${url}" target="_blank" style="text-decoration: none;"><p style="color:${color}; width: 700px; font-size: 20px; text-align: center;">${quote}&nbsp;&nbsp;<font style="font-size: 10px; color:gray;">Jose Vigil</font></p></a>
+                <td style="padding-left:10px; padding-right:10px;">
+                  <a id="${data.url}" href="${url}" target="_blank" style="text-decoration: none;"><p style="color:${color}; width: 650px; font-size: 20px; text-align: left;">${quote}&nbsp;&nbsp;<font style="font-size: 10px; color:gray;">Jose Vigil</font></p></a>
                 </td>
                 <td style="vertical-align:top;">
-                  <h1 style="color:${color}; font-size: 40px;" width="20px">”</h1>
+                  <h1 style="color:${color}; font-size: 20px;" width="20px">”</h1>
                 </td>
             </tr>
         </table>`;

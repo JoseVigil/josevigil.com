@@ -35,8 +35,8 @@ let started  = await getCollection('started');
       let mDate = toJDate(day, period);
 
       let jdate = `
-        <a id="${url}" href="">
-          <h8 title="${title}">📅&nbsp;${mDate}</h8>
+        <a href="${url}">
+          <h8 id="${url}" title="${title}">📅&nbsp;${mDate}</h8>
         </a>
         <h5 style="color:${color}">${title}</h5>`;
 
@@ -51,10 +51,10 @@ let started  = await getCollection('started');
         jdate = jdate + `<table>
             <tr>
                 <td>
-                    <a href="${img}" target="_blank"><img src="${img}" style="padding-right:20px;" pl="20" width="100px"></img></a>
+                    <a href="${img}" target="_blank"><img src="${img}" style="padding-right:20px;" pl="20" width="200px"></img></a>
                 </td>
                 <td>
-                  <p style="width: 600px;">${desc}</p>
+                  <p style="width: 500px;">${desc}</p>
                   ${lm}
                 </td>
             </tr>

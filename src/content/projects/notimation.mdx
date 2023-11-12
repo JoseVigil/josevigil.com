@@ -6,11 +6,23 @@ image: https://github.blog/wp-content/uploads/2023/05/1200.630-Productivity-wLog
 pubDate: '07/22/2019'     # mm/dd/yyyy
 tags: ['Notimation', 'API', 'History', 'Present', 'Future']
 technology: []
-dates: {}
+dates: {
+  "Notimation Origin": {
+                url: "notimation-origin",
+                day : "10/01/2019",
+                period: "Month",
+                title: "How Notimation was started",
+                desc: "Notimation began as a cost-effective SMS solution for my cousin's company, RollerShow. With our previous success in Negociometro, we embarked on this venture, initially planning to use Android phones with SIM cards for SMS. However, we later opted for a more robust approach, developing an API and acquiring Synways gateways.",
+                img: "/images/projects/notimation/notimation_synway.png",
+                location: "AV. LIBERTAD 627 Piso: 1 - PUNILLA - VILLA CARLOS PAZ (5152)",
+                map: "https://maps.app.goo.gl/4k1DAwvzH4xdcajr8"
+    },
+}
 quotes: {}
 ---
-
 import JImage from '../../components/JImage.astro';
+import JDate from '../../components/JDate.astro';
+import Jquote from '../../components/Jquote.astro';
 
 # Notimation
 ## [About](#about)
@@ -25,7 +37,7 @@ Notification plus Information, <a href="https://notimation.com" target="_blank">
 
 <br />
 
-Around 2019, my cousin Nicolas Alen (Nico) and I got together to work with a simple idea: <b>create an inexpensive way to send SMS</b>. We had a nice previous experience working together with <a href="/previous/negociometro" target="_blank">Negociometro</a> so we got started smoothly and fast. Initially we thought about sending SMS via Android phone with a chip. In fact coded and app for consumming a backend however early on time we undertood we should look for something more rogust, in terms of communication equipments and team.
+<JDate data={frontmatter.dates['Notimation Origin']}/> , my cousin Nicolas Alen (Nico) and I got together to work with a simple idea: <b>create an inexpensive way to send SMS</b>. We had a nice previous experience working together with <a href="/previous/negociometro" target="_blank">Negociometro</a> so we got started smoothly and fast. Initially we thought about sending SMS via Android phone with a chip. In fact coded and app for consumming a backend however early on time we undertood we should look for something more rogust, in terms of communication equipments and team.
 
 <br />
 

@@ -1,60 +1,63 @@
 ---
-const { data } = Astro.props;
-const pathname = Astro.url.pathname;
+const { data } = Astro.props; // Ensure props are being passed
+const pathname = Astro.url?.pathname || "/"; // Fallback for pathname during SSR
 ---
 
+<!-- Render the custom element -->
 <j-quote data-jdata={JSON.stringify(data)} data-pathname={pathname}></j-quote>
 
 <script>
-
+  // Import utility function
   import { getColorFromCollectionName } from "pfunc";
 
+  // Define the custom element
   class JQuote extends HTMLElement {
     constructor() {
       super();
 
-      let data: JQuote.quoteObj = JSON.parse(this.dataset.jdata || '{}') as JQuote.quoteObj;
+      // Parse data from attributes
+      let data = JSON.parse(this.dataset.jdata);
+      let pathname = this.dataset.pathname;
 
-      let title = data.title || 'Unknown Title';
-      let quote = data.quote || 'No Quote Available';
-      let url = data.url ? "/quotes/quotes/#" + data.url : "#";
+      // Extract required fields
+      let title = data.title || "Untitled";
+      let quote = data.quote || "No quote available";
+      let url = "/quotes/quotes/#" + (data.url || "");
 
-      let pathname:string = this.dataset.pathname as string;
+      // Get collection name from pathname
+      let collection = pathname.split("/")[1] || "default";
+      let color = getColorFromCollectionName(collection);
 
-      let collection = pathname.split("/")[1];
-
-      let color =  getColorFromCollectionName(collection);
-
-      let table = `<table style="float:center;">
-            <tr>
-                <td style="vertical-align:top;">
-                    <h1 style="color:${color}; font-size: 20px;" width="20px">‟</h1>
-                </td>
-                <td style="padding-left:10px; padding-right:10px;">
-                  <a id="${data.url}" href="${url}" target="_blank" style="text-decoration: none;"><p style="color:${color}; width: 650px; font-size: 20px; text-align: left;">${quote}&nbsp;&nbsp;<font style="font-size: 10px; color:gray;">Jose Vigil</font></p></a>
-                </td>
-                <td style="vertical-align:top;">
-                  <h1 style="color:${color}; font-size: 20px;" width="20px">”</h1>
-                </td>
-            </tr>
+      // Build the HTML template
+      let table = `
+        <table style="float:center;">
+          <tr>
+            <td style="vertical-align:top;">
+              <h1 style="color:${color}; font-size: 20px;" width="20px">‟</h1>
+            </td>
+            <td style="padding-left:10px; padding-right:10px;">
+              <a id="${data.url}" href="${url}" target="_blank" style="text-decoration: none;">
+                <p style="color:${color}; width: 650px; font-size: 20px; text-align: left;">
+                  ${quote}&nbsp;&nbsp;<font style="font-size: 10px; color:gray;">Jose Vigil</font>
+                </p>
+              </a>
+            </td>
+            <td style="vertical-align:top;">
+              <h1 style="color:${color}; font-size: 20px;" width="20px">”</h1>
+            </td>
+          </tr>
         </table>`;
 
-      const div = document.createElement('div') as HTMLDivElement;
+      // Create a container div
+      const div = document.createElement("div");
       div.setAttribute("style", "float:center");
       div.innerHTML = table;
 
+      // Append the content to the custom element
       this.appendChild(div);
-
     }
-
   }
 
-namespace JQuote {
-  export interface quoteObj {
-    title : string;
-    quote : string;
-    url: string;
-  }
-}
-  customElements.define('j-quote', JQuote);
+  // Define the custom element
+  customElements.define("j-quote", JQuote);
 </script>

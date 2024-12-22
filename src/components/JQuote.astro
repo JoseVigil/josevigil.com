@@ -13,11 +13,11 @@ const pathname = Astro.url.pathname;
     constructor() {
       super();
 
-      let data:JQuote.quoteObj = JSON.parse(this.dataset.jdata!) as JQuote.quoteObj;
+      let data: JQuote.quoteObj = JSON.parse(this.dataset.jdata || '{}') as JQuote.quoteObj;
 
-      let title = data.title;
-      let quote = data.quote;
-      let url = "/quotes/quotes/#" + data.url;
+      let title = data.title || 'Unknown Title';
+      let quote = data.quote || 'No Quote Available';
+      let url = data.url ? "/quotes/quotes/#" + data.url : "#";
 
       let pathname:string = this.dataset.pathname as string;
 

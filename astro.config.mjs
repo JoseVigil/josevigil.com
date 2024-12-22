@@ -9,3 +9,10 @@ export default defineConfig({
   site: 'https://josevigil.com',
   integrations: [tailwind(), mdx(), react(), sitemap()]
 });
+
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught exception:', err);
+});
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled rejection:', err);
+});

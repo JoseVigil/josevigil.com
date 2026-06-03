@@ -1,0 +1,423 @@
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080808;--bg1:#0d0d0d;--bg2:#111111;--bg3:#161616;
+  --fg:#e8e8e8;--fg2:#a0a0a0;--fg3:#585858;--fg4:#2e2e2e;
+  --accent:#00ff88;--accent2:#00b8ff;
+  --line:rgba(255,255,255,0.06);--line2:rgba(255,255,255,0.12);
+  --mono:'IBM Plex Mono',monospace;--mono2:'JetBrains Mono',monospace;
+}
+.site-wrap{background:var(--bg);color:var(--fg);font-family:var(--mono);font-weight:300;line-height:1.7;overflow:hidden;font-size:14px;border-radius:8px;border:1px solid #222;}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:40px;border-bottom:1px solid var(--line);background:rgba(8,8,8,0.98);}
+.nav-id{font-family:var(--mono2);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;}
+.nav-links{display:flex;gap:1rem;list-style:none;}
+.nav-links a{font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg3);}
+.nav-status{font-size:0.55rem;color:var(--fg3);display:flex;align-items:center;gap:0.4rem;}
+.pulse{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);}
+.hero-left{padding:2.5rem 2rem;border-right:1px solid var(--line);}
+.hero-sys-id{font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--fg3);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem;}
+.hero-sys-id span{color:var(--accent);}
+.hero-name{font-family:var(--mono2);font-size:2.2rem;font-weight:500;line-height:1.05;letter-spacing:-0.02em;margin-bottom:0.4rem;}
+.hero-role{font-size:0.65rem;color:var(--fg3);letter-spacing:0.08em;margin-bottom:1.5rem;}
+.hero-statement{font-size:0.75rem;color:var(--fg2);line-height:1.8;max-width:360px;margin-bottom:2rem;}
+.hero-statement em{color:var(--fg);font-style:normal;}
+.hero-meta{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:1.5rem;max-width:320px;}
+.hmi{background:var(--bg);padding:0.6rem 0.8rem;}
+.hml{font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg3);margin-bottom:0.2rem;}
+.hmv{font-size:0.65rem;color:var(--fg2);}
+.hero-links{display:flex;gap:1rem;flex-wrap:wrap;}
+.hero-link{font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg3);border-bottom:1px solid var(--fg4);padding-bottom:1px;}
+
+.hero-right{padding:2.5rem 2rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;pointer-events:none;opacity:0.3;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:40px 40px;}
+.hero-terminal{font-size:0.55rem;color:var(--fg3);line-height:2;position:relative;z-index:1;}
+.t-line::before{content:'> ';color:var(--accent);}
+.cursor{display:inline-block;width:6px;height:0.8em;background:var(--accent);vertical-align:middle;animation:blink 1s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.photo-area{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;flex:1;}
+.photo-frame{position:relative;width:160px;height:200px;}
+.photo-placeholder{width:100%;height:100%;background:var(--bg2);border:1px solid var(--line2);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.photo-placeholder::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.015) 3px,rgba(255,255,255,0.015) 4px);}
+.photo-txt{font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--fg3);position:relative;z-index:1;text-align:center;line-height:2;}
+.pc{position:absolute;width:10px;height:10px;}
+.pc.tl{top:0;left:0;border-top:2px solid var(--accent);border-left:2px solid var(--accent);}
+.pc.tr{top:0;right:0;border-top:2px solid var(--accent);border-right:2px solid var(--accent);}
+.pc.bl{bottom:0;left:0;border-bottom:2px solid var(--accent);border-left:2px solid var(--accent);}
+.pc.br{bottom:0;right:0;border-bottom:2px solid var(--accent);border-right:2px solid var(--accent);}
+.photo-overlay{position:absolute;top:-6px;left:-6px;right:6px;bottom:6px;border:1px solid var(--fg4);pointer-events:none;}
+
+section{padding:3rem 0;border-bottom:1px solid var(--line);}
+.container{max-width:100%;padding:0 2rem;}
+.sec-label{font-size:0.52rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--fg3);margin-bottom:2rem;display:flex;align-items:center;gap:0.6rem;}
+.sec-label::before{content:'';display:block;width:20px;height:1px;background:var(--fg3);}
+.split-header{display:grid;grid-template-columns:1fr auto;align-items:baseline;margin-bottom:2rem;}
+.split-header h2{font-family:var(--mono2);font-size:1.2rem;font-weight:500;letter-spacing:-0.01em;}
+.split-header .count{font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--fg3);}
+
+.systems-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.sys-card{background:var(--bg);padding:1.5rem;}
+.sys-card-id{font-size:0.5rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--fg3);margin-bottom:1rem;display:flex;align-items:center;gap:0.4rem;}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--accent);}
+.dot.blue{background:var(--accent2);}
+.dot.gray{background:var(--fg3);}
+.sys-card-name{font-family:var(--mono2);font-size:1rem;font-weight:500;margin-bottom:0.3rem;}
+.sys-card-sub{font-size:0.58rem;color:var(--fg3);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:1rem;}
+.sys-card-desc{font-size:0.68rem;color:var(--fg2);line-height:1.8;margin-bottom:1.25rem;}
+.sys-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.25rem;}
+.sys-tag{font-size:0.5rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg3);border:1px solid var(--fg4);padding:0.15rem 0.5rem;}
+.sys-link{font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg3);border-bottom:1px solid var(--fg4);padding-bottom:1px;}
+.sys-link::after{content:'→';margin-left:0.3rem;}
+
+.bloomaut-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.bloomaut-desc .sub{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.5rem;}
+.bloomaut-desc h3{font-family:var(--mono2);font-size:1.5rem;font-weight:500;margin-bottom:0.4rem;letter-spacing:-0.02em;}
+.bloomaut-desc p{font-size:0.72rem;color:var(--fg2);line-height:1.85;margin-bottom:1rem;}
+.bloomaut-desc p em{color:var(--fg);font-style:normal;}
+.bloomaut-spec{border:1px solid var(--line);background:var(--bg1);}
+.spec-row{display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid var(--line);}
+.spec-row:last-child{border-bottom:none;}
+.spec-key{padding:0.6rem 1rem;font-size:0.53rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--fg3);border-right:1px solid var(--line);}
+.spec-val{padding:0.6rem 1rem;font-size:0.65rem;color:var(--fg2);}
+
+.writings-list{border:1px solid var(--line);}
+.writing-item{display:grid;grid-template-columns:90px 1fr auto;align-items:start;gap:0;border-bottom:1px solid var(--line);padding:1rem 1.5rem;}
+.writing-item:last-child{border-bottom:none;}
+.writing-date{font-size:0.55rem;letter-spacing:0.1em;color:var(--fg3);padding-top:0.15rem;}
+.writing-title{font-family:var(--mono2);font-size:0.8rem;font-weight:400;color:var(--fg);margin-bottom:0.3rem;}
+.writing-excerpt{font-size:0.65rem;color:var(--fg2);line-height:1.7;max-width:500px;}
+.writing-cat{font-size:0.5rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg3);border:1px solid var(--fg4);padding:0.15rem 0.5rem;white-space:nowrap;align-self:start;}
+
+.tl-item{display:grid;grid-template-columns:70px 1fr;gap:0;padding:1.5rem 0;border-bottom:1px solid var(--line);position:relative;}
+.tl-year{font-family:var(--mono2);font-size:0.65rem;font-weight:500;color:var(--fg3);padding-top:0.2rem;}
+.tl-year.active-year{color:var(--accent);}
+.tl-dot{position:absolute;left:67px;top:1.8rem;width:8px;height:8px;border-radius:50%;background:var(--bg);border:1px solid var(--fg4);}
+.tl-dot.accent{border-color:var(--accent);background:rgba(0,255,136,0.15);}
+.tl-content{padding-left:1.5rem;}
+.tl-project{font-family:var(--mono2);font-size:0.82rem;font-weight:400;color:var(--fg);margin-bottom:0.25rem;}
+.tl-project.accent-text{color:var(--accent);}
+.tl-desc{font-size:0.68rem;color:var(--fg2);line-height:1.7;margin-bottom:0.6rem;}
+.tl-tags{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.tl-tag{font-size:0.5rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3);border:1px solid var(--fg4);padding:0.12rem 0.45rem;}
+
+.now-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);}
+.now-col{padding:1.5rem;border-right:1px solid var(--line);}
+.now-col:last-child{border-right:none;}
+.now-col h4{font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--fg3);margin-bottom:1.2rem;}
+.now-list{list-style:none;}
+.now-list li{font-size:0.7rem;color:var(--fg2);padding:0.45rem 0;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:0.6rem;}
+.now-list li:last-child{border-bottom:none;}
+.now-list li::before{content:'—';color:var(--fg4);font-size:0.6rem;flex-shrink:0;}
+
+.human-section{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;}
+.human-label-col h2{font-family:var(--mono2);font-size:2rem;font-weight:500;line-height:1.1;letter-spacing:-0.02em;}
+.human-label-col .hl-sub{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3);margin-top:0.75rem;}
+.human-content p{font-size:0.72rem;color:var(--fg2);line-height:1.85;margin-bottom:1rem;}
+.human-content p em{color:var(--fg);font-style:normal;}
+.human-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:1.5rem;}
+.h-stat{background:var(--bg);padding:1.25rem;}
+.h-stat-num{font-family:var(--mono2);font-size:1.8rem;font-weight:500;line-height:1;margin-bottom:0.4rem;}
+.h-stat-num span{color:var(--accent);font-size:1.1rem;}
+.h-stat-label{font-size:0.55rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--fg3);line-height:1.6;}
+
+.archive-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.archive-item{background:var(--bg);padding:1.5rem;}
+.archive-era{font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg3);margin-bottom:0.75rem;}
+.archive-name{font-family:var(--mono2);font-size:0.9rem;font-weight:400;color:var(--fg2);margin-bottom:0.4rem;}
+.archive-desc{font-size:0.68rem;color:var(--fg3);line-height:1.75;}
+
+footer{padding:2rem;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:1.5rem;background:var(--bg);}
+.footer-id{font-family:var(--mono2);font-size:0.65rem;font-weight:500;color:var(--fg2);}
+.footer-id small{display:block;font-size:0.55rem;color:var(--fg3);margin-top:0.2rem;font-weight:300;}
+.footer-links{display:flex;gap:1.25rem;justify-content:center;}
+.footer-links a{font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg3);}
+.footer-sys{text-align:right;font-size:0.55rem;letter-spacing:0.1em;color:var(--fg3);line-height:1.9;}
+
+.cog-diagram{border:1px solid var(--line);background:var(--bg1);padding:1.5rem;margin-top:2rem;position:relative;}
+.cog-label{position:absolute;top:0.6rem;left:0.8rem;font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg3);}
+.cog-nodes{display:flex;align-items:center;gap:0;margin-top:1rem;overflow-x:auto;}
+.cog-node{flex:0 0 auto;padding:0.5rem 0.9rem;border:1px solid var(--fg4);background:var(--bg);font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg2);white-space:nowrap;}
+.cog-node.active{border-color:var(--accent);color:var(--accent);}
+.cog-node.active2{border-color:var(--accent2);color:var(--accent2);}
+.cog-arrow{flex:0 0 auto;color:var(--fg3);font-size:0.7rem;padding:0 0.4rem;}
+
+.section-intro{font-size:0.72rem;color:var(--fg2);line-height:1.85;max-width:520px;margin-bottom:2rem;}
+
+.open-btn{display:inline-flex;align-items:center;gap:8px;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;background:rgba(0,255,136,0.08);color:var(--accent);border:1px solid rgba(0,255,136,0.25);padding:0.6rem 1.25rem;cursor:pointer;font-family:var(--mono);margin-bottom:1.5rem;}
+.open-btn:hover{background:rgba(0,255,136,0.15);}
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<div class="site-wrap">
+
+<nav>
+  <div class="nav-id">JOSE VIGIL SYSTEMS</div>
+  <ul class="nav-links">
+    <li><a href="#">Systems</a></li>
+    <li><a href="#">Cognituum</a></li>
+    <li><a href="#">Bloomaut</a></li>
+    <li><a href="#">Writings</a></li>
+    <li><a href="#">Timeline</a></li>
+    <li><a href="#">Now</a></li>
+  </ul>
+  <div class="nav-status"><div class="pulse"></div>AR · Active</div>
+</nav>
+
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-sys-id"><span>SYS::001</span> — JOSE VIGIL SYSTEMS</div>
+    <div class="hero-name">Jose<br>Vigil</div>
+    <div class="hero-role">Industrial Designer → Software Systems Builder<br>AI Architect · Team Builder · Startup Founder</div>
+    <p class="hero-statement">Building <em>cognitive infrastructure</em>, automation systems and technical teams for over 25 years. Interfaces, startups, AI architectures and programmable workflows — from Argentina.</p>
+    <div class="hero-meta">
+      <div class="hmi"><div class="hml">Location</div><div class="hmv">Buenos Aires, AR</div></div>
+      <div class="hmi"><div class="hml">Status</div><div class="hmv">Building · Researching</div></div>
+      <div class="hmi"><div class="hml">Experience</div><div class="hmv">25+ years</div></div>
+      <div class="hmi"><div class="hml">Focus</div><div class="hmv">AI Systems · Automation</div></div>
+    </div>
+    <div class="hero-links">
+      <a class="hero-link" href="#">Current systems</a>
+      <a class="hero-link" href="#">Timeline</a>
+      <a class="hero-link" href="#">GitHub</a>
+      <a class="hero-link" href="#">LinkedIn</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-grid"></div>
+    <div class="hero-terminal">
+      <div class="t-line">JOSE VIGIL SYSTEMS v2.0</div>
+      <div class="t-line">init cognitive_infrastructure</div>
+      <div class="t-line">load Cognituum · Bloomaut</div>
+      <div class="t-line">status: building<span class="cursor"></span></div>
+    </div>
+    <div class="photo-area">
+      <div class="photo-frame">
+        <div class="photo-placeholder">
+          <div class="pc tl"></div><div class="pc tr"></div><div class="pc bl"></div><div class="pc br"></div>
+          <div class="photo-txt">JOSE VIGIL<br>——————<br>B&W PORTRAIT<br>HIGH CONTRAST</div>
+        </div>
+        <div class="photo-overlay"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="sec-label">Current Systems</div>
+    <div class="split-header"><h2>Active Infrastructure</h2><div class="count">03 nodes</div></div>
+    <div class="systems-grid">
+      <div class="sys-card">
+        <div class="sys-card-id"><div class="dot"></div>SYS::COGNITUUM</div>
+        <div class="sys-card-name">COGNITUUM</div>
+        <div class="sys-card-sub">Cognitive State Continuum</div>
+        <p class="sys-card-desc">A research initiative into cognitive infrastructure and programmable intent. Local cognition models, hybrid memory systems and AI orchestration architecture.</p>
+        <div class="sys-tags"><span class="sys-tag">Continuity</span><span class="sys-tag">Intent</span><span class="sys-tag">Local Cognition</span><span class="sys-tag">Orchestration</span></div>
+        <a href="#" class="sys-link">Explore research</a>
+      </div>
+      <div class="sys-card">
+        <div class="sys-card-id"><div class="dot blue"></div>SYS::BLOOMAUT</div>
+        <div class="sys-card-name">BLOOMAUT</div>
+        <div class="sys-card-sub">AI-Native Creator Infrastructure</div>
+        <p class="sys-card-desc">Autonomous video workflows, creator pipelines and AI-assisted production systems. Content systems for the post-automation era.</p>
+        <div class="sys-tags"><span class="sys-tag">AI Video</span><span class="sys-tag">Pipelines</span><span class="sys-tag">Automation</span><span class="sys-tag">Creator Systems</span></div>
+        <a href="#" class="sys-link">Explore platform</a>
+      </div>
+      <div class="sys-card">
+        <div class="sys-card-id"><div class="dot gray"></div>SYS::MEDIA</div>
+        <div class="sys-card-name">JVS MEDIA</div>
+        <div class="sys-card-sub">Systems Essays · Technical Thinking</div>
+        <p class="sys-card-desc">A writing and video layer. Reflections on cognitive architecture, AI infrastructure, founder resilience and the long-term discipline of building systems.</p>
+        <div class="sys-tags"><span class="sys-tag">Essays</span><span class="sys-tag">AI Systems</span><span class="sys-tag">Founder Thinking</span></div>
+        <a href="#" class="sys-link">Read writings</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-label">Research Initiative</div>
+    <div class="split-header"><h2>COGNITUUM</h2><div class="count">Research · v0.4</div></div>
+    <div class="bloomaut-grid">
+      <div class="bloomaut-desc">
+        <div class="sub">Cognitive State Continuum for Programmable Intent</div>
+        <p>Most AI systems are stateless. Each session begins from zero. <em>Cognituum</em> is a framework for cognitive continuity — a protocol for machines that remember, persist and accumulate state across time.</p>
+        <p>The core thesis: AI utility is constrained not by capability but by <em>continuity</em>. Without persistent cognitive state, even the most capable models remain reactive tools rather than autonomous systems.</p>
+        <div class="sys-tags"><span class="sys-tag">Local Cognition</span><span class="sys-tag">Hybrid Memory</span><span class="sys-tag">Intent Graphs</span><span class="sys-tag">Orchestration</span><span class="sys-tag">Machine Continuity</span></div>
+      </div>
+      <div>
+        <div class="bloomaut-spec">
+          <div class="spec-row"><div class="spec-key">Type</div><div class="spec-val">Research Initiative · Framework</div></div>
+          <div class="spec-row"><div class="spec-key">Status</div><div class="spec-val">Active Research · v0.4</div></div>
+          <div class="spec-row"><div class="spec-key">Layer</div><div class="spec-val">Cognitive Infrastructure</div></div>
+          <div class="spec-row"><div class="spec-key">Primary</div><div class="spec-val">Intent · Continuity · Memory</div></div>
+          <div class="spec-row"><div class="spec-key">Paradigm</div><div class="spec-val">Protocol-oriented · Local-first</div></div>
+          <div class="spec-row"><div class="spec-key">Origin</div><div class="spec-val">Evolved from BTIPS · 2024–</div></div>
+        </div>
+        <div class="cog-diagram">
+          <div class="cog-label">COGNITUUM — STATE DIAGRAM v0.4</div>
+          <div class="cog-nodes">
+            <div class="cog-node">INPUT</div><div class="cog-arrow">→</div>
+            <div class="cog-node">INTENT PARSE</div><div class="cog-arrow">→</div>
+            <div class="cog-node active">STATE ENGINE</div><div class="cog-arrow">→</div>
+            <div class="cog-node active2">MEMORY LAYER</div><div class="cog-arrow">→</div>
+            <div class="cog-node">OUTPUT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-label">Applied Layer</div>
+    <div class="split-header"><h2>BLOOMAUT</h2><div class="count">Platform · Active</div></div>
+    <div class="bloomaut-grid">
+      <div class="bloomaut-desc">
+        <div class="sub">AI-Native Creator Infrastructure</div>
+        <p>Bloomaut is the operational layer where AI systems research meets real production requirements. Autonomous video workflows, structured creator pipelines and AI-assisted content systems.</p>
+        <p>Not a tool wrapper. A <em>full-stack creator infrastructure</em> — from ideation through production, curation and distribution — built on programmable workflows and AI-native architecture.</p>
+      </div>
+      <div class="bloomaut-spec">
+        <div class="spec-row"><div class="spec-key">Category</div><div class="spec-val">Creator Infrastructure · AI Platform</div></div>
+        <div class="spec-row"><div class="spec-key">Status</div><div class="spec-val">Building · Active development</div></div>
+        <div class="spec-row"><div class="spec-key">Core</div><div class="spec-val">Autonomous Video Workflows</div></div>
+        <div class="spec-row"><div class="spec-key">Stack</div><div class="spec-val">AI-native pipelines · Automation</div></div>
+        <div class="spec-row"><div class="spec-key">Target</div><div class="spec-val">Founders · Independent Creators</div></div>
+        <div class="spec-row"><div class="spec-key">Link</div><div class="spec-val" style="color:var(--accent2)">bloomaut.com →</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-label">Leadership · Teams · Culture</div>
+    <div class="human-section">
+      <div class="human-label-col">
+        <h2>Human<br>Systems</h2>
+        <div class="hl-sub">Technical Leadership<br>Team Architecture</div>
+      </div>
+      <div class="human-content">
+        <p>Systems are ultimately built by people. Over 25 years, the work has not only been technical infrastructure — it has been <em>building the human systems</em> that make technical infrastructure possible.</p>
+        <p>The combination of <em>technical depth, systems architecture and human coordination</em> is rare. AI can generate code. It cannot hold a long-term technical vision, motivate a team through a pivot, or maintain creative direction across years of uncertainty.</p>
+        <div class="human-stats">
+          <div class="h-stat"><div class="h-stat-num">25<span>+</span></div><div class="h-stat-label">Years building<br>systems</div></div>
+          <div class="h-stat"><div class="h-stat-num">8<span>+</span></div><div class="h-stat-label">Startups &amp;<br>ventures</div></div>
+          <div class="h-stat"><div class="h-stat-num">∞</div><div class="h-stat-label">Teams led &amp;<br>talent formed</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-label">Technical Essays · System Notes</div>
+    <div class="split-header"><h2>Writings</h2><div class="count">10 notes</div></div>
+    <p class="section-intro">Field notes from 25 years of building. Not optimistic startup essays — architecture reflections, cognitive infrastructure research and technical founder thinking.</p>
+    <div class="writings-list">
+      <div class="writing-item">
+        <div class="writing-date">2025 · 01</div>
+        <div><div class="writing-title">Continuity is the unsolved problem in AI systems</div><div class="writing-excerpt">Every AI interaction begins from zero. The capability is available; the memory is not.</div></div>
+        <div class="writing-cat">Cognituum</div>
+      </div>
+      <div class="writing-item">
+        <div class="writing-date">2025 · 02</div>
+        <div><div class="writing-title">Why most AI products are wrappers and not systems</div><div class="writing-excerpt">The difference between a product and a system: a product solves a problem. A system creates the conditions for problems to stop existing.</div></div>
+        <div class="writing-cat">AI Systems</div>
+      </div>
+      <div class="writing-item">
+        <div class="writing-date">2025 · 03</div>
+        <div><div class="writing-title">Building from Argentina: infrastructure thinking at the periphery</div><div class="writing-excerpt">Distance from the center forces a different kind of architectural thinking.</div></div>
+        <div class="writing-cat">Founder</div>
+      </div>
+      <div class="writing-item">
+        <div class="writing-date">2024 · 12</div>
+        <div><div class="writing-title">Programmable intent: toward AI that executes across sessions</div><div class="writing-excerpt">Intent is structured desire. A workflow is serialized intent.</div></div>
+        <div class="writing-cat">Cognituum</div>
+      </div>
+      <div class="writing-item">
+        <div class="writing-date">2024 · 11</div>
+        <div><div class="writing-title">Interfaces as cognitive infrastructure</div><div class="writing-excerpt">An interface is not a surface. It is a cognitive prosthetic.</div></div>
+        <div class="writing-cat">Interface</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-label">Chronology · 2000 → Present</div>
+    <div class="split-header"><h2>System History</h2><div class="count">25 years</div></div>
+    <div class="timeline" style="position:relative;padding-left:0;">
+      <div style="position:absolute;left:70px;top:0;bottom:0;width:1px;background:var(--line2);"></div>
+      <div class="tl-item"><div class="tl-year">2000</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-project">Helpdesk &amp; Infrastructure Operations</div><div class="tl-desc">First contact with large-scale technical systems. Built operational discipline from ground up.</div><div class="tl-tags"><span class="tl-tag">Infrastructure</span><span class="tl-tag">Operations</span></div></div></div>
+      <div class="tl-item"><div class="tl-year">2003</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-project">Healthcare Systems Administration</div><div class="tl-desc">Systems administration in high-stakes clinical environments. Led technical and administrative teams under pressure.</div><div class="tl-tags"><span class="tl-tag">Healthcare IT</span><span class="tl-tag">Leadership</span></div></div></div>
+      <div class="tl-item"><div class="tl-year">2008</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-project">Early Startup Exploration</div><div class="tl-desc">Transition to startup founding. First direct experience building products and coordinating multidisciplinary teams.</div><div class="tl-tags"><span class="tl-tag">Startup</span><span class="tl-tag">Founding</span></div></div></div>
+      <div class="tl-item"><div class="tl-year">2018</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-project">Notimation</div><div class="tl-desc">Automated notification and workflow platform. Built the full technical and human stack.</div><div class="tl-tags"><span class="tl-tag">SaaS</span><span class="tl-tag">Automation</span></div></div></div>
+      <div class="tl-item"><div class="tl-year active-year">2024</div><div class="tl-dot accent"></div><div class="tl-content"><div class="tl-project accent-text">Cognituum · Bloomaut</div><div class="tl-desc">Current active phase. Cognitive infrastructure research meets applied AI-native creator platform.</div><div class="tl-tags"><span class="tl-tag">Cognituum</span><span class="tl-tag">Bloomaut</span><span class="tl-tag">Active</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-label">Previous Systems · Archived</div>
+    <div class="split-header"><h2>Archive</h2><div class="count">Research layers</div></div>
+    <div class="archive-grid">
+      <div class="archive-item"><div class="archive-era">2018 – 2022</div><div class="archive-name">Notimation</div><div class="archive-desc">Automated notification platform. First full commercial deployment of automation architecture principles.</div></div>
+      <div class="archive-item"><div class="archive-era">2021 – 2023</div><div class="archive-name">UiTool</div><div class="archive-desc">Interface design tooling and UI systems research. Cognitive foundation for Cognituum.</div></div>
+      <div class="archive-item"><div class="archive-era">2012 – 2017</div><div class="archive-name">Messaging Systems Research</div><div class="archive-desc">Automated communication workflows. Pre-AI automation infrastructure work.</div></div>
+      <div class="archive-item"><div class="archive-era">2008 – 2012</div><div class="archive-name">Early Startup Layer</div><div class="archive-desc">First ventures, first team building, first production failures. The foundation of everything built since.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-label">Current State · Updated 2025</div>
+    <div class="split-header"><h2>Now</h2><div class="count">Live document</div></div>
+    <div class="now-grid">
+      <div class="now-col">
+        <h4>Building</h4>
+        <ul class="now-list">
+          <li>Bloomaut — AI-native creator infrastructure</li>
+          <li>Cognituum — cognitive state framework v0.4</li>
+          <li>AI video production pipelines</li>
+          <li>Content automation systems for creators</li>
+        </ul>
+      </div>
+      <div class="now-col">
+        <h4>Researching &amp; Seeking</h4>
+        <ul class="now-list">
+          <li>Local cognition architectures and offline AI</li>
+          <li>Hybrid memory systems for LLM continuity</li>
+          <li>Writing system essays and architecture notes</li>
+          <li>Remote AI systems · product · automation roles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-id">JOSE VIGIL SYSTEMS<small>Building cognitive infrastructure from Argentina.</small></div>
+  <div class="footer-links">
+    <a href="#">GitHub</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Bloomaut</a>
+    <a href="#">Email</a>
+  </div>
+  <div class="footer-sys">SYS::JOSEVIGIL v2.0<br>Buenos Aires · Argentina<br>25+ years building</div>
+</footer>
+
+</div>

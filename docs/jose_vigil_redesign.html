@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>José Vigil — Systems Builder · Cognitive Infrastructure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper: #f5f0e8;
+  --paper-dark: #ede7d9;
+  --ink: #1a1612;
+  --ink-2: #3d3630;
+  --ink-3: #6b6058;
+  --ink-4: #a09080;
+  --ink-5: #c8bcac;
+  --rule: #c0b09a;
+  --rule-light: #ddd0bb;
+  --red: #8b1a1a;
+  --red-2: #c0392b;
+  --margin-bg: #ede7d9;
+  --col-gap: 2.5rem;
+  --serif: 'EB Garamond', 'Libre Baskerville', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── DOCUMENT SHELL ── */
+.document {
+  max-width: 960px;
+  margin: 0 auto;
+  background: var(--paper);
+  position: relative;
+}
+
+/* ── HEADER COLOPHON ── */
+.colophon {
+  border-bottom: 2px solid var(--ink);
+  padding: 1.5rem 3rem 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 1rem;
+}
+
+.colophon-left {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  line-height: 1.9;
+  padding-bottom: 0.75rem;
+}
+
+.colophon-center {
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.doc-title-main {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.doc-title-rule {
+  width: 60px;
+  height: 1px;
+  background: var(--ink-3);
+  margin: 0 auto 0.3rem;
+}
+
+.doc-volume {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  text-align: center;
+  display: block;
+  padding-bottom: 0.75rem;
+}
+
+.colophon-right {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  line-height: 1.9;
+  padding-bottom: 0.75rem;
+}
+
+/* ── FOLIO LINE ── */
+.folio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 3rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-dark);
+}
+
+.folio-nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.folio-nav a {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.folio-nav a:hover { color: var(--red); }
+
+.folio-status {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── MAIN CONTENT ── */
+main {
+  padding: 0 3rem;
+}
+
+/* ── SECTION ANATOMY ── */
+section {
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--rule-light);
+  position: relative;
+}
+
+section:last-child { border-bottom: none; }
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule-light);
+}
+
+/* ── HERO TITLE BLOCK ── */
+.hero-name-block {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-name {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--ink-2);
+}
+
+.hero-right-col {
+  padding-top: 0.5rem;
+  min-width: 240px;
+}
+
+.hero-role-label {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 0.5rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.5rem;
+}
+
+.hero-role-line {
+  font-size: 0.82rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+
+.hero-meta-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hero-meta-table td {
+  padding: 0.3rem 0;
+  font-size: 0.72rem;
+  border-bottom: 1px solid var(--rule-light);
+  vertical-align: top;
+}
+
+.hero-meta-table td:first-child {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  width: 80px;
+  padding-right: 1rem;
+  padding-top: 0.38rem;
+}
+
+.hero-meta-table td:last-child { color: var(--ink-2); }
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  border-left: 3px solid var(--ink);
+  padding: 0.6rem 0 0.6rem 1.5rem;
+  margin: 2rem 0;
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 640px;
+}
+
+.pull-quote cite {
+  display: block;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-top: 0.5rem;
+}
+
+/* ── BODY TEXT ── */
+.body-text {
+  font-size: 1rem;
+  line-height: 1.82;
+  color: var(--ink-2);
+  max-width: 600px;
+}
+
+.body-text + .body-text { margin-top: 1.1em; }
+
+.body-text em {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.body-text strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ── TWO COLUMN ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--col-gap);
+  align-items: start;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--col-gap);
+  align-items: start;
+}
+
+/* ── SECTION HEADING ── */
+.sec-h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.sec-h2 em { font-style: italic; color: var(--ink-2); }
+
+.sec-h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+/* ── SYSTEM CARDS (document-style) ── */
+.sys-entry {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.sys-entry:last-child { border-bottom: none; }
+
+.sys-entry-header {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 1.5rem;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.sys-index {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ink-4);
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+
+.sys-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.sys-status {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 0.15rem 0.6rem;
+  white-space: nowrap;
+}
+
+.sys-status.inactive {
+  color: var(--ink-4);
+  border-color: var(--ink-5);
+}
+
+.sys-sub {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-3);
+  margin-bottom: 0.8rem;
+  padding-left: calc(80px + 1.5rem);
+  font-family: 'EB Garamond', serif;
+}
+
+.sys-body {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--ink-2);
+  padding-left: calc(80px + 1.5rem);
+  max-width: 560px;
+}
+
+.sys-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-left: calc(80px + 1.5rem);
+  margin-top: 0.9rem;
+}
+
+.sys-tag {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+}
+
+.sys-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  margin-left: calc(80px + 1.5rem);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid var(--red);
+  padding-bottom: 1px;
+  transition: opacity 0.2s;
+}
+
+.sys-link:hover { opacity: 0.65; }
+
+/* ── SPEC TABLE ── */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin-top: 1.5rem;
+}
+
+.spec-table tr { border-bottom: 1px solid var(--rule-light); }
+.spec-table tr:first-child { border-top: 2px solid var(--ink); }
+.spec-table tr:last-child { border-bottom: 2px solid var(--rule); }
+
+.spec-table th {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  text-align: left;
+  padding: 0.5rem 1rem 0.5rem 0;
+  font-weight: 400;
+}
+
+.spec-table td {
+  padding: 0.55rem 1rem 0.55rem 0;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+.spec-table td:first-child {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  width: 160px;
+}
+
+/* ── WRITINGS LIST ── */
+.writings-list { margin-top: 0.5rem; }
+
+.writing-entry {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule-light);
+  align-items: baseline;
+}
+
+.writing-entry:first-child { border-top: 1px solid var(--rule); }
+
+.writing-date {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+  padding-top: 0.2rem;
+}
+
+.writing-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+.writing-excerpt {
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.writing-cat {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  white-space: nowrap;
+  align-self: start;
+}
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 90px; }
+
+.tl-line {
+  position: absolute;
+  left: 82px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--rule);
+}
+
+.tl-entry {
+  position: relative;
+  padding: 1.5rem 0 1.5rem 2rem;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.tl-entry:last-child { border-bottom: none; }
+
+.tl-year {
+  position: absolute;
+  left: -90px;
+  top: 1.65rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+  text-align: right;
+  width: 70px;
+}
+
+.tl-year.current {
+  color: var(--red);
+  font-weight: 500;
+}
+
+.tl-dot {
+  position: absolute;
+  left: -0.4rem;
+  top: 1.95rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+
+.tl-dot.current {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(139, 26, 26, 0.15);
+}
+
+.tl-project {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.tl-project.current { color: var(--red); }
+
+.tl-desc {
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.tl-tags {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tl-tag {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  border-bottom: 1px solid var(--rule-light);
+}
+
+/* ── STATS ROW ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  margin-top: 2rem;
+}
+
+.stat {
+  padding: 1.5rem 1.5rem 1.5rem 0;
+  border-right: 1px solid var(--rule-light);
+}
+
+.stat:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'EB Garamond', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.stat-num sup {
+  font-size: 1.2rem;
+  vertical-align: super;
+  color: var(--ink-3);
+}
+
+.stat-label {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  line-height: 1.7;
+}
+
+/* ── ARCHIVE ── */
+.archive-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule-light);
+}
+
+.archive-item {
+  padding: 1.5rem;
+  border-right: 1px solid var(--rule-light);
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.archive-era {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 0.5rem;
+}
+
+.archive-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--ink-2);
+  margin-bottom: 0.35rem;
+}
+
+.archive-desc {
+  font-size: 0.8rem;
+  color: var(--ink-3);
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* ── NOW SECTION ── */
+.now-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--col-gap);
+  margin-top: 1rem;
+}
+
+.now-col h4 {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+}
+
+.now-list { list-style: none; }
+
+.now-list li {
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--rule-light);
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  line-height: 1.5;
+}
+
+.now-list li::before {
+  content: '—';
+  color: var(--ink-5);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+.now-list li:last-child { border-bottom: none; }
+
+/* ── COGNITUUM DIAGRAM ── */
+.cog-diagram {
+  margin-top: 2rem;
+  border: 1px solid var(--rule);
+  padding: 1.5rem;
+  background: var(--paper-dark);
+  position: relative;
+}
+
+.cog-diagram-label {
+  position: absolute;
+  top: -0.55rem;
+  left: 1rem;
+  background: var(--paper-dark);
+  padding: 0 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.cog-flow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.cog-node {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  white-space: nowrap;
+  background: var(--paper);
+  flex-shrink: 0;
+}
+
+.cog-node.active {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: var(--paper-dark);
+  font-weight: 500;
+}
+
+.cog-node.accent {
+  border-color: var(--red);
+  color: var(--red);
+  background: rgba(139, 26, 26, 0.04);
+}
+
+.cog-arrow {
+  font-size: 0.8rem;
+  color: var(--rule);
+  padding: 0 0.3rem;
+  flex-shrink: 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 2px solid var(--ink);
+  padding: 2rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+  gap: 2rem;
+}
+
+.footer-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.footer-sub {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+  line-height: 1.9;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.footer-links a {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--red); }
+
+.footer-right {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+  line-height: 1.9;
+}
+
+/* ── SECTION NUMBER ── */
+.sec-num {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-5);
+  margin-right: 0.5rem;
+}
+
+/* ── DROP CAP ── */
+.drop-cap::first-letter {
+  float: left;
+  font-family: 'EB Garamond', serif;
+  font-size: 3.8rem;
+  line-height: 0.82;
+  padding-right: 0.12em;
+  margin-top: 0.1em;
+  color: var(--ink);
+}
+
+/* ── HORIZONTAL RULE ── */
+.doc-rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+
+/* ── OPEN POSITIONS ── */
+.open-notice {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--ink);
+  margin-top: 2rem;
+  background: var(--paper-dark);
+}
+
+.open-notice-label {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  white-space: nowrap;
+  border-right: 1px solid var(--rule);
+  padding-right: 1.5rem;
+}
+
+.open-notice-text {
+  font-size: 0.85rem;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+.open-notice-text em { font-style: italic; color: var(--ink); }
+
+/* ── HOVER LINK ── */
+a.text-link {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139,26,26,0.3);
+  transition: border-color 0.2s;
+}
+a.text-link:hover { border-color: var(--red); }
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── PRINT-LIKE TOP BAR ── */
+.docbar {
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 3rem;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.docbar a {
+  color: var(--paper);
+  text-decoration: none;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  margin-left: 1.5rem;
+}
+
+.docbar a:hover { opacity: 1; }
+
+/* ── PAGE NUMBER (decorative) ── */
+.page-marker {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-5);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding-right: 0.2rem;
+}
+
+</style>
+</head>
+<body>
+
+<div class="document">
+
+<!-- DOCBAR -->
+<div class="docbar">
+  <span>José Vigil Systems — Technical Record · 2025 Edition</span>
+  <div>
+    <a href="#">GitHub</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Bloomaut</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
+<!-- COLOPHON / MASTHEAD -->
+<header class="colophon">
+  <div class="colophon-left">
+    Buenos Aires, Argentina<br>
+    Industrial Design → Systems Architecture<br>
+    Founded: 2000 · Active: Present
+  </div>
+  <div class="colophon-center">
+    <span class="doc-title-main">José Vigil</span>
+    <div class="doc-title-rule"></div>
+    <span class="doc-volume">Systems Builder · Cognitive Infrastructure · AI Architecture</span>
+  </div>
+  <div class="colophon-right">
+    SYS::JOSEVIGIL v2.0<br>
+    Volume I · 25 Years<br>
+    Buenos Aires, AR
+  </div>
+</header>
+
+<!-- FOLIO / NAV -->
+<nav class="folio">
+  <ul class="folio-nav">
+    <li><a href="#systems">Systems</a></li>
+    <li><a href="#cognituum">Cognituum</a></li>
+    <li><a href="#bloomaut">Bloomaut</a></li>
+    <li><a href="#writings">Writings</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="#now">Now</a></li>
+  </ul>
+  <div class="folio-status">
+    <div class="status-dot"></div>
+    Building · Active
+  </div>
+</nav>
+
+<main>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero" style="padding-top:4rem; padding-bottom:4rem;">
+    <div class="section-label">
+      <span class="sec-num">§ I</span>Identity Record
+    </div>
+
+    <div class="hero-name-block reveal">
+      <div>
+        <div class="hero-name">José<br><em>Vigil</em></div>
+      </div>
+      <div class="hero-right-col">
+        <div class="hero-role-label">Current Designation</div>
+        <div class="hero-role-line">Industrial Designer turned Systems Architect.<br>AI builder, founder, technical team builder.</div>
+        <table class="hero-meta-table">
+          <tr><td>Location</td><td>Buenos Aires, AR</td></tr>
+          <tr><td>Status</td><td>Building · Researching</td></tr>
+          <tr><td>Experience</td><td>25+ years in systems</td></tr>
+          <tr><td>Focus</td><td>Cognitive Infrastructure · AI</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <blockquote class="pull-quote reveal">
+      Building cognitive infrastructure, automation systems and technical teams for over 25 years. Interfaces, startups, AI architectures and programmable workflows — from the periphery.
+      <cite>— José Vigil, 2025</cite>
+    </blockquote>
+
+    <p class="body-text reveal">
+      Not every serious builder works from a capital. Distance from the center of gravity of the tech industry is not a deficiency — it is a design constraint that produces a different kind of architectural thinking. Systems built at the periphery are built to last, not to impress. <em>This is the record of what has been built, and what is being built now.</em>
+    </p>
+
+    <div class="stats-row reveal">
+      <div class="stat">
+        <div class="stat-num">25<sup>+</sup></div>
+        <div class="stat-label">Years building<br>systems</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8<sup>+</sup></div>
+        <div class="stat-label">Startups &amp;<br>ventures led</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Teams built &amp;<br>people formed</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ ACTIVE SYSTEMS ═══ -->
+  <section id="systems">
+    <div class="section-label">
+      <span class="sec-num">§ II</span>Current Systems · Active Infrastructure
+    </div>
+    <h2 class="sec-h2 reveal">Active<br><em>Infrastructure</em></h2>
+    <p class="body-text reveal" style="margin-bottom: 2rem;">Three nodes are currently running. Each is a distinct system with its own architecture, purpose and audience — connected by a shared philosophy of building things that persist.</p>
+
+    <div class="reveal">
+      <div class="sys-entry">
+        <div class="sys-entry-header">
+          <div class="sys-index">SYS::01</div>
+          <div class="sys-name">Cognituum</div>
+          <div class="sys-status">Active · v0.4</div>
+        </div>
+        <div class="sys-sub">Cognitive State Continuum for Programmable Intent</div>
+        <p class="sys-body">A research initiative into cognitive infrastructure and programmable intent. Local cognition models, hybrid memory systems and AI orchestration architecture for machines that remember across time.</p>
+        <div class="sys-tags">
+          <span class="sys-tag">Continuity</span>
+          <span class="sys-tag">Intent Graphs</span>
+          <span class="sys-tag">Local Cognition</span>
+          <span class="sys-tag">Orchestration</span>
+          <span class="sys-tag">Machine Memory</span>
+        </div>
+        <a href="#cognituum" class="sys-link">Read research →</a>
+      </div>
+
+      <div class="sys-entry">
+        <div class="sys-entry-header">
+          <div class="sys-index">SYS::02</div>
+          <div class="sys-name">Bloomaut</div>
+          <div class="sys-status">Building · Active</div>
+        </div>
+        <div class="sys-sub">AI-Native Creator Infrastructure</div>
+        <p class="sys-body">Autonomous video workflows, creator pipelines and AI-assisted production systems. Not a tool wrapper — a full-stack creator infrastructure from ideation through production, curation and distribution.</p>
+        <div class="sys-tags">
+          <span class="sys-tag">AI Video</span>
+          <span class="sys-tag">Pipelines</span>
+          <span class="sys-tag">Automation</span>
+          <span class="sys-tag">Creator Systems</span>
+        </div>
+        <a href="#bloomaut" class="sys-link">Explore platform →</a>
+      </div>
+
+      <div class="sys-entry">
+        <div class="sys-entry-header">
+          <div class="sys-index">SYS::03</div>
+          <div class="sys-name">JVS Media</div>
+          <div class="sys-status">Publishing · Live</div>
+        </div>
+        <div class="sys-sub">Systems Essays · Technical Thinking · Field Notes</div>
+        <p class="sys-body">A writing and video layer. Reflections on cognitive architecture, AI infrastructure, founder resilience and the long-term discipline of building systems. Field notes from 25 years of building, not startup optimism.</p>
+        <div class="sys-tags">
+          <span class="sys-tag">Essays</span>
+          <span class="sys-tag">AI Systems</span>
+          <span class="sys-tag">Founder Thinking</span>
+        </div>
+        <a href="#writings" class="sys-link">Read writings →</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ COGNITUUM ═══ -->
+  <section id="cognituum">
+    <div class="section-label">
+      <span class="sec-num">§ III</span>Research Initiative
+    </div>
+    <h2 class="sec-h2 reveal">Cognituum</h2>
+
+    <div class="two-col reveal">
+      <div>
+        <p class="body-text drop-cap">
+          Most AI systems are stateless. Each session begins from zero. <em>Cognituum</em> is a framework for cognitive continuity — a protocol for machines that remember, persist and accumulate state across time.
+        </p>
+        <p class="body-text" style="margin-top:1em;">
+          The core thesis: AI utility is constrained not by capability but by <em>continuity</em>. Without persistent cognitive state, even the most capable models remain reactive tools rather than autonomous systems. The difference between a tool and a collaborator is memory.
+        </p>
+        <p class="body-text" style="margin-top:1em;">
+          Cognituum proposes an architectural layer — between model and user — where intent is serialised, state is preserved, and cognitive context accumulates across sessions, devices, and time.
+        </p>
+      </div>
+      <div>
+        <table class="spec-table">
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+          </tr>
+          <tr><td>Type</td><td>Research Initiative · Framework</td></tr>
+          <tr><td>Status</td><td>Active Research · v0.4</td></tr>
+          <tr><td>Layer</td><td>Cognitive Infrastructure</td></tr>
+          <tr><td>Primary concern</td><td>Intent · Continuity · Memory</td></tr>
+          <tr><td>Paradigm</td><td>Protocol-oriented · Local-first</td></tr>
+          <tr><td>Origin</td><td>Evolved from BTIPS · 2024–</td></tr>
+        </table>
+
+        <div class="cog-diagram">
+          <div class="cog-diagram-label">State Diagram — v0.4</div>
+          <div class="cog-flow">
+            <div class="cog-node">Input</div>
+            <div class="cog-arrow">→</div>
+            <div class="cog-node">Intent Parse</div>
+            <div class="cog-arrow">→</div>
+            <div class="cog-node active">State Engine</div>
+            <div class="cog-arrow">→</div>
+            <div class="cog-node accent">Memory Layer</div>
+            <div class="cog-arrow">→</div>
+            <div class="cog-node">Output</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ BLOOMAUT ═══ -->
+  <section id="bloomaut">
+    <div class="section-label">
+      <span class="sec-num">§ IV</span>Applied Layer
+    </div>
+    <h2 class="sec-h2 reveal">Bloomaut</h2>
+
+    <div class="two-col reveal">
+      <div>
+        <p class="body-text drop-cap">
+          Bloomaut is the operational layer where AI systems research meets real production requirements. It is where the frameworks get tested against the conditions of actual use.
+        </p>
+        <p class="body-text" style="margin-top:1em;">
+          Autonomous video workflows, structured creator pipelines and AI-assisted content systems. <em>Not a product. A full-stack creator infrastructure</em> — from ideation through production, curation and distribution — built on programmable workflows and AI-native architecture.
+        </p>
+        <p class="body-text" style="margin-top:1em;">
+          The premise: content creation at scale should not require a production team. It should require a well-designed system.
+        </p>
+      </div>
+      <div>
+        <table class="spec-table">
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+          </tr>
+          <tr><td>Category</td><td>Creator Infrastructure · AI Platform</td></tr>
+          <tr><td>Status</td><td>Building · Active development</td></tr>
+          <tr><td>Core</td><td>Autonomous Video Workflows</td></tr>
+          <tr><td>Stack</td><td>AI-native pipelines · Automation</td></tr>
+          <tr><td>Target</td><td>Founders · Independent Creators</td></tr>
+          <tr><td>Domain</td><td><a href="#" class="text-link">bloomaut.com</a></td></tr>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ HUMAN SYSTEMS ═══ -->
+  <section id="human">
+    <div class="section-label">
+      <span class="sec-num">§ V</span>Leadership · Teams · Culture
+    </div>
+    <div class="two-col reveal">
+      <div>
+        <h2 class="sec-h2">Human<br><em>Systems</em></h2>
+        <p style="font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-4); margin-top: 0.5rem;">Technical Leadership<br>Team Architecture</p>
+      </div>
+      <div>
+        <p class="body-text drop-cap">
+          Systems are ultimately built by people. Over 25 years, the work has not only been technical infrastructure — it has been <em>building the human systems</em> that make technical infrastructure possible.
+        </p>
+        <p class="body-text" style="margin-top:1em;">
+          The combination of technical depth, systems architecture and human coordination is rare. AI can generate code. It cannot hold a long-term technical vision, motivate a team through a pivot, or maintain creative direction across years of uncertainty.
+        </p>
+        <p class="body-text" style="margin-top:1em;">
+          <em>This is what 25 years of building looks like:</em> not a list of credentials, but a record of decisions made under pressure, systems sustained through adversity, and teams that grew into something lasting.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WRITINGS ═══ -->
+  <section id="writings">
+    <div class="section-label">
+      <span class="sec-num">§ VI</span>Technical Essays · System Notes
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto; align-items:baseline; margin-bottom:1.5rem;" class="reveal">
+      <h2 class="sec-h2" style="margin-bottom:0;">Writings</h2>
+      <span style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-4);">10 Notes</span>
+    </div>
+    <p class="body-text reveal" style="margin-bottom:0.5rem;">Field notes from 25 years of building. Not optimistic startup essays — architecture reflections, cognitive infrastructure research and technical founder thinking.</p>
+
+    <div class="writings-list reveal">
+      <div class="writing-entry">
+        <div class="writing-date">2025 · 01</div>
+        <div>
+          <div class="writing-title">Continuity is the unsolved problem in AI systems</div>
+          <div class="writing-excerpt">Every AI interaction begins from zero. The capability is available; the memory is not.</div>
+        </div>
+        <div class="writing-cat">Cognituum</div>
+      </div>
+      <div class="writing-entry">
+        <div class="writing-date">2025 · 02</div>
+        <div>
+          <div class="writing-title">Why most AI products are wrappers and not systems</div>
+          <div class="writing-excerpt">A product solves a problem. A system creates the conditions for problems to stop existing.</div>
+        </div>
+        <div class="writing-cat">AI Systems</div>
+      </div>
+      <div class="writing-entry">
+        <div class="writing-date">2025 · 03</div>
+        <div>
+          <div class="writing-title">Building from Argentina: infrastructure thinking at the periphery</div>
+          <div class="writing-excerpt">Distance from the center forces a different kind of architectural thinking.</div>
+        </div>
+        <div class="writing-cat">Founder</div>
+      </div>
+      <div class="writing-entry">
+        <div class="writing-date">2024 · 12</div>
+        <div>
+          <div class="writing-title">Programmable intent: toward AI that executes across sessions</div>
+          <div class="writing-excerpt">Intent is structured desire. A workflow is serialised intent.</div>
+        </div>
+        <div class="writing-cat">Cognituum</div>
+      </div>
+      <div class="writing-entry">
+        <div class="writing-date">2024 · 11</div>
+        <div>
+          <div class="writing-title">Interfaces as cognitive infrastructure</div>
+          <div class="writing-excerpt">An interface is not a surface. It is a cognitive prosthetic.</div>
+        </div>
+        <div class="writing-cat">Interface</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ TIMELINE ═══ -->
+  <section id="history">
+    <div class="section-label">
+      <span class="sec-num">§ VII</span>Chronology · 2000 → Present
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto; align-items:baseline; margin-bottom:2rem;" class="reveal">
+      <h2 class="sec-h2" style="margin-bottom:0;">System History</h2>
+      <span style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-4);">25 Years</span>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="tl-line"></div>
+      <div class="tl-entry">
+        <div class="tl-year">2000</div>
+        <div class="tl-dot"></div>
+        <div class="tl-project">Helpdesk &amp; Infrastructure Operations</div>
+        <div class="tl-desc">First contact with large-scale technical systems. Built operational discipline from ground up.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">Infrastructure</span>
+          <span class="tl-tag">Operations</span>
+        </div>
+      </div>
+      <div class="tl-entry">
+        <div class="tl-year">2003</div>
+        <div class="tl-dot"></div>
+        <div class="tl-project">Healthcare Systems Administration</div>
+        <div class="tl-desc">Systems administration in high-stakes clinical environments. Led technical and administrative teams under pressure.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">Healthcare IT</span>
+          <span class="tl-tag">Leadership</span>
+        </div>
+      </div>
+      <div class="tl-entry">
+        <div class="tl-year">2008</div>
+        <div class="tl-dot"></div>
+        <div class="tl-project">Early Startup Exploration</div>
+        <div class="tl-desc">First ventures, first team building, first production failures. The foundation of everything built since.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">Startup</span>
+          <span class="tl-tag">Founding</span>
+        </div>
+      </div>
+      <div class="tl-entry">
+        <div class="tl-year">2018</div>
+        <div class="tl-dot"></div>
+        <div class="tl-project">Notimation</div>
+        <div class="tl-desc">Automated notification and workflow platform. Built the full technical and human stack.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">SaaS</span>
+          <span class="tl-tag">Automation</span>
+        </div>
+      </div>
+      <div class="tl-entry">
+        <div class="tl-year current">2024</div>
+        <div class="tl-dot current"></div>
+        <div class="tl-project current">Cognituum · Bloomaut</div>
+        <div class="tl-desc">Current active phase. Cognitive infrastructure research meets applied AI-native creator platform.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">Cognituum</span>
+          <span class="tl-tag">Bloomaut</span>
+          <span class="tl-tag">Active</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ ARCHIVE ═══ -->
+  <section id="archive">
+    <div class="section-label">
+      <span class="sec-num">§ VIII</span>Previous Systems · Archived
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto; align-items:baseline; margin-bottom:1.5rem;" class="reveal">
+      <h2 class="sec-h2" style="margin-bottom:0;">Archive</h2>
+      <span style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-4);">Research layers</span>
+    </div>
+
+    <div class="archive-grid reveal">
+      <div class="archive-item">
+        <div class="archive-era">2018 – 2022</div>
+        <div class="archive-name">Notimation</div>
+        <div class="archive-desc">Automated notification platform. First full commercial deployment of automation architecture principles.</div>
+      </div>
+      <div class="archive-item">
+        <div class="archive-era">2021 – 2023</div>
+        <div class="archive-name">UiTool</div>
+        <div class="archive-desc">Interface design tooling and UI systems research. Cognitive foundation for Cognituum.</div>
+      </div>
+      <div class="archive-item">
+        <div class="archive-era">2012 – 2017</div>
+        <div class="archive-name">Messaging Systems Research</div>
+        <div class="archive-desc">Automated communication workflows. Pre-AI automation infrastructure work.</div>
+      </div>
+      <div class="archive-item">
+        <div class="archive-era">2008 – 2012</div>
+        <div class="archive-name">Early Startup Layer</div>
+        <div class="archive-desc">First ventures, first team building, first production failures. The foundation of everything built since.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ NOW ═══ -->
+  <section id="now">
+    <div class="section-label">
+      <span class="sec-num">§ IX</span>Current State · Updated 2025
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto; align-items:baseline; margin-bottom:1.5rem;" class="reveal">
+      <h2 class="sec-h2" style="margin-bottom:0;">Now</h2>
+      <span style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-4);">Live document</span>
+    </div>
+
+    <div class="now-grid reveal">
+      <div class="now-col">
+        <h4>Building</h4>
+        <ul class="now-list">
+          <li>Bloomaut — AI-native creator infrastructure</li>
+          <li>Cognituum — cognitive state framework v0.4</li>
+          <li>AI video production pipelines</li>
+          <li>Content automation systems for creators</li>
+        </ul>
+      </div>
+      <div class="now-col">
+        <h4>Researching &amp; Seeking</h4>
+        <ul class="now-list">
+          <li>Local cognition architectures and offline AI</li>
+          <li>Hybrid memory systems for LLM continuity</li>
+          <li>Writing system essays and architecture notes</li>
+          <li>Remote AI systems · product · automation roles</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="open-notice reveal">
+      <div class="open-notice-label">Open to</div>
+      <div class="open-notice-text">Remote roles in <em>AI systems architecture, product engineering and technical leadership</em>. Not looking for a job — looking for the right system to join. If you're building something that requires someone who thinks in systems, <a href="#" class="text-link">write directly</a>.</div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-name">José Vigil</div>
+    <div class="footer-sub">
+      Building cognitive infrastructure<br>
+      from Argentina.<br>
+      SYS::JOSEVIGIL v2.0
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="#">GitHub</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Bloomaut</a>
+    <a href="#">Email</a>
+  </div>
+  <div class="footer-right">
+    Buenos Aires · Argentina<br>
+    25+ years building<br>
+    2000 — Present
+  </div>
+</footer>
+
+</div><!-- /document -->
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 40);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => observer.observe(el));
+
+// Make all reveals in viewport visible on load
+setTimeout(() => {
+  reveals.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('visible');
+    }
+  });
+}, 100);
+</script>
+
+</body>
+</html>

@@ -1,6 +1,37 @@
 # LINKEDIN ABOUT SECTION
 
-## Active Version
+## Active Version (updated 2026-07 — B2B/Services positioning, approved)
+
+Aligned with `03_COGNITUUM/ONE_PAGER_B2B_v2_2026-07.md`: opens with the
+practical work (systems/architecture), not the philosophy. Cognituum is
+framed as ongoing research that informs how I build, explicitly not yet
+a product — no results or client outcomes are claimed.
+
+I design and build software systems — 25+ years, across support,
+engineering, and founding multiple ventures of my own along the way.
+
+Right now I split my time between hands-on systems and architecture
+work for companies, and Cognituum, an ongoing research initiative into
+cognitive continuity in AI-assisted workflows: why AI tools lose
+context between sessions, tools and providers, and what architecture
+fixes it.
+
+Cognituum isn't a product yet. It's the research layer behind how I
+build — systems designed to preserve context and intent, not just
+execute the next prompt. That shows up directly in the work: avoiding
+lock-in to a single AI vendor, and knowledge structures that evolve
+with actual use instead of going stale.
+
+The philosophy behind it: C.O.M. — Creativity Originates in Mankind.
+AI executes and accelerates. Judgment and intention stay human. I
+build systems that protect that boundary.
+
+Open to remote, part-time engagements — systems architecture, AI
+workflow audits, hands-on development.
+
+---
+
+## Previous Active (pre-2026-07)
 
 I've spent 25+ years building systems at the intersection of design,
 engineering and entrepreneurship.

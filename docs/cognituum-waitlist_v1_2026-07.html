@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cognituum — Get Early Access</title>
+<meta name="description" content="You already made that decision. Stop making it again. Cognituum keeps your engineering call as the final one — versioned, signed, remembered.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080808;--bg1:#0d0d0d;--bg2:#111111;
+  --fg:#e8e8e8;--fg2:#a0a0a0;--fg3:#585858;--fg4:#2e2e2e;
+  --accent:#00ff88;--accent2:#00b8ff;
+  --line:rgba(255,255,255,0.08);--line2:rgba(255,255,255,0.14);
+  --mono:'IBM Plex Mono',monospace;--mono2:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--mono);font-weight:300;line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased;}
+
+.container{max-width:760px;margin:0 auto;padding:0 1.5rem;}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(8,8,8,0.92);backdrop-filter:blur(6px);z-index:10;}
+.nav-id{font-family:var(--mono2);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg);}
+.nav-id span{color:var(--accent);}
+.nav-status{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3);display:flex;align-items:center;gap:0.5rem;}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.hero{padding:4.5rem 0 3.5rem;border-bottom:1px solid var(--line);}
+.hero-eyebrow{font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--fg3);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem;}
+.hero-eyebrow span{color:var(--accent);}
+.hero-headline{font-family:var(--mono2);font-size:2rem;font-weight:500;letter-spacing:-0.02em;line-height:1.25;max-width:600px;margin-bottom:1.5rem;}
+.hero-sub{font-size:0.85rem;color:var(--fg2);line-height:1.9;max-width:520px;margin-bottom:2.25rem;}
+.cta-btn{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--mono);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;background:rgba(0,255,136,0.08);color:var(--accent);border:1px solid rgba(0,255,136,0.3);padding:0.85rem 1.5rem;text-decoration:none;transition:background 0.15s;cursor:pointer;}
+.cta-btn:hover{background:rgba(0,255,136,0.16);}
+.cta-btn::after{content:'→';}
+
+section{padding:3.25rem 0;border-bottom:1px solid var(--line);}
+.sec-label{font-size:0.55rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--fg3);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.6rem;}
+.sec-label::before{content:'';display:block;width:20px;height:1px;background:var(--fg3);flex-shrink:0;}
+
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+.pain-card{background:var(--bg);padding:1.75rem;}
+.pain-card.control{background:var(--bg1);}
+.pain-title{font-family:var(--mono2);font-size:0.85rem;font-weight:500;color:var(--fg);margin-bottom:0.75rem;letter-spacing:-0.01em;}
+.pain-title.accent{color:var(--accent);}
+.pain-text{font-size:0.76rem;color:var(--fg2);line-height:1.85;}
+
+h2{font-family:var(--mono2);font-size:1.15rem;font-weight:500;letter-spacing:-0.01em;margin-bottom:1.25rem;}
+p.body-text{font-size:0.82rem;color:var(--fg2);line-height:1.9;max-width:560px;}
+p.body-text + p.body-text{margin-top:1rem;}
+p.body-text strong{color:var(--fg);font-weight:500;}
+
+.status-box{border:1px solid var(--line);background:var(--bg1);padding:1.5rem 1.75rem;max-width:520px;display:flex;align-items:flex-start;gap:1rem;}
+.status-box .pulse{margin-top:0.4rem;}
+.status-box p{font-size:0.8rem;color:var(--fg2);line-height:1.85;}
+.status-box p strong{color:var(--accent);font-weight:500;}
+
+.waitlist-section{padding-bottom:4rem;}
+.waitlist-heading{font-family:var(--mono2);font-size:1.35rem;font-weight:500;letter-spacing:-0.01em;margin-bottom:0.85rem;max-width:520px;}
+.waitlist-sub{font-size:0.82rem;color:var(--fg2);line-height:1.85;max-width:480px;margin-bottom:2rem;}
+
+form{max-width:440px;display:flex;flex-direction:column;gap:1.25rem;}
+.field label{display:block;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--fg3);margin-bottom:0.6rem;}
+.field .optional{text-transform:none;letter-spacing:0;color:var(--fg4);}
+.field input,.field textarea{width:100%;background:var(--bg1);border:1px solid var(--line2);color:var(--fg);font-family:var(--mono);font-size:0.82rem;padding:0.75rem 0.9rem;line-height:1.5;}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);}
+.field textarea{resize:vertical;min-height:70px;}
+.field input::placeholder,.field textarea::placeholder{color:var(--fg3);}
+
+.waitlist-confirmation{border:1px solid rgba(0,255,136,0.3);background:rgba(0,255,136,0.06);padding:1.5rem 1.75rem;max-width:520px;}
+.waitlist-confirmation p{font-size:0.82rem;color:var(--fg2);line-height:1.8;}
+.waitlist-confirmation p strong{color:var(--accent);}
+
+footer{padding:2.5rem 1.5rem;text-align:left;}
+.footer-id{font-family:var(--mono2);font-size:0.68rem;color:var(--fg2);}
+.footer-id small{display:block;font-size:0.55rem;color:var(--fg3);margin-top:0.35rem;font-weight:300;}
+
+@media (max-width:600px){
+  .hero{padding:3rem 0 2.25rem;}
+  .hero-headline{font-size:1.5rem;}
+  section{padding:2.25rem 0;}
+  .pain-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-id">COGNITUUM</div>
+  <div class="nav-status"><div class="pulse"></div>In active development</div>
+</nav>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-eyebrow"><span>SYS::COGNITUUM</span> — EARLY ACCESS</div>
+    <h1 class="hero-headline">You already made that decision. Stop making it again.</h1>
+    <p class="hero-sub">Every session with an AI model starts a negotiation you already won
+    last week. Cognituum keeps your engineering call as the final one —
+    versioned, signed, remembered. You decide once. It stays decided.</p>
+    <a class="cta-btn" href="#waitlist">Get early access</a>
+  </div>
+
+  <section>
+    <div class="sec-label">The Pain</div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-title">Continuity</div>
+        <p class="pain-text">You explained the architecture. You explained why. The model forgot
+        by the next session — and you're explaining it again, to the same
+        model, about the same decision, for the third time this month.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-title">Cost</div>
+        <p class="pain-text">Every re-explanation is a re-purchase of context you already paid for
+        once. Tokens spent re-establishing what should have simply
+        persisted.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-title">Governance</div>
+        <p class="pain-text">Six months from now, someone asks why the system does what it does.
+        The answer lives in a chat log nobody's going to reread — not in a
+        record anyone can audit, trust, or hand off.</p>
+      </div>
+      <div class="pain-card control">
+        <div class="pain-title accent">Control</div>
+        <p class="pain-text">The model doesn't ask before it overrides your call with something
+        "reasonable." It just does. You catch it in review, or you don't.
+        Either way, the decision that should have been yours got made by
+        something that doesn't have to live with the consequences.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">What Changes</div>
+    <h2>Your call outranks the model's</h2>
+    <p class="body-text">Cognituum is built on a simple inversion: <strong>your engineering
+    decisions outrank the model's.</strong> Once you decide something, that
+    decision is captured, versioned, and enforced — not re-litigated every
+    time you open a new session or switch providers. It's provider-agnostic
+    by design: Claude, Codex, Gemini, whatever you use, your judgment sits
+    above all of them, not inside one of them.</p>
+    <p class="body-text">You stop repeating yourself. You just decide — and decide well, once.</p>
+  </section>
+
+  <section>
+    <div class="sec-label">Status</div>
+    <div class="status-box">
+      <div class="pulse"></div>
+      <p><strong>In active development.</strong> Early access is opening to
+      a small group of senior engineers and developers before public
+      availability.</p>
+    </div>
+  </section>
+
+  <section class="waitlist-section" id="waitlist" style="border-bottom:none;">
+    <div class="sec-label">Get Early Access</div>
+    <div class="waitlist-heading">Get early access</div>
+    <p class="waitlist-sub">Be among the first to put your engineering decisions back in
+    charge.</p>
+
+    <form id="waitlist-form">
+      <div class="field">
+        <label for="wl-name">Name</label>
+        <input type="text" id="wl-name" name="name" placeholder="Your name" required>
+      </div>
+      <div class="field">
+        <label for="wl-email">Email</label>
+        <input type="email" id="wl-email" name="email" placeholder="you@company.com" required>
+      </div>
+      <div class="field">
+        <label for="wl-tools">Which AI tools do you use today? <span class="optional">(optional)</span></label>
+        <textarea id="wl-tools" name="tools" placeholder="Claude, Codex, Gemini, Cursor..."></textarea>
+      </div>
+      <button type="submit" class="cta-btn">Join the waitlist</button>
+    </form>
+
+    <div id="waitlist-confirmation" class="waitlist-confirmation" hidden>
+      <p><strong>You're on the list.</strong> We'll reach out as early
+      access opens to new engineers.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-id">COGNITUUM<small>In active development.</small></div>
+</footer>
+
+<script>
+  // TODO: connect this form to a real backend once one is chosen
+  // (Formspree, a Google Sheet via Apps Script, Mailchimp, etc.).
+  // Right now submitting the form does NOT send data anywhere — it only
+  // validates the required fields and shows a confirmation message in the
+  // UI, so the form can be reviewed and tested end to end before a
+  // backend exists. Replace the body of this handler with a real fetch()
+  // / form POST once the forms service is decided.
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('waitlist-form');
+    var confirmation = document.getElementById('waitlist-confirmation');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var name = form.elements['name'].value.trim();
+      var email = form.elements['email'].value.trim();
+      if (!name || !email) return;
+
+      // TODO: replace with real submission, e.g.:
+      // fetch('https://formspree.io/f/XXXXXXX', { method: 'POST', body: new FormData(form) })
+      //   .then(() => { form.hidden = true; confirmation.hidden = false; });
+
+      form.hidden = true;
+      confirmation.hidden = false;
+    });
+  });
+</script>
+
+</body>
+</html>

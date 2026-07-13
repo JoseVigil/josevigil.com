@@ -1,15 +1,26 @@
 # LINKEDIN HEADLINE
 
-## Active Headline
+## Active Headline (updated 2026-07 — B2B/Services positioning, approved)
+
+Aligned with `03_COGNITUUM/ONE_PAGER_B2B_v2_2026-07.md`: leads with the
+hireable role (Architect/Senior Dev), uses Cognituum as a research
+credibility layer rather than a founder/product headline.
 
 ```
-AI Researcher | Systems Builder | Founder
-Exploring Human-Centric AI, Cognitive Continuity and Creative Systems.
+Senior Software Engineer | AI Systems Architect
+25+ years building systems. Cognituum research: cognitive continuity
+in AI-assisted workflows.
 ```
 
 ---
 
 ## Alternatives (A/B options)
+
+### Previous Active (pre-2026-07)
+```
+AI Researcher | Systems Builder | Founder
+Exploring Human-Centric AI, Cognitive Continuity and Creative Systems.
+```
 
 ### Option B — Philosophy-forward
 ```

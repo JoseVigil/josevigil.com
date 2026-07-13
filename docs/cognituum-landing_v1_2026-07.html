@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jose Vigil — AI Systems Architecture | Cognituum</title>
+<meta name="description" content="AI systems architecture grounded in Cognituum, ongoing research into cognitive continuity in AI-assisted workflows. Book a 20-30 minute diagnostic call.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080808;--bg1:#0d0d0d;--bg2:#111111;
+  --fg:#e8e8e8;--fg2:#a0a0a0;--fg3:#585858;--fg4:#2e2e2e;
+  --accent:#00ff88;--accent2:#00b8ff;
+  --line:rgba(255,255,255,0.08);--line2:rgba(255,255,255,0.14);
+  --mono:'IBM Plex Mono',monospace;--mono2:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--mono);font-weight:300;line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased;}
+
+.container{max-width:760px;margin:0 auto;padding:0 1.5rem;}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(8,8,8,0.92);backdrop-filter:blur(6px);z-index:10;}
+.nav-id{font-family:var(--mono2);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg);}
+.nav-id span{color:var(--accent);}
+.nav-status{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3);display:flex;align-items:center;gap:0.5rem;}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--line);}
+.hero-sys-id{font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--fg3);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem;}
+.hero-sys-id span{color:var(--accent);}
+.hero-name{font-family:var(--mono2);font-size:2rem;font-weight:500;letter-spacing:-0.02em;margin-bottom:0.5rem;}
+.hero-role{font-size:0.78rem;color:var(--fg2);letter-spacing:0.03em;margin-bottom:1.75rem;}
+.hero-hook{font-family:var(--mono2);font-size:1.4rem;font-weight:400;line-height:1.4;letter-spacing:-0.01em;max-width:520px;margin-bottom:2rem;}
+.hero-hook em{color:var(--accent);font-style:normal;}
+.cta-btn{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--mono);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;background:rgba(0,255,136,0.08);color:var(--accent);border:1px solid rgba(0,255,136,0.3);padding:0.85rem 1.5rem;text-decoration:none;transition:background 0.15s;}
+.cta-btn:hover{background:rgba(0,255,136,0.16);}
+.cta-btn::after{content:'→';}
+
+section{padding:3rem 0;border-bottom:1px solid var(--line);}
+.sec-label{font-size:0.55rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--fg3);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem;}
+.sec-label::before{content:'';display:block;width:20px;height:1px;background:var(--fg3);flex-shrink:0;}
+h2{font-family:var(--mono2);font-size:1.15rem;font-weight:500;letter-spacing:-0.01em;margin-bottom:1.25rem;}
+p.body-text{font-size:0.82rem;color:var(--fg2);line-height:1.9;max-width:560px;}
+p.body-text + p.body-text{margin-top:1rem;}
+p.body-text em{color:var(--fg);font-style:normal;}
+
+.spec-box{border:1px solid var(--line);background:var(--bg1);margin-top:1.75rem;max-width:480px;}
+.spec-row{display:grid;grid-template-columns:120px 1fr;border-bottom:1px solid var(--line);}
+.spec-row:last-child{border-bottom:none;}
+.spec-key{padding:0.7rem 1rem;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3);border-right:1px solid var(--line);}
+.spec-val{padding:0.7rem 1rem;font-size:0.72rem;color:var(--fg2);}
+
+.cta-section{padding:3.5rem 0;text-align:left;}
+.cta-heading{font-family:var(--mono2);font-size:1.35rem;font-weight:500;letter-spacing:-0.01em;margin-bottom:1rem;max-width:520px;}
+.cta-sub{font-size:0.8rem;color:var(--fg2);line-height:1.8;max-width:480px;margin-bottom:1.75rem;}
+
+footer{padding:2.5rem 1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.25rem;}
+.footer-id{font-family:var(--mono2);font-size:0.68rem;color:var(--fg2);}
+.footer-id small{display:block;font-size:0.55rem;color:var(--fg3);margin-top:0.25rem;font-weight:300;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg3);text-decoration:none;border-bottom:1px solid var(--fg4);padding-bottom:2px;}
+.footer-links a:hover{color:var(--fg2);border-color:var(--fg3);}
+
+@media (max-width:600px){
+  .hero{padding:2.75rem 0 2rem;}
+  .hero-name{font-size:1.6rem;}
+  .hero-hook{font-size:1.15rem;}
+  section{padding:2.25rem 0;}
+  .spec-row{grid-template-columns:100px 1fr;}
+  footer{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-id">JOSE VIGIL <span>/ COGNITUUM</span></div>
+  <div class="nav-status"><div class="pulse"></div>Open for engagements</div>
+</nav>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-sys-id"><span>SYS::COGNITUUM</span> — AI SYSTEMS ARCHITECTURE</div>
+    <div class="hero-name">Jose Vigil</div>
+    <div class="hero-role">AI Systems Architect &amp; Senior Software Engineer</div>
+    <h1 class="hero-hook">Most AI tools forget everything between sessions. I architect <em>the systems that don't.</em></h1>
+    <a class="cta-btn" href="mailto:josemanuelvigil@gmail.com?subject=Diagnostic%20call%20-%20Cognituum">Schedule a diagnostic call</a>
+  </div>
+
+  <section>
+    <div class="sec-label">The Problem</div>
+    <h2>Context gets lost. Teams pay for it twice.</h2>
+    <p class="body-text">Most AI tooling today starts over every session. Your team re-explains
+    context, redoes work, and pays for it twice — once in token costs
+    re-establishing what should have persisted, and again in judgment
+    quality when the output drifts from what people actually meant.</p>
+  </section>
+
+  <section>
+    <div class="sec-label">How I Work</div>
+    <h2>Cognituum — the research behind the architecture</h2>
+    <p class="body-text">I design and build AI-assisted systems for companies. That work is
+    informed by <em>Cognituum</em>, my ongoing research into why AI systems
+    lose context — and what architecture prevents it.</p>
+    <p class="body-text">Cognituum isn't a finished product. It's the research layer behind how
+    I build: systems designed to hold context and intent across sessions
+    and tools, instead of just executing the next request.</p>
+    <div class="spec-box">
+      <div class="spec-row"><div class="spec-key">Type</div><div class="spec-val">Research initiative</div></div>
+      <div class="spec-row"><div class="spec-key">Status</div><div class="spec-val">Active research — not a commercial product</div></div>
+      <div class="spec-row"><div class="spec-key">Informs</div><div class="spec-val">How I architect AI-assisted systems</div></div>
+      <div class="spec-row"><div class="spec-key">Output</div><div class="spec-val">Whitepaper / framework specification (in progress)</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">First Step</div>
+    <h2>A context-continuity audit of your stack</h2>
+    <p class="body-text">Deliverable in 1–2 weeks: a scoped, actionable assessment of where
+    context and intent are breaking down in your team's AI workflows, with
+    concrete recommendations. Scope is defined together before the audit
+    starts.</p>
+    <div class="spec-box">
+      <div class="spec-row"><div class="spec-key">Deliverable</div><div class="spec-val">Context-continuity audit</div></div>
+      <div class="spec-row"><div class="spec-key">Timeline</div><div class="spec-val">1–2 weeks</div></div>
+      <div class="spec-row"><div class="spec-key">Scope</div><div class="spec-val">Defined together before starting</div></div>
+    </div>
+  </section>
+
+  <section class="cta-section" style="border-bottom:none;">
+    <div class="sec-label">Next Step</div>
+    <div class="cta-heading">Let's talk for 20–30 minutes.</div>
+    <p class="cta-sub">No commitment, just a conversation about where your team's AI
+    workflows are losing context and whether an audit makes sense.</p>
+    <a class="cta-btn" href="mailto:josemanuelvigil@gmail.com?subject=Diagnostic%20call%20-%20Cognituum">Schedule a diagnostic call</a>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-id">JOSE VIGIL<small>Buenos Aires, Argentina · Remote</small></div>
+  <div class="footer-links">
+    <a href="mailto:josemanuelvigil@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/josevigil" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://josevigil.com" target="_blank" rel="noopener">josevigil.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

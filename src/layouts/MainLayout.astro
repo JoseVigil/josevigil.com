@@ -24,11 +24,13 @@ const { title, description, image } = Astro.props;
     image={image}
   ></Head>
 	<body>
-    <Header></Header>
-    <main>
-      <slot />
-    </main>
-    <Footer></Footer>
+    <div class="document">
+      <Header></Header>
+      <main>
+        <slot />
+      </main>
+      <Footer></Footer>
+    </div>
 	</body>
 </html>
 
@@ -80,9 +82,248 @@ body {
 code {
   font-family: var(--mono);
 }
-main {
-  margin: auto;
-  padding: 1.5rem;
-  max-width: 150ch;
+
+/* ── DOCUMENT SHELL (verbatim from jose_vigil_last_design.html) ── */
+.document {
+  max-width: 960px;
+  margin: 0 auto;
+  background: var(--paper);
+  position: relative;
 }
+
+/* ── PRINT-LIKE TOP BAR ── */
+.docbar {
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 3rem;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.docbar a {
+  color: var(--paper);
+  text-decoration: none;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  margin-left: 1.5rem;
+}
+
+.docbar a:hover { opacity: 1; }
+
+/* ── HEADER COLOPHON ── */
+.colophon {
+  border-bottom: 2px solid var(--ink);
+  padding: 1.5rem 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.colophon-center {
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.doc-title-main {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.doc-title-rule {
+  width: 60px;
+  height: 1px;
+  background: var(--ink-3);
+  margin: 0 auto 0.3rem;
+}
+
+.doc-volume {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  text-align: center;
+  display: block;
+  padding-bottom: 0.75rem;
+}
+
+/* ── FOLIO LINE ── */
+.folio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 3rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-dark);
+}
+
+.folio-nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.folio-nav a {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.folio-nav a:hover { color: var(--red); }
+
+.folio-status {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── MAIN CONTENT ── */
+main {
+  padding: 0 3rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 2px solid var(--ink);
+  padding: 2rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+  gap: 2rem;
+}
+
+.footer-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.footer-sub {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+  line-height: 1.9;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.footer-links a {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--red); }
+
+.footer-right {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+  line-height: 1.9;
+}
+
+/* ── FOOTER INDEX (discreet — legacy collection pages, not part of the
+   main landing flow but kept reachable for direct visitors and SEO) ── */
+.footer-index {
+  grid-column: 1 / -1;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule-light);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.footer-index-label {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-5);
+}
+
+.footer-index a {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-index a:hover { color: var(--red); }
 </style>
+
+<script>
+// Scroll reveal — global, shared by every section that uses .reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 40);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach((el) => observer.observe(el));
+
+setTimeout(() => {
+  reveals.forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('visible');
+    }
+  });
+}, 100);
+</script>

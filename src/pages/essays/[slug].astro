@@ -36,26 +36,17 @@ const { Content } = await post.render();
   description={description}
   image={image}
 >
-  <section class="grid grid-cols-5 gap-5">
-
-    <section class="col-span-1 sm:col-span-1">
-    </section>
-
-    <section class="col-span-3 sm:col-span-3">
-      <section class="header-article-content">
-        <DisplayTagsDate
-          tags={tags}
-          technology={technology}
-          pubDate={pubDate}
-        ></DisplayTagsDate>
-      </section>
-      <article class="main-essays-content" >
-        <Content />
-      </article>
-    </section>
-
-    <section class="col-span-1 sm:col-span-1">
-    </section>
-
+  <section>
+    <div class="section-label">
+      <span class="sec-num">§</span>Essay
+    </div>
+    <DisplayTagsDate
+      tags={tags}
+      technology={technology}
+      pubDate={pubDate}
+    ></DisplayTagsDate>
+    <article class="article-content">
+      <Content />
+    </article>
   </section>
 </MainLayout>

@@ -1,0 +1,183 @@
+---
+---
+
+<section id="hero" style="padding-top:4rem; padding-bottom:4rem;">
+  <div class="section-label">
+    <span class="sec-num">§ I</span>Profile
+  </div>
+
+  <div class="hero-name-block reveal">
+    <div>
+      <div class="hero-name">Jose<br><em>Vigil</em></div>
+    </div>
+    <img class="hero-photo" src="/images/josevigil_400x400.png" alt="Jose Vigil">
+    <div class="hero-right-col">
+      <div class="hero-role-label">Current Designation</div>
+      <div class="hero-role-line">Senior Software Engineer · AI Researcher · Systems Architect.</div>
+      <table class="hero-meta-table">
+        <tr><td>Location</td><td>Buenos Aires, AR</td></tr>
+        <tr><td>Status</td><td>Building · Researching</td></tr>
+        <tr><td>Experience</td><td>25+ years in systems</td></tr>
+        <tr><td>Focus</td><td>Cognitive Infrastructure · AI</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <blockquote class="pull-quote reveal">
+    Building cognitive development systems and community-validated video content platforms. With 25 years of experience in IT, I've developed systems and assembled teams. My dream: creating business models designed for market fit and growth. josevigil.com (Creativity Originates in Mankind)
+  </blockquote>
+
+  <p class="body-text reveal">
+    AI can execute faster than any team. It can't accumulate judgment. That still belongs to the person making the decision, informed by real experience, not another agent or another loop driven by another vibe coder or marketer. The best decisions are still made by people. <strong>Learning from them is what builds the next system.</strong>
+  </p>
+
+  <div class="stats-row reveal">
+    <div class="stat">
+      <div class="stat-num">25<sup>+</sup></div>
+      <div class="stat-label">Years<br>Experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8<sup>+</sup></div>
+      <div class="stat-label">Ventures</div>
+      <div class="stat-sub">3+ Startups led</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Teams built &amp;<br>people formed</div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+/* ── HERO TITLE BLOCK (verbatim from jose_vigil_last_design.html) ── */
+.hero-name-block {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-name {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--ink-2);
+}
+
+.hero-photo {
+  width: 168px;
+  height: 168px;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  filter: grayscale(20%);
+  flex-shrink: 0;
+  justify-self: end;
+}
+
+.hero-right-col {
+  padding-top: 0.5rem;
+  min-width: 240px;
+  max-width: 280px;
+}
+
+.hero-role-label {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 0.5rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.5rem;
+}
+
+.hero-role-line {
+  font-size: 0.82rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+
+.hero-meta-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hero-meta-table td {
+  padding: 0.3rem 0;
+  font-size: 0.72rem;
+  border-bottom: 1px solid var(--rule-light);
+  vertical-align: top;
+}
+
+.hero-meta-table td:first-child {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  width: 80px;
+  padding-right: 1rem;
+  padding-top: 0.38rem;
+}
+
+.hero-meta-table td:last-child { color: var(--ink-2); }
+
+/* ── STATS ROW ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  margin-top: 2rem;
+}
+
+.stat {
+  padding: 1.5rem 1.5rem 1.5rem 0;
+  border-right: 1px solid var(--rule-light);
+}
+
+.stat:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'EB Garamond', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.stat-num sup {
+  font-size: 1.2rem;
+  vertical-align: super;
+  color: var(--ink-3);
+}
+
+.stat-label {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  line-height: 1.7;
+}
+
+.stat-sub {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 0.72rem;
+  color: var(--ink-3);
+  margin-top: 0.4rem;
+}
+</style>

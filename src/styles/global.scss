@@ -1,26 +1,28 @@
 h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
+    font-size: 2.6rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin: 0 0 1rem;
 }
 h2 {
     font-size: 2rem;
+    letter-spacing: -0.01em;
 }
 h3 {
-    font-size: 1.7rem;
-}
-h4 {
     font-size: 1.5rem;
 }
-h5, h6 {
-    font-size: 1.2rem;
+h4 {
+    font-size: 1.25rem;
 }
-h2, h3, h4, h5, h5, h6 {
-    font-weight: 500;
+h5, h6 {
+    font-size: 1.05rem;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    color: var(--ink);
 }
 img {
-    border-radius: 5px;
-    box-shadow: 0 3px 6px #00000029;
+    border-radius: 2px;
 }
 p {
     font-weight: 300;
@@ -29,18 +31,9 @@ strong {
     font-weight: 600;
 }
 hr {
-    border-color: var(--black);
+    border-color: var(--rule);
     margin-bottom: 15px;
-    opacity: .4;
-}
-
-.dark {
-    h1, h2, h3, h4, h5, h5, h6, a, p, li {
-        color: var(--white);
-    }
-    hr {
-        border-color: var(--white);
-    }
+    opacity: .6;
 }
 
 .cards-grid {
@@ -76,7 +69,7 @@ hr {
         }
     }
     ul li::before {
-        color: var(--black);
+        color: var(--ink-4);
         content: "\2022";
         font-weight: bold;
         display: inline-block;
@@ -84,9 +77,3 @@ hr {
         margin-left: -1em;
     }
   }
-
-.dark .essays, .projects, .previous {
-    ul li::before {
-        color: var(--white);
-    }
-}

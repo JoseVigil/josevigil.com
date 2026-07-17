@@ -1,0 +1,171 @@
+---
+---
+
+<section id="history">
+  <div class="section-label">
+    <span class="sec-num">§ IV</span>Chronology · 2000 → Present
+  </div>
+  <div class="history-head reveal">
+    <h2 class="sec-h2">System History</h2>
+    <span class="history-sub">25 Years</span>
+  </div>
+
+  <div class="timeline reveal">
+    <div class="tl-line"></div>
+    <div class="tl-entry">
+      <div class="tl-year">2000</div>
+      <div class="tl-dot"></div>
+      <div class="tl-project">Helpdesk &amp; Infrastructure Operations</div>
+      <div class="tl-desc">First contact with large-scale technical systems. Built operational discipline from ground up.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">Infrastructure</span>
+        <span class="tl-tag">Operations</span>
+      </div>
+    </div>
+    <div class="tl-entry">
+      <div class="tl-year">2003</div>
+      <div class="tl-dot"></div>
+      <div class="tl-project">Healthcare Systems Administration</div>
+      <div class="tl-desc">Systems administration in high-stakes clinical environments. Led technical and administrative teams under pressure.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">Healthcare IT</span>
+        <span class="tl-tag">Leadership</span>
+      </div>
+    </div>
+    <div class="tl-entry">
+      <div class="tl-year">2008</div>
+      <div class="tl-dot"></div>
+      <div class="tl-project">Early Startup Exploration</div>
+      <div class="tl-desc">First ventures, first team building, first production failures. The foundation of everything built since.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">Startup</span>
+        <span class="tl-tag">Founding</span>
+      </div>
+    </div>
+    <div class="tl-entry">
+      <div class="tl-year">2018 —</div>
+      <div class="tl-dot"></div>
+      <div class="tl-project">Notimation</div>
+      <div class="tl-desc">B2B marketing services company, later expanded into an all-in-one product for individuals and small businesses entering the digital market. Still active — maintenance mode, one remaining client, running on a local server.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">B2B</span>
+        <span class="tl-tag">Maintenance</span>
+      </div>
+    </div>
+    <div class="tl-entry">
+      <div class="tl-year current">2024</div>
+      <div class="tl-dot current"></div>
+      <div class="tl-project current">Cognituum · Bloomaut</div>
+      <div class="tl-desc">Current active phase. Cognitive infrastructure research meets applied AI-native creator platform.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">Cognituum</span>
+        <span class="tl-tag">Bloomaut</span>
+        <span class="tl-tag">Active</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+.history-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  margin-bottom: 2rem;
+}
+.history-head .sec-h2 { margin-bottom: 0; }
+.history-sub {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+/* ── TIMELINE (verbatim from jose_vigil_last_design.html) ── */
+.timeline { position: relative; padding-left: 90px; }
+
+.tl-line {
+  position: absolute;
+  left: 82px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--rule);
+}
+
+.tl-entry {
+  position: relative;
+  padding: 1.5rem 0 1.5rem 2rem;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.tl-entry:last-child { border-bottom: none; }
+
+.tl-year {
+  position: absolute;
+  left: -90px;
+  top: 1.65rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+  text-align: right;
+  width: 70px;
+}
+
+.tl-year.current {
+  color: var(--red);
+  font-weight: 500;
+}
+
+.tl-dot {
+  position: absolute;
+  left: -0.4rem;
+  top: 1.95rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+
+.tl-dot.current {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(139, 26, 26, 0.15);
+}
+
+.tl-project {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.tl-project.current { color: var(--red); }
+
+.tl-desc {
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.tl-tags {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tl-tag {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  border-bottom: 1px solid var(--rule-light);
+}
+</style>

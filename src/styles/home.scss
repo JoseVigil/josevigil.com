@@ -2,3 +2,143 @@ a:hover, a:focus {
     opacity: .8;
     text-decoration: underline;
 }
+
+/* ── SHARED EDITORIAL PRIMITIVES ──
+   Copiadas verbatim de jose_vigil_last_design.html. sec-h3/two-col/three-col
+   no tienen uso activo en el markup actual (ningun section las consume
+   todavia) pero se migran igual porque se pidieron explicitamente para no
+   tener que volver a este archivo cuando una seccion futura las necesite. */
+
+section {
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--rule-light);
+  position: relative;
+}
+
+section:last-child { border-bottom: none; }
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule-light);
+}
+
+.sec-num {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-5);
+  margin-right: 0.5rem;
+}
+
+.sec-h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.sec-h2 em { font-style: italic; color: var(--ink-2); }
+
+.sec-h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.body-text {
+  font-size: 1rem;
+  line-height: 1.82;
+  color: var(--ink-2);
+  max-width: 600px;
+}
+
+.body-text + .body-text { margin-top: 1.1em; }
+
+.body-text em {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.body-text strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  border-left: 3px solid var(--ink);
+  padding: 0.6rem 0 0.6rem 1.5rem;
+  margin: 2rem 0;
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 640px;
+}
+
+.pull-quote cite {
+  display: block;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-top: 0.5rem;
+}
+
+/* ── TWO / THREE COLUMN ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--col-gap);
+  align-items: start;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--col-gap);
+  align-items: start;
+}
+
+/* ── HOVER LINK ── */
+a.text-link {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139,26,26,0.3);
+  transition: border-color 0.2s;
+}
+a.text-link:hover { border-color: var(--red); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}

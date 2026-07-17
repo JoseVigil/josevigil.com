@@ -17,22 +17,10 @@ export function stringify(obj:any) {
 }
 
 export function getColorFromCollectionName(collection:string) {
-    let color:string = "";
-    switch(collection) {
-      case 'essays':
-        color = "#86ed32";
-          break;
-      case 'projects':
-        color = "#32c1ed";
-        break;
-      case 'previous':
-        color = "#edd732";
-        break;
-      case 'started':
-        color = "#ed329f";
-        break;
-    }
-    return color;
+    // Unified editorial accent (--red from the Paper & Ink palette).
+    // Previously returned a different color per collection, which
+    // contradicted the "single muted accent, used sparingly" rule.
+    return "#8b1a1a";
 }
 
 export function toJDate(date:Date, period:string) {

@@ -1,89 +1,34 @@
 ---
-const year = new Date().getFullYear();
 ---
 
-<footer class="bg-gray-300 dark:bg-neutral-950 mt-5">
-  <div class="flex justify-center flex-col items-center mx-auto max-w-screen-xl px-3 py-10">
-
-    <hr class="w-full">
-
-    <nav aria-label="Website navigation" class="mt-4">
-      <ul class="flex justify-center items-center  text-sm">
-        <li class="mr-3">
-          <a href={`/`} title="Home" class="text-gray-700 transition hover:opacity-75 dark:text-white">
-            Home
-          </a>
-        </li>
-        <li class="mr-3">
-          <span class="text-gray-700 dark:text-white">|</span>
-        </li>
-        <li class="mr-3">
-          <a href={`/essays`} title="Essays" class="text-gray-700 transition hover:opacity-75 dark:text-white">
-            Essays
-          </a>
-        </li>
-        <li class="mr-3">
-          <a href={`/projects`} title="Projects" class="text-gray-700 transition hover:opacity-75 dark:text-white">
-            Projects
-          </a>
-        </li>
-        <li class="mr-3">
-          <a href={`/previous`} title="Previous" class="text-gray-700 transition hover:opacity-75 dark:text-white">
-            Previous
-          </a>
-        </li>
-        <li class="mr-3">
-          <a href={`/started`} title="Started" class="text-gray-700 transition hover:opacity-75 dark:text-white">
-            Started
-          </a>
-        </li>
-        <li class="mr-3">
-          <span class="text-gray-700 dark:text-white">|</span>
-        </li>
-        <li class="mr-3">
-          <a href={`/dates/chronology`} title="Chronology" class="text-gray-700 transition hover:opacity-75 dark:text-white">
-            Chronology
-          </a>
-        </li>
-        <li class="mr-3">
-          <a href={`/quotes/quotes`} title="Quotes" class="text-gray-700 transition hover:opacity-75 dark:text-white">
-            Quotes
-          </a>
-        </li>
-        <li class="mr-3">
-          <span class="text-gray-700 dark:text-white">|</span>
-        </li>
-        <li class="mr-3">
-          <a href={`https://www.nenes.io`} title="Nenes" class="text-gray-700 transition hover:opacity-75 dark:text-white">
-            Nenes
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="flex flex-center items-center mt-4">
-      <ul class="flex mr-3">
-        <li class="mr-3">
-          <a href="https://www.linkedin.com/in/josevigil/" title="LinkedIn" target="_blank" rel="noreferrer" class="transition hover:opacity-75">
-            <span class="sr-only">LinkedIn</span>
-            <svg viewBox="0 0 19 18" height="18" xmlns="http://www.w3.org/2000/svg">
-              <path class="fill-black dark:fill-white" d="M3.94 2A2 2 0 1 1 2 0a2 2 0 0 1 1.94 2zM4 5.48H0V18h4zm6.32 0H6.34V18h3.94v-6.57c0-3.66 4.77-4 4.77 0V18H19v-7.93c0-6.17-7.06-5.94-8.72-2.91z"></path>
-            </svg>
-          </a>
-        </li>
-        <li class="mr-3">
-          <a href="https://twitter.com/JoseVigil" title="Twitter" target="_blank" rel="noreferrer" class="transition hover:opacity-75">
-            <span class="sr-only">Twitter</span>
-            <svg viewBox="0 0 273.5 222.3" height="18" xmlns="http://www.w3.org/2000/svg">
-              <path class="fill-black dark:fill-white" d="M273.5 26.3a109.77 109.77 0 0 1-32.2 8.8 56.07 56.07 0 0 0 24.7-31 113.39 113.39 0 0 1-35.7 13.6 56.1 56.1 0 0 0-97 38.4 54 54 0 0 0 1.5 12.8A159.68 159.68 0 0 1 19.1 10.3a56.12 56.12 0 0 0 17.4 74.9 56.06 56.06 0 0 1-25.4-7v.7a56.11 56.11 0 0 0 45 55 55.65 55.65 0 0 1-14.8 2 62.39 62.39 0 0 1-10.6-1 56.24 56.24 0 0 0 52.4 39 112.87 112.87 0 0 1-69.7 24 119 119 0 0 1-13.4-.8 158.83 158.83 0 0 0 86 25.2c103.2 0 159.6-85.5 159.6-159.6 0-2.4-.1-4.9-.2-7.3a114.25 114.25 0 0 0 28.1-29.1"></path>
-            </svg>
-          </a>
-        </li>
-      </ul>
-      <span class="text-xs text-gray-500 sm:mt-0 dark:text-white mr-3">
-        &copy; {year} Jose Vigil
-      </span>
+<footer>
+  <div>
+    <div class="footer-name">Jose Vigil</div>
+    <div class="footer-sub">
+      Building cognitive infrastructure<br>
+      from Argentina.<br>
+      SYS::JOSEVIGIL v2.0
     </div>
-
+  </div>
+  <div class="footer-links">
+    <a href="https://github.com/josevigil" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/josevigil" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/cognituum" target="_blank" rel="noopener">Cognituum</a>
+    <a href="https://x.com/josevigil" target="_blank" rel="noopener">Twitter</a>
+    <a href="https://www.bloomaut.com/" target="_blank" rel="noopener">Bloomaut</a>
+    <a href="mailto:josemanuelvigil@gmail.com">Email</a>
+  </div>
+  <div class="footer-right">
+    Buenos Aires · Argentina<br>
+    25+ years building<br>
+    2000 — Present
+  </div>
+  <div class="footer-index">
+    <span class="footer-index-label">Also</span>
+    <a href="/projects">Projects</a>
+    <a href="/previous">Previous</a>
+    <a href="/started">Started</a>
+    <a href="/quotes">Quotes</a>
+    <a href="/dates">Chronology</a>
   </div>
 </footer>

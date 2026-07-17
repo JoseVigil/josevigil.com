@@ -1,0 +1,161 @@
+---
+---
+
+<section id="systems">
+  <div class="section-label">
+    <span class="sec-num">§ II</span>Current Systems · Active Infrastructure
+  </div>
+  <h2 class="sec-h2 reveal">Active<br><em>Infrastructure</em></h2>
+  <p class="body-text reveal" style="margin-bottom: 2rem;">Two nodes are currently running, plus this hub itself — where research, essays and the technical record live. Each is a distinct system with its own architecture, purpose and audience — connected by a shared philosophy of building things that persist.</p>
+
+  <div class="reveal">
+    <div class="sys-entry">
+      <div class="sys-entry-header">
+        <div class="sys-index">SYS::01</div>
+        <div class="sys-name">Cognituum</div>
+        <div class="sys-status">Active Research</div>
+      </div>
+      <div class="sys-sub">A Cognitive State Continuum Infrastructure</div>
+      <p class="sys-body">Most AI tooling today is episodic — each session starts over, and context, intent and institutional knowledge get lost between tools, sessions and providers. Cognituum is my ongoing research initiative into cognitive continuity: how systems can preserve context and intent instead of losing them. Output is a whitepaper / framework specification, in progress, intended as a foundation for future standards, protocols or product implementations.</p>
+      <div class="sys-tags">
+        <span class="sys-tag">Continuity</span>
+        <span class="sys-tag">Provider-Agnostic</span>
+        <span class="sys-tag">Local Knowledge</span>
+        <span class="sys-tag">Whitepaper</span>
+      </div>
+      <div class="sys-links">
+        <a href="https://josevigil.com/cognituum" class="sys-link" target="_blank" rel="noopener">Website →</a>
+        <a href="https://github.com/cognituum" class="sys-link" target="_blank" rel="noopener">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="sys-entry">
+      <div class="sys-entry-header">
+        <div class="sys-index">SYS::02</div>
+        <div class="sys-name">Bloomaut</div>
+        <div class="sys-status">Building · Active</div>
+      </div>
+      <div class="sys-sub">Human-Led Content Validation</div>
+      <p class="sys-body">Co-founded with two other co-founders. A platform for human-led content generation and public building — helping entrepreneurs and creators validate content through peer feedback before publishing. Ongoing side project; planned as a future use case for Cognituum once implemented.</p>
+      <div class="sys-tags">
+        <span class="sys-tag">Content Validation</span>
+        <span class="sys-tag">Community Feedback</span>
+        <span class="sys-tag">Creator Tools</span>
+      </div>
+      <div class="sys-links">
+        <a href="https://www.bloomaut.com/" class="sys-link" target="_blank" rel="noopener">Website →</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+/* ── SYSTEM CARDS (verbatim from jose_vigil_last_design.html) ── */
+.sys-entry {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.sys-entry:last-child { border-bottom: none; }
+
+.sys-entry-header {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 1.5rem;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.sys-index {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ink-4);
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+
+.sys-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.sys-status {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 0.15rem 0.6rem;
+  white-space: nowrap;
+}
+
+.sys-status.inactive {
+  color: var(--ink-4);
+  border-color: var(--ink-5);
+}
+
+.sys-sub {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-3);
+  margin-bottom: 0.8rem;
+  padding-left: calc(80px + 1.5rem);
+  font-family: 'EB Garamond', serif;
+}
+
+.sys-body {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--ink-2);
+  padding-left: calc(80px + 1.5rem);
+  max-width: 560px;
+}
+
+.sys-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-left: calc(80px + 1.5rem);
+  margin-top: 0.9rem;
+}
+
+.sys-tag {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+}
+
+.sys-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  margin-left: calc(80px + 1.5rem);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid var(--red);
+  padding-bottom: 1px;
+  transition: opacity 0.2s;
+}
+
+.sys-link:hover { opacity: 0.65; }
+
+.sys-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-left: calc(80px + 1.5rem);
+  margin-top: 0.9rem;
+}
+
+.sys-links .sys-link { margin-top: 0; margin-left: 0; }
+</style>

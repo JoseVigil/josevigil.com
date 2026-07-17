@@ -1,0 +1,201 @@
+---
+import { getCollection } from 'astro:content';
+
+const previousRaw = await getCollection('previous');
+const previousItems = previousRaw.sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const CHUNK_SIZE = 4;
+const slides = Array.from(
+  { length: Math.ceil(previousItems.length / CHUNK_SIZE) },
+  (_, i) => previousItems.slice(i * CHUNK_SIZE, i * CHUNK_SIZE + CHUNK_SIZE)
+);
+---
+
+<section id="archive">
+  <div class="section-label">
+    <span class="sec-num">§ V</span>Previous Systems · Archived
+  </div>
+  <div class="archive-head reveal">
+    <h2 class="sec-h2">Archive</h2>
+    <span class="archive-sub">Research layers</span>
+  </div>
+
+  <div class="archive-slider reveal">
+    <div class="archive-viewport">
+      <div class="archive-track" id="archiveTrack">
+        {slides.map((slide) => (
+          <div class="archive-slide">
+            <div class="archive-grid">
+              {slide.map((item) => (
+                <div class="archive-item">
+                  <div class="archive-era">{item.data.pubDate.getFullYear()}</div>
+                  <div class="archive-name">{item.data.title}</div>
+                  <div class="archive-desc">{item.data.description}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="archive-nav">
+      <button class="archive-arrow" id="archivePrev" aria-label="Previous archives">←</button>
+      <div class="archive-dots" id="archiveDots"></div>
+      <button class="archive-arrow" id="archiveNext" aria-label="Next archives">→</button>
+    </div>
+  </div>
+</section>
+
+<style>
+.archive-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
+}
+.archive-head .sec-h2 { margin-bottom: 0; }
+.archive-sub {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+/* ── ARCHIVE SLIDER (verbatim from jose_vigil_last_design.html) ── */
+.archive-slider { position: relative; }
+
+.archive-viewport {
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+}
+
+.archive-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.archive-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-left: 1px solid var(--rule-light);
+}
+
+.archive-item {
+  padding: 1.5rem;
+  border-right: 1px solid var(--rule-light);
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.archive-era {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 0.5rem;
+}
+
+.archive-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--ink-2);
+  margin-bottom: 0.35rem;
+}
+
+.archive-desc {
+  font-size: 0.8rem;
+  color: var(--ink-3);
+  line-height: 1.65;
+  font-style: italic;
+}
+
+.archive-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-top: 1.25rem;
+}
+
+.archive-arrow {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--ink-3);
+  background: none;
+  border: 1px solid var(--rule);
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.archive-arrow:hover {
+  color: var(--red);
+  border-color: var(--ink-3);
+}
+
+.archive-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.archive-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-4);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.archive-dot.active {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+</style>
+
+<script>
+// Archive slider
+(function () {
+  const track = document.getElementById('archiveTrack');
+  if (!track) return;
+  const slides = Array.from(track.children);
+  const dotsWrap = document.getElementById('archiveDots');
+  const prevBtn = document.getElementById('archivePrev');
+  const nextBtn = document.getElementById('archiveNext');
+  let index = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'archive-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to archive slide ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap?.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap?.children ?? []);
+
+  function update() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    update();
+  }
+
+  prevBtn?.addEventListener('click', () => goTo(index - 1));
+  nextBtn?.addEventListener('click', () => goTo(index + 1));
+})();
+</script>

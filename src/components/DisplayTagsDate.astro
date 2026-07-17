@@ -13,32 +13,79 @@ const year = pubDate.getFullYear();
 const month = months[pubDate.getMonth()];
 ---
 
-<div class="flex items-center justify-between">
-  <div>
+<div class="detail-meta-row">
+  <div class="detail-tags">
     {
       tags?.map((t: string) => (
-        <span class="tag dark:text-white mr-2">{t}</span>
+        <span class="detail-tag">{t}</span>
       ))
     }
   </div>
-  <div>
-    <span class="text-gray-300 dark:text-gray-300 mr-2">
-    <span>
-      {
-        technology?.map((t: string) => (
-          <a style="color:gray;" href="">{t}&nbsp;</a>
-        ))
-      }
-    </span>|</span>
-    <time datetime={ pubDate.toString() } class="text-gray-500 dark:text-gray-300">
-      { month }, { year }
+  <div class="detail-date-block">
+    {
+      technology && technology.length > 0 && (
+        <span class="detail-tech">
+          {
+            technology.map((t: string) => (
+              <span>{t}</span>
+            ))
+          }
+        </span>
+      )
+    }
+    <time datetime={ pubDate.toString() } class="detail-date">
+      { month } {year}
     </time>
   </div>
 </div>
 
 <style>
-.tag {
-  text-decoration-color: var(--black);
-  font-weight: 800;
+.detail-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.detail-tag {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+}
+
+.detail-date-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+  white-space: nowrap;
+}
+
+.detail-tech {
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+.detail-tech span + span::before {
+  content: '/';
+  margin-right: 0.35rem;
+  color: var(--ink-5);
 }
 </style>

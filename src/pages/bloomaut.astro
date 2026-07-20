@@ -1,0 +1,138 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="Bloomaut | Jose Vigil"
+  description="Human creativity amplified through collaborative AI workflows — a community platform for honest peer feedback before you publish."
+  image="../images/josevigil_400x400.png"
+>
+  <section>
+    <div class="section-label">
+      <span class="sec-num">§</span>Systems · Bloomaut
+    </div>
+
+    <div class="project-hero reveal">
+      <h1 class="sec-h2">Bloomaut</h1>
+      <p class="project-tagline">Human creativity amplified through collaborative AI workflows.</p>
+    </div>
+
+    <table class="spec-table reveal">
+      <tr>
+        <td>Role</td>
+        <td>Co-founder (side project)</td>
+      </tr>
+      <tr>
+        <td>Team</td>
+        <td>Co-founded with two other co-founders</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td>Ongoing side project</td>
+      </tr>
+      <tr>
+        <td>Website</td>
+        <td><a href="https://www.bloomaut.com/" class="text-link" target="_blank" rel="noopener">bloomaut.com</a></td>
+      </tr>
+    </table>
+
+    <blockquote class="pull-quote reveal">
+      AI assists the workflow. Humans validate the work.
+    </blockquote>
+
+    <p class="body-text reveal">
+      Bloomaut is a community platform for entrepreneurs and creators who want honest, human feedback on their content before it reaches the world. We believe great content doesn't emerge from AI alone — it emerges when human creativity is refined through interaction, feedback and iteration.
+    </p>
+    <p class="body-text reveal">
+      Most content fails not because of production quality, but because no one gave the creator honest feedback before they published. Bloomaut is the space between creation and publication: creators submit their content — especially video — to a private peer community, where real people review it and help them improve before it goes public.
+    </p>
+    <p class="body-text reveal">
+      Our early community is entrepreneurs building thought leadership content, founders growing a personal brand through video, and creators who want real feedback before they publish. Bloomaut is co-founded by three founders, including Jose Vigil, and built on a simple belief: <em>creativity originates in mankind.</em>
+    </p>
+
+    <div class="sys-tags reveal">
+      <span class="sys-tag">Content Validation</span>
+      <span class="sys-tag">Community Feedback</span>
+      <span class="sys-tag">Creator Tools</span>
+    </div>
+
+    <div class="sys-links reveal">
+      <a href="https://www.bloomaut.com/" class="sys-link" target="_blank" rel="noopener">Visit Bloomaut →</a>
+      <a href="/#systems" class="sys-link">← Back to Systems</a>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+.project-hero {
+  margin-bottom: 1.5rem;
+}
+.project-hero .sec-h2 {
+  margin-bottom: 0.5rem;
+}
+.project-tagline {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ink-2);
+  max-width: 600px;
+}
+
+/* ── SPEC TABLE (verbatim from the original Paper & Ink mockup) ── */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 2rem 0;
+}
+.spec-table tr { border-bottom: 1px solid var(--rule-light); }
+.spec-table tr:first-child { border-top: 2px solid var(--ink); }
+.spec-table tr:last-child { border-bottom: 2px solid var(--rule); }
+.spec-table td {
+  padding: 0.55rem 1rem 0.55rem 0;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+.spec-table td:first-child {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  width: 160px;
+}
+
+/* ── TAGS / LINKS (same language as SystemsSection) ── */
+.sys-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.sys-tag {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+}
+.sys-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.sys-link {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid var(--red);
+  padding-bottom: 1px;
+  transition: opacity 0.2s;
+}
+.sys-link:hover { opacity: 0.65; }
+</style>

@@ -1,25 +1,43 @@
 ---
 import { getCollection } from 'astro:content';
 
-const previousRaw = await getCollection('previous');
-const previousItems = previousRaw.sort(
+// Archive folds in every collection that tells the story of past work:
+// previous ventures, current/former products, and the autobiographical
+// "started" chapters. Essays stay separate, under Writings.
+const [previousRaw, projectsRaw, startedRaw] = await Promise.all([
+  getCollection('previous'),
+  getCollection('projects'),
+  getCollection('started'),
+]);
+
+const archiveItems = [...previousRaw, ...projectsRaw, ...startedRaw].sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
+const collectionLabel: Record<string, string> = {
+  previous: 'System',
+  projects: 'Project',
+  started: 'Chapter',
+};
+
+function hrefFor(item: (typeof archiveItems)[number]) {
+  return `/${item.collection}/${item.slug}`;
+}
+
 const CHUNK_SIZE = 4;
 const slides = Array.from(
-  { length: Math.ceil(previousItems.length / CHUNK_SIZE) },
-  (_, i) => previousItems.slice(i * CHUNK_SIZE, i * CHUNK_SIZE + CHUNK_SIZE)
+  { length: Math.ceil(archiveItems.length / CHUNK_SIZE) },
+  (_, i) => archiveItems.slice(i * CHUNK_SIZE, i * CHUNK_SIZE + CHUNK_SIZE)
 );
 ---
 
 <section id="archive">
   <div class="section-label">
-    <span class="sec-num">§ V</span>Previous Systems · Archived
+    <span class="sec-num">§ V</span>Systems, Projects &amp; Chapters · Archived
   </div>
   <div class="archive-head reveal">
     <h2 class="sec-h2">Archive</h2>
-    <span class="archive-sub">Research layers</span>
+    <span class="archive-sub">{archiveItems.length} Entries</span>
   </div>
 
   <div class="archive-slider reveal">
@@ -29,11 +47,14 @@ const slides = Array.from(
           <div class="archive-slide">
             <div class="archive-grid">
               {slide.map((item) => (
-                <div class="archive-item">
-                  <div class="archive-era">{item.data.pubDate.getFullYear()}</div>
+                <a href={hrefFor(item)} class="archive-item">
+                  <div class="archive-meta">
+                    <span class="archive-era">{item.data.pubDate.getFullYear()}</span>
+                    <span class="archive-type">{collectionLabel[item.collection]}</span>
+                  </div>
                   <div class="archive-name">{item.data.title}</div>
                   <div class="archive-desc">{item.data.description}</div>
-                </div>
+                </a>
               ))}
             </div>
           </div>
@@ -91,9 +112,27 @@ const slides = Array.from(
 }
 
 .archive-item {
+  display: block;
   padding: 1.5rem;
   border-right: 1px solid var(--rule-light);
   border-bottom: 1px solid var(--rule-light);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.archive-item:hover {
+  background: var(--paper-dark);
+}
+
+.archive-item:hover .archive-name {
+  color: var(--red);
+}
+
+.archive-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .archive-era {
@@ -102,7 +141,16 @@ const slides = Array.from(
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-4);
-  margin-bottom: 0.5rem;
+}
+
+.archive-type {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-5);
+  border-left: 1px solid var(--rule);
+  padding-left: 0.6rem;
 }
 
 .archive-name {
@@ -110,6 +158,7 @@ const slides = Array.from(
   font-size: 1.05rem;
   color: var(--ink-2);
   margin-bottom: 0.35rem;
+  transition: color 0.2s;
 }
 
 .archive-desc {

@@ -1,0 +1,148 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="Cognituum | Jose Vigil"
+  description="Your engineering decisions outrank the model's — a research initiative into cognitive continuity for AI-assisted workflows."
+  image="../images/josevigil_400x400.png"
+>
+  <section>
+    <div class="section-label">
+      <span class="sec-num">§</span>Systems · Cognituum
+    </div>
+
+    <div class="project-hero reveal">
+      <h1 class="sec-h2">Cognituum</h1>
+      <p class="project-tagline">Your engineering decisions outrank the model's.</p>
+    </div>
+
+    <table class="spec-table reveal">
+      <tr>
+        <td>Role</td>
+        <td>Founder (sole founder)</td>
+      </tr>
+      <tr>
+        <td>Focus</td>
+        <td>Current primary focus, full-time</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td>Active development · Early access opening to a small group of senior engineers and developers</td>
+      </tr>
+      <tr>
+        <td>Output</td>
+        <td>Whitepaper / framework specification, in progress</td>
+      </tr>
+      <tr>
+        <td>Website</td>
+        <td><a href="https://cognituum.com" class="text-link" target="_blank" rel="noopener">cognituum.com</a></td>
+      </tr>
+      <tr>
+        <td>GitHub</td>
+        <td><a href="https://github.com/cognituum" class="text-link" target="_blank" rel="noopener">github.com/cognituum</a></td>
+      </tr>
+    </table>
+
+    <blockquote class="pull-quote reveal">
+      Every session with an AI model starts a negotiation you already won last week. Cognituum keeps your engineering call as the final one — versioned, signed, remembered. You decide once. It stays decided.
+    </blockquote>
+
+    <p class="body-text reveal">
+      Most AI tooling today is episodic — each session starts over, and context, intent and institutional knowledge get lost between tools, sessions and providers. You explain the architecture, the constraints, the reasoning — and the model forgets, session after session. That costs tokens spent re-establishing context that should have simply persisted, and judgment quality lost when a model quietly overrides a call that should have stayed yours.
+    </p>
+    <p class="body-text reveal">
+      Cognituum is built on a simple inversion: your engineering decisions outrank the model's. Once you decide something, it's captured and enforced, not re-negotiated tool by tool. It's provider-agnostic by design — Claude, Codex, Gemini, whatever you use, your judgment sits above all of them, not inside one of them.
+    </p>
+    <p class="body-text reveal">
+      We're in active development, opening early access to a small group of senior engineers and developers before public availability.
+    </p>
+
+    <div class="sys-tags reveal">
+      <span class="sys-tag">Continuity</span>
+      <span class="sys-tag">Provider-Agnostic</span>
+      <span class="sys-tag">Local Knowledge</span>
+      <span class="sys-tag">Whitepaper</span>
+    </div>
+
+    <div class="sys-links reveal">
+      <a href="https://cognituum.com" class="sys-link" target="_blank" rel="noopener">Get early access →</a>
+      <a href="https://github.com/cognituum" class="sys-link" target="_blank" rel="noopener">GitHub →</a>
+      <a href="/#systems" class="sys-link">← Back to Systems</a>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+.project-hero {
+  margin-bottom: 1.5rem;
+}
+.project-hero .sec-h2 {
+  margin-bottom: 0.5rem;
+}
+.project-tagline {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ink-2);
+  max-width: 600px;
+}
+
+/* ── SPEC TABLE (verbatim from the original Paper & Ink mockup) ── */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 2rem 0;
+}
+.spec-table tr { border-bottom: 1px solid var(--rule-light); }
+.spec-table tr:first-child { border-top: 2px solid var(--ink); }
+.spec-table tr:last-child { border-bottom: 2px solid var(--rule); }
+.spec-table td {
+  padding: 0.55rem 1rem 0.55rem 0;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+.spec-table td:first-child {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  width: 160px;
+}
+
+/* ── TAGS / LINKS (same language as SystemsSection) ── */
+.sys-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.sys-tag {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+}
+.sys-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.sys-link {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid var(--red);
+  padding-bottom: 1px;
+  transition: opacity 0.2s;
+}
+.sys-link:hover { opacity: 0.65; }
+</style>

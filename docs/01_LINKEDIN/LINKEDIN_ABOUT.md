@@ -1,37 +1,46 @@
 # LINKEDIN ABOUT SECTION
 
-## Active Version (updated 2026-07 — B2B/Services positioning, approved)
+## Active Version (updated 2026-07-21 — AI Architect repositioning, approved)
 
-Aligned with `03_COGNITUUM/ONE_PAGER_B2B_v2_2026-07.md`: opens with the
-practical work (systems/architecture), not the philosophy. Cognituum is
-framed as ongoing research that informs how I build, explicitly not yet
-a product — no results or client outcomes are claimed.
+Aligned with `00_MASTER_BRAND/05_AI_ARCHITECT_REPOSITIONING_2026-07.md` and
+the canonical CV. Leads with demonstrated capability, not philosophy or
+hedging. Cognituum is described as a system already architected and built
+in production — the proof point, not the pitch. Notimation and Bloomaut
+follow as sustained-delivery evidence, in that order, matching the CV.
 
-I design and build software systems — 25+ years, across support,
-engineering, and founding multiple ventures of my own along the way.
+```
+I design and build distributed infrastructure — 25+ years, end to end,
+usually as the founder who also writes the code.
 
-Right now I split my time between hands-on systems and architecture
-work for companies, and Cognituum, an ongoing research initiative into
-cognitive continuity in AI-assisted workflows: why AI tools lose
-context between sessions, tools and providers, and what architecture
-fixes it.
+Today that means architecting Cognituum: a provider-agnostic AI governance
+layer built in production — core services in Go, an execution engine in
+Python, a native C++ bridge, and TypeScript/Node.js services. It gives
+LLM-assisted engineering work persistent, semantic context across sessions
+and models (Claude, Codex, Gemini): local LLMs via Ollama, RAG via ChromaDB,
+workflow orchestration via Temporal, and access control on OAuth/Zero
+Trust — provider-agnostic by design, aligned with the emerging Model
+Context Protocol (MCP).
 
-Cognituum isn't a product yet. It's the research layer behind how I
-build — systems designed to preserve context and intent, not just
-execute the next prompt. That shows up directly in the work: avoiding
-lock-in to a single AI vendor, and knowledge structures that evolve
-with actual use instead of going stale.
+Before Cognituum: I founded and ran Notimation, a B2B communications
+platform with a public API, for 7 years and 150+ business clients — proof
+I don't just design systems, I keep them running. I'm also co-founder of
+Bloomaut, where I built agent pipelines and full-stack mobile apps
+(iOS/Android, FFmpeg) alongside a small team.
 
-The philosophy behind it: C.O.M. — Creativity Originates in Mankind.
-AI executes and accelerates. Judgment and intention stay human. I
-build systems that protect that boundary.
+Earlier: 5 granted patents in touch/gesture interfaces (RoamTouch), IoT and
+mining-tech ventures, and two decades of IT infrastructure and mobile/web
+engineering before "AI infrastructure" was a job title.
 
-Open to remote, part-time engagements — systems architecture, AI
-workflow audits, hands-on development.
+Open to senior remote or contract roles in AI agent architecture, AI
+governance, or applied AI infrastructure — Solutions Architect, AI
+Governance Engineer, Forward-Deployed Engineer.
+```
+
+(~215 words)
 
 ---
 
-## Previous Active (pre-2026-07)
+## Previous Active (B2B/Services positioning, 2026-07 — superseded)
 
 I've spent 25+ years building systems at the intersection of design,
 engineering and entrepreneurship.
@@ -61,9 +70,14 @@ and the future of entrepreneurship in an AI-accelerated world.
 
 ---
 
-## Notes
+## Notes (updated 2026-07-21)
 
 - Keep to ~220–250 words
-- First line must hook without being hyperbolic
-- The C.O.M. thesis should appear before the products
-- Products are consequences of the philosophy, not the lead
+- First line leads with what was built, not philosophy
+- Order is fixed: Cognituum (architecture proof) → Notimation (sustained
+  delivery) → Bloomaut (secondary delivery evidence) → earlier/patents
+- No C.O.M. / hedging language in this version — that belongs to the
+  identity layer (essays, Cognituum product page), not the hiring-facing
+  About section. See `00_MASTER_BRAND/05_...md` §2 for the two-layer split.
+- Close with the specific target roles (Solutions Architect, AI Governance
+  Engineer, Forward-Deployed Engineer) — not a generic "open to work"

@@ -38,43 +38,49 @@ Your engineering decisions outrank the model's.
 
 ---
 
-## About Section (revised 2026-07 — see changelog)
+## About Section (revised 2026-07-26, live on LinkedIn)
+
+Updated to blend the technical capability proof (from the canonical CV)
+into paragraph 2, per Fase 2 of
+`00_MASTER_BRAND/05_AI_ARCHITECT_REPOSITIONING_2026-07.md`. No em dashes,
+no MCP mentions. Paragraphs 3-5 keep the original honest waitlist framing
+(no fake metrics, no claimed user validation).
 
 ```
-Cognituum — Cognitive State Continuum for Programmable Intent.
+Cognituum. Cognitive State Continuum for Programmable Intent.
 
-Cognituum is a research initiative building the infrastructure so your
-engineering decisions stay decided, shared and persisted — across
-sessions and across providers, not re-litigated every time you switch
-between them.
+Cognituum is a provider-agnostic AI governance layer, architected and
+built by its founder: core services in Go, a Python execution engine, a
+native C++ bridge, and TypeScript/Node.js services, with local LLMs via
+Ollama, RAG via ChromaDB, workflow orchestration via Temporal, and access
+control on OAuth/Zero Trust. It coordinates context across multiple AI
+providers (Claude, ChatGPT, Gemini, Grok) through a self-built governance
+layer, independent of any single vendor.
 
-Right now, every AI-assisted session — whichever tool you're using —
-starts a negotiation you already won last week. You explain the
-architecture, the constraints, the reasoning, and each model forgets on
-its own. Cognituum changes what persists: it learns from your
-engineering decisions and builds a knowledge base for the project
-itself, grounded in intent rather than any single AI's memory. That
-source of truth updates with every decision you make, so nothing goes
-stale and nothing needs re-explaining. Once it has learned how you
-think about a project, it stops asking — and carries those same
-decisions everywhere else they apply.
+Right now, every AI-assisted session, whichever tool you're using, starts
+a negotiation you already won last week. You explain the architecture,
+the constraints, the reasoning, and each model forgets on its own.
+Cognituum changes what persists: it learns from your engineering
+decisions and builds a knowledge base for the project itself, grounded in
+intent rather than any single AI's memory. That source of truth updates
+with every decision you make, so nothing goes stale and nothing needs
+re-explaining.
 
 Cognituum is built on a simple inversion: your engineering decisions
 outrank the model's. Once you decide something, it's captured and
-enforced — not re-negotiated tool by tool. And because it's organized
-around intent rather than any single AI, that record can be governed
-the way real organizations actually work: structured by project and
-hierarchy, visible to the people who need it, access-controlled for the
-people who don't. That's a governance layer most AI tooling still
-doesn't have.
+enforced, not re-negotiated tool by tool. Because it's organized around
+intent rather than any single AI, that record can be governed the way
+real organizations actually work: structured by project and hierarchy,
+visible to the people who need it, access-controlled for the people who
+don't.
 
-We're in active development — not yet validated with real users, and
+We're in active development, not yet validated with real users, and
 that's exactly why we're opening a waitlist now. If you're a senior
 engineer who wants to be among the first to try it, get on the early
 access list.
 ```
 
-(~215 words)
+(~205 words, 1,692/2,000 characters in the LinkedIn Overview field)
 
 ---
 
@@ -106,9 +112,15 @@ access list.
   This is architecture-level detail your earlier note flagged to keep
   out of public copy until the patent/legal question is resolved.
   Flagging again here — say the word if you want it in anyway.
-- No metrics, client names, or results claimed — none exist yet.
+- No metrics, client names, or results claimed, none exist yet.
 - Website field points to cognituum.com per your confirmation (Vercel
   deploy), not the waitlist HTML file.
-- LinkedIn company page already exists at
-  linkedin.com/company/cognituum-lab — this doc is the copy to paste
-  into the Tagline and About fields there.
+- LinkedIn company page: linkedin.com/company/cognituum-labs (public URL
+  slug; internal page id 127183922).
+- 2026-07-26: pasted live on the LinkedIn company page (Details tab,
+  Overview field). Paragraph 2 rewritten to lead with the technical
+  build (Go/Python/C++/TS, Ollama, ChromaDB, Temporal, OAuth/Zero Trust,
+  multi-provider coordination) as capability proof, replacing the more
+  abstract "research initiative" framing, per the AI Architect
+  repositioning. No MCP mentions (Jose doesn't use or know MCP) and no
+  em dashes anywhere in the copy.

@@ -1,21 +1,23 @@
 # LINKEDIN HEADLINE
 
-## Active Headline (updated 2026-07-21 — AI Architect repositioning, approved)
+## Active Headline (updated 2026-07-21, AI Architect repositioning, approved)
 
 Aligned with `00_MASTER_BRAND/05_AI_ARCHITECT_REPOSITIONING_2026-07.md` and
 the canonical CV (`Jose_Vigil_CV_2026.docx`). Leads with the target role
-outright — no hedging, no "research credibility layer" framing. Cognituum
+outright, no hedging, no "research credibility layer" framing. Cognituum
 is named as a system already built, not research in progress.
 
+```
+AI Infrastructure & Governance Architect | Distributed Systems | 25+ Years Building End-to-End
+```
+
+Chosen by Jose 2026-07-26 (shorter version, cleaner on mobile).
+
+### Longer alternative (kept for reference, not active)
 ```
 AI Infrastructure & Governance Architect | Distributed Systems (Go, Python, C++, TS)
 25+ years building end-to-end. Built Cognituum: a provider-agnostic AI
 governance layer in production. Open to senior remote/contract roles.
-```
-
-### Shorter alternative (if truncated on mobile)
-```
-AI Infrastructure & Governance Architect | Distributed Systems | 25+ Years Building End-to-End
 ```
 
 ---
@@ -49,14 +51,17 @@ Systems Builder | AI Researcher | Founder of Bloomaut & Cognituum
 
 ---
 
-## Rules (updated 2026-07-21)
+## Rules (updated 2026-07-26)
 
 - Lead with the hireable title (AI Infrastructure & Governance Architect),
   not "Senior Software Engineer" and not a founder title.
 - Name Cognituum as a system already built (proof of capability), never as
-  "research" or "not yet a product" — that hedging belongs to the
+  "research" or "not yet a product." That hedging belongs to the
   Cognituum-as-product layer (waitlist/company page), not the hiring layer.
 - No C.O.M. / philosophy language in the hiring-facing headline. That stays
   in the identity layer (see `00_MASTER_BRAND/05_...md` §2).
+- No MCP / Model Context Protocol mentions. Jose doesn't use or know MCP;
+  it was removed 2026-07-26 per his correction.
+- No em dashes ("—") in any generated copy. Use periods, colons, or commas.
 - Keep the older options below only as reference for the identity layer,
   not as active alternatives for this headline.

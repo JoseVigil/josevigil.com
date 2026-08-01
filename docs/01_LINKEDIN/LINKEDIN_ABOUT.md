@@ -1,42 +1,43 @@
 # LINKEDIN ABOUT SECTION
 
-## Active Version (updated 2026-07-21 — AI Architect repositioning, approved)
+## Active Version (updated 2026-07-26, AI Architect repositioning, approved)
 
 Aligned with `00_MASTER_BRAND/05_AI_ARCHITECT_REPOSITIONING_2026-07.md` and
 the canonical CV. Leads with demonstrated capability, not philosophy or
 hedging. Cognituum is described as a system already architected and built
-in production — the proof point, not the pitch. Notimation and Bloomaut
-follow as sustained-delivery evidence, in that order, matching the CV.
+in production: the proof point, not the pitch. Notimation and Bloomaut
+follow as sustained-delivery evidence, with a short note on current vs.
+past status for each, per Jose's 2026-07-26 edit.
 
 ```
-I design and build distributed infrastructure — 25+ years, end to end,
+I design and build distributed infrastructure. 25+ years, end to end,
 usually as the founder who also writes the code.
 
 Today that means architecting Cognituum: a provider-agnostic AI governance
-layer built in production — core services in Go, an execution engine in
-Python, a native C++ bridge, and TypeScript/Node.js services. It gives
+layer built in production, with core services in Go, an execution engine
+in Python, a native C++ bridge, and TypeScript/Node.js services. It gives
 LLM-assisted engineering work persistent, semantic context across sessions
-and models (Claude, Codex, Gemini): local LLMs via Ollama, RAG via ChromaDB,
-workflow orchestration via Temporal, and access control on OAuth/Zero
-Trust — provider-agnostic by design, aligned with the emerging Model
-Context Protocol (MCP).
+and models (Claude, Codex, Gemini): local LLMs via Ollama, RAG via
+ChromaDB, workflow orchestration via Temporal, and access control on
+OAuth/Zero Trust. It coordinates context across multiple AI providers
+through a self-built governance layer, independent of any single vendor.
 
-Before Cognituum: I founded and ran Notimation, a B2B communications
-platform with a public API, for 7 years and 150+ business clients — proof
-I don't just design systems, I keep them running. I'm also co-founder of
-Bloomaut, where I built agent pipelines and full-stack mobile apps
-(iOS/Android, FFmpeg) alongside a small team.
+Before Cognituum, I founded and ran Notimation, a B2B communications
+platform with a public API, for 7 years and 150+ business clients. Proof I
+don't just design systems, I keep them running. I'm currently also working
+on Bloomaut, which I co-founded, building agent pipelines and full-stack
+mobile apps (iOS/Android, FFmpeg) alongside a small team.
 
 Earlier: 5 granted patents in touch/gesture interfaces (RoamTouch), IoT and
 mining-tech ventures, and two decades of IT infrastructure and mobile/web
 engineering before "AI infrastructure" was a job title.
 
 Open to senior remote or contract roles in AI agent architecture, AI
-governance, or applied AI infrastructure — Solutions Architect, AI
+governance, or applied AI infrastructure: Solutions Architect, AI
 Governance Engineer, Forward-Deployed Engineer.
 ```
 
-(~215 words)
+(~210 words)
 
 ---
 
@@ -70,14 +71,21 @@ and the future of entrepreneurship in an AI-accelerated world.
 
 ---
 
-## Notes (updated 2026-07-21)
+## Notes (updated 2026-07-26)
 
 - Keep to ~220–250 words
 - First line leads with what was built, not philosophy
-- Order is fixed: Cognituum (architecture proof) → Notimation (sustained
-  delivery) → Bloomaut (secondary delivery evidence) → earlier/patents
-- No C.O.M. / hedging language in this version — that belongs to the
+- Order is fixed: Cognituum (architecture proof), then Notimation
+  (sustained delivery), then Bloomaut (secondary delivery evidence), then
+  earlier/patents
+- No C.O.M. / hedging language in this version. That belongs to the
   identity layer (essays, Cognituum product page), not the hiring-facing
   About section. See `00_MASTER_BRAND/05_...md` §2 for the two-layer split.
 - Close with the specific target roles (Solutions Architect, AI Governance
-  Engineer, Forward-Deployed Engineer) — not a generic "open to work"
+  Engineer, Forward-Deployed Engineer), not a generic "open to work"
+- No MCP / Model Context Protocol references anywhere. Jose confirmed he
+  doesn't use or know MCP; it was a wrong inference on my part from the
+  "provider-agnostic" detail, not something he actually said. Removed
+  2026-07-26 per his correction and updated in the canonical CV.
+- Style rule going forward: no em dashes ("—") in any generated copy for
+  this profile. Use periods, colons, or commas instead.

@@ -42,3 +42,7 @@ explicitly flags it's not a finished product — no overselling.
   the LinkedIn Headline/About and the One-Pager B2B.
 - Pinned tweet is a draft/option — review before posting, can be
   shortened further or swapped for a thread if you'd rather.
+- **Re-confirmed against `Jose_Vigil_CV_2026.docx` (new CV).** That CV
+  is more specific (full stack, "governance layer" framing) than this
+  bio. Per your call, the CV's level of detail stays in the CV only —
+  this bio stays at the generic Headline/About tier. No changes made.

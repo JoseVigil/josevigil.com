@@ -24,7 +24,7 @@ presenta así, no como disculpa.
 
 | Proyecto | Rol en la narrativa | Qué prueba |
 |---|---|---|
-| **Cognituum / BTIPS** | Prueba de arquitectura (primero, arriba) | Diseñó y construyó en producción exactamente lo que hoy se llama "agentic AI governance": Go, Python, C++, TypeScript, LLMs locales (Ollama), RAG (ChromaDB), orquestación (Temporal), OAuth/Zero Trust, diseño provider-agnostic alineado a MCP. No se vende como producto ni startup — se vende como capacidad demostrada. |
+| **Cognituum / BTIPS** | Prueba de arquitectura (primero, arriba) | Diseñó y construyó en producción exactamente lo que hoy se llama "agentic AI governance": Go, Python, C++, TypeScript, LLMs locales (Ollama), RAG (ChromaDB), orquestación (Temporal), OAuth/Zero Trust, diseño provider-agnostic (coordina contexto entre Claude, ChatGPT, Gemini y Grok mediante una capa de gobernanza propia, sin depender de ningún vendor). No se vende como producto ni startup, se vende como capacidad demostrada. |
 | **Notimation** | Prueba de sostenibilidad | Producto real, API pública, 150+ clientes, 7 años en producción (2018–2025). Prueba que no abandona lo que construye. |
 | **Bloomaut** | Prueba de entrega secundaria | Full-stack real con otro equipo: pipelines de agentes, mobile iOS/Android con FFmpeg, frontend + backend en producción. Prueba que no es "solo el de la idea". |
 
@@ -35,7 +35,7 @@ reclutadores en 2026):**
 |---|---|
 | Ollama + LLMs locales | Local/on-prem LLM deployment |
 | ChromaDB + vectorización de intents | RAG, semantic memory, vector search |
-| Arquitectura provider-agnostic (Claude, Codex, Gemini) | Alineado a MCP (Model Context Protocol) |
+| Arquitectura provider-agnostic (Claude, ChatGPT, Gemini, Grok) | Capa de gobernanza propia, independiente de cualquier vendor |
 | Temporal + event bus + state reconciliation | Workflow orchestration, agent state management |
 | OAuth + Zero Trust | AI governance & access control |
 | Extensión Chrome + app de escritorio | Human-in-the-loop governance UI |
@@ -52,7 +52,21 @@ opcional" a "parte de la ingeniería" en 2026.
 
 ---
 
-## 2. Conflicto con lo que ya existe — y cómo se resuelve
+## 1.1 Correcciones de Jose (2026-07-26)
+
+- **Sin MCP.** No se menciona el Model Context Protocol en ningún asset.
+  Jose no lo usa ni lo conoce; fue una inferencia mía a partir del detalle
+  "provider-agnostic" y no algo que él haya dicho. Se reemplaza por la
+  descripción funcional: coordina contexto entre Claude, ChatGPT, Gemini y
+  Grok mediante una capa de gobernanza propia. Ya corregido en el CV
+  canónico y en los tres archivos de LinkedIn.
+- **Sin em dashes ("—").** Es un tic típico de texto generado por IA. Regla
+  para todo contenido nuevo de aquí en adelante: usar puntos, comas o dos
+  puntos en su lugar.
+
+---
+
+## 2. Conflicto con lo que ya existe, y cómo se resuelve
 
 Reviso `docs/00_MASTER_BRAND/` y los docs de LinkedIn/josevigil.com que ya
 tenías, y hay una tensión real que hay que resolver antes de tocar nada:

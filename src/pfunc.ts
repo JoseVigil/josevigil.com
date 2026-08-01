@@ -17,10 +17,11 @@ export function stringify(obj:any) {
 }
 
 export function getColorFromCollectionName(collection:string) {
-    // Unified editorial accent (--red from the Paper & Ink palette).
+    // Unified editorial accent — mirrors --red in MainLayout.astro's :root.
     // Previously returned a different color per collection, which
     // contradicted the "single muted accent, used sparingly" rule.
-    return "#8b1a1a";
+    // NOTE: kept in sync manually with --red since this is plain TS, not CSS.
+    return "#8c6a3f";
 }
 
 export function toJDate(date:Date, period:string) {

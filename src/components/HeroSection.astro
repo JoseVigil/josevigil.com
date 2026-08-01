@@ -1,16 +1,19 @@
 ---
 ---
 
-<section id="hero" style="padding-top:4rem; padding-bottom:4rem;">
+<section id="hero" style="padding-top:4rem; padding-bottom:1.5rem;">
   <div class="section-label">
     <span class="sec-num">§ I</span>Profile
   </div>
 
   <div class="hero-name-block reveal">
-    <div>
+    <div class="hero-name-photo-group">
+      <div class="image-frame hero-photo-frame">
+        <img class="hero-photo" src="/images/jose_vigil.png" alt="Jose Vigil">
+        <span class="image-tag-chip">Buenos Aires, AR</span>
+      </div>
       <div class="hero-name">Jose<br><em>Vigil</em></div>
     </div>
-    <img class="hero-photo" src="/images/josevigil_400x400.png" alt="Jose Vigil">
     <div class="hero-right-col">
       <div class="hero-role-label">Current Designation</div>
       <div class="hero-role-line">Senior Software Engineer · AI Researcher · Systems Architect.</div>
@@ -52,20 +55,28 @@
 <style>
 /* ── HERO TITLE BLOCK (verbatim from jose_vigil_last_design.html) ── */
 .hero-name-block {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 2rem;
   margin-bottom: 2rem;
 }
 
+.hero-name-photo-group {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
 .hero-name {
-  font-family: 'EB Garamond', serif;
+  font-family: var(--serif);
   font-size: clamp(3.5rem, 8vw, 6rem);
   font-weight: 400;
   line-height: 0.92;
   letter-spacing: -0.02em;
   color: var(--ink);
+  text-align: center;
 }
 
 .hero-name em {
@@ -73,14 +84,55 @@
   color: var(--ink-2);
 }
 
-.hero-photo {
-  width: 168px;
-  height: 168px;
-  object-fit: cover;
-  border: 1px solid var(--rule);
-  filter: grayscale(20%);
+/* ── TRIAL: photo-frame + chip pattern from the new style guide ── */
+.hero-photo-frame {
+  width: 280px;
+  height: 280px;
   flex-shrink: 0;
-  justify-self: end;
+}
+
+.image-frame {
+  position: relative;
+  display: inline-block;
+}
+
+.image-frame::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  right: -16px;
+  bottom: -16px;
+  border: 1.5px solid var(--celeste);
+  border-radius: 4px;
+  z-index: 0;
+}
+
+.hero-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 24px 60px -20px rgba(27, 42, 65, 0.35);
+  filter: grayscale(20%);
+  display: block;
+}
+
+.image-tag-chip {
+  position: absolute;
+  bottom: -18px;
+  left: -18px;
+  z-index: 2;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 16px;
+  border-radius: 3px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  box-shadow: 0 12px 24px -8px rgba(27, 42, 65, 0.5);
 }
 
 .hero-right-col {
@@ -150,7 +202,7 @@
 .stat:last-child { border-right: none; }
 
 .stat-num {
-  font-family: 'EB Garamond', serif;
+  font-family: var(--serif);
   font-size: 3rem;
   font-weight: 400;
   line-height: 1;
@@ -174,7 +226,7 @@
 }
 
 .stat-sub {
-  font-family: 'Libre Baskerville', serif;
+  font-family: var(--serif);
   font-style: italic;
   font-size: 0.72rem;
   color: var(--ink-3);

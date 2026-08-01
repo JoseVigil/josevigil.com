@@ -23,14 +23,14 @@ See LINKEDIN_HEADLINE.md
 
 ## Experience Framing Principle (updated 2026-07-21)
 
-Superseded for the hiring-facing profile — see
+Superseded for the hiring-facing profile, see
 `00_MASTER_BRAND/05_AI_ARCHITECT_REPOSITIONING_2026-07.md`. Each role
 should communicate:
 
 1. What was built and owned end-to-end
 2. Scale/proof (clients, years in production, patents, team size)
 3. How it maps to the target vocabulary (governance, RAG, orchestration,
-   provider-agnostic — see the keyword table in doc 05)
+   provider-agnostic, see the keyword table in doc 05)
 
 List roles in the same order as the canonical CV — Cognituum first (as
 architecture proof, not as "founder of a closed startup"), then Notimation,
@@ -42,44 +42,45 @@ identity layer (essays, Cognituum product page).
 
 ## Experience Entries — ready to paste (2026-07-21)
 
-### Founder — Cognituum
+### Founder, Cognituum
 *AI Governance Research Initiative · Current*
 Designing and building a provider-agnostic AI governance layer in
 production: core services in Go (governance, event bus, state
 reconciliation, presence runtime), a Python execution engine, a native C++
 bridge, and TypeScript/Node.js services. Local LLMs via Ollama; RAG via
 ChromaDB; real-time comms over WebSocket orchestrated with Temporal; access
-control on OAuth/Zero Trust — provider-agnostic by design, aligned with the
-emerging Model Context Protocol (MCP).
+control on OAuth/Zero Trust. It coordinates context across multiple AI
+providers (Claude, ChatGPT, Gemini, Grok) through a self-built governance
+layer, independent of any single vendor protocol.
 
-### Co-Founder — Bloomaut
+### Co-Founder, Bloomaut
 *Ongoing*
 Co-founded (3 co-founders) a platform for human-validated content
 creation. Built agent pipelines and full-stack mobile applications
 (iOS/Android) with FFmpeg-based video compilation, plus supporting
 frontend and backend services.
 
-### Founder — Notimation
+### Founder, Notimation
 *2018 – 2025 · Argentina*
 Founded and ran a full B2B SMS/communications platform with a public API,
-serving 150+ business clients. Owned the product end to end — production
-servers and uptime, client relationships, support — the company's primary
-income source through 2025.
+serving 150+ business clients. Owned the product end to end: production
+servers and uptime, client-facing relationship management, and support.
+This was the company's primary income source through 2025.
 
-### Senior IT Consultant — Freelance
+### Senior IT Consultant, Freelance
 *2017 – Present · Argentina (Remote)*
 Diagnose infrastructure/software issues to root cause; advise on
 MVP-to-funnel product validation and technology planning aligned with
 growth projections.
 
-### CEO & Founder — RoamTouch LLC
+### CEO & Founder, RoamTouch LLC
 *2011 – 2016 · SF Bay Area / Buenos Aires*
-Founded and led a mobile technology company end to end — Android SDK and
-web development, AWS/Linux infrastructure, custom Android/Android-x86
+Founded and led a mobile technology company end to end, covering Android
+SDK and web development, AWS/Linux infrastructure, custom Android/Android-x86
 builds and WebKit forking (C++/Java). Authored 5 granted patents in
 touch/gesture-interface technology.
 
-### CEO & Founder — RadonTech / Radon Network
+### CEO & Founder, RadonTech / Radon Network
 *2021 – 2022 · US / Argentina*
 Founded an IoT company serving LATAM and a helium-mining technology
 venture, part of the 2021–2022 tech/crypto growth cycle; wound down both
@@ -92,5 +93,21 @@ Developer, Truelogic Software (2008–2011) · Founder/CEO, Padkite
 (2007–2010) · IT Coordinator/LAN Administrator, O.S.P.G. (2003–2007) ·
 additional roles at Arinware, Netwave LLC, Step Online.
 
-> Source: canonical CV (`Jose_Vigil_CV_2026.docx`). Paste each block into
-> the corresponding LinkedIn Experience entry with matching dates/company.
+> Source: canonical CV (`Jose_Vigil_CV_2026.docx`), updated 2026-07-26.
+> Paste each block into the corresponding LinkedIn Experience entry with
+> matching dates/company. No MCP references, no em dashes, per Jose's
+> correction: he doesn't use or know MCP, and it reads as AI-generated.
+
+## Date correction (2026-07-26)
+
+LinkedIn had Cognituum showing Nov 2025 (9 months), which Jose flagged as
+wrong: he's actually been working on it for about 3 months. Corrected on
+LinkedIn to April 2026 (now shows "4 mos"). Bloomaut's Jan 2026 start date
+is confirmed correct as is.
+
+The CV avoids this issue entirely by not showing start dates for either
+Cognituum or Bloomaut (just "Current" / "Ongoing"), which is intentional
+given both are recent and the CV doesn't need to justify a timeline the
+way LinkedIn's auto-calculated "X months" counter does. If precise months
+become awkward again, LinkedIn only requires a start year, not a month,
+so month can be dropped without misstating anything.

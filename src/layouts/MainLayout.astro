@@ -36,23 +36,35 @@ const { title, description, image } = Astro.props;
 
 <style is:global>
 :root {
-  /* Editorial "Paper & Ink" palette — extracted from jose_vigil_redesign.html */
-  --paper: #f5f0e8;
-  --paper-dark: #ede7d9;
-  --ink: #1a1612;
-  --ink-2: #3d3630;
-  --ink-3: #6b6058;
-  --ink-4: #a09080;
-  --ink-5: #c8bcac;
-  --rule: #c0b09a;
-  --rule-light: #ddd0bb;
-  --red: #8b1a1a;
-  --red-2: #c0392b;
-  --margin-bg: #ede7d9;
+  /* ── TRIAL PALETTE (2026-07) — keyed off the new portrait ──
+     Reemplaza "Paper & Ink" (brick red / EB Garamond / DM Mono) por la
+     paleta navy/wood/celeste/bronze + Fraunces/Inter del style guide
+     compartido. Mismos NOMBRES de variable que antes a propósito: todo
+     componente que ya lee var(--ink)/var(--red)/var(--serif)/var(--mono)
+     se re-tematiza solo. Reversible: alcanza con pisar este bloque para
+     volver a la paleta anterior. */
+  --paper: #f5f0e6;
+  --paper-dark: #ede6d6;
+  --ink: #1b2a41;
+  --ink-2: #3d4a5c;
+  --ink-3: #56637a;
+  --ink-4: #6b7684;
+  --ink-5: #9ca6b0;
+  --rule: #c7cdd4;
+  --rule-light: #dee2e6;
+  --red: #8c6a3f;
+  --red-2: #6f5330;
+  --margin-bg: #ede6d6;
   --col-gap: 2.5rem;
-  --serif: 'EB Garamond', 'Libre Baskerville', Georgia, serif;
-  --mono: 'DM Mono', 'Courier New', monospace;
-  --display: 'Cinzel', serif;
+  --serif: 'Fraunces', Georgia, serif;
+  --mono: 'Inter', -apple-system, sans-serif;
+  --display: 'Fraunces', serif;
+
+  /* Acentos nuevos del style guide, no tenían equivalente 1:1 en el
+     sistema anterior — se usan puntualmente (ej. marco de la foto). */
+  --wood: #c9a876;
+  --celeste: #a9c6d8;
+  --bronze: #8c6a3f;
 
   /* Legacy aliases: global.scss, article.scss y DisplayTagsDate.astro todavia
      referencian --black/--white. Puente temporal hasta migrarlos en una
@@ -130,7 +142,7 @@ code {
 }
 
 .doc-title-main {
-  font-family: 'Cinzel', serif;
+  font-family: var(--display);
   font-size: 0.75rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -225,7 +237,7 @@ footer {
 }
 
 .footer-name {
-  font-family: 'EB Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.1rem;
   color: var(--ink);
   margin-bottom: 0.3rem;
